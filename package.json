@@ -1,5 +1,6 @@
 {
   "name": "blog",
+  "author": "Jabriel",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -15,8 +16,13 @@
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "next": "13.2.4",
+    "nextra": "^2.2.19",
+    "nextra-theme-blog": "^2.2.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "4.9.5"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^8.7.0"
   }
 }
