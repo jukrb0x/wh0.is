@@ -1,3 +1,4 @@
 export default function NavBar() {
-    return <>- header -</>;
+    return <>
+    - header -</>;
 }
