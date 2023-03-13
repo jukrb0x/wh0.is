@@ -17,7 +17,7 @@ export default function Home() {
                 <p className="text-red">test uno</p>
                 Hi, welcome home.
                 <br />
-                <Link href={'/blog'}>blog</Link>
+                <Link href={'/posts'}>blog</Link>
             </main>
         </>
     );
