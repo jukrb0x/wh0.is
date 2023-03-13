@@ -16,6 +16,7 @@
         "nextra": "^2.2.19",
         "nextra-theme-blog": "^2.2.19",
         "react": "18.2.0",
+        "react-cusdis": "^2.1.3",
         "react-dom": "18.2.0"
     },
     "devDependencies": {

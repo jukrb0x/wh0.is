@@ -16,6 +16,7 @@ specifiers:
   nextra-theme-blog: ^2.2.19
   prettier: 2.8.4
   react: 18.2.0
+  react-cusdis: ^2.1.3
   react-dom: 18.2.0
   typescript: 4.9.5
   unocss: ^0.50.4
@@ -24,8 +25,9 @@ dependencies:
   next: 13.2.4_biqbaboplfbrettd7655fr4n2y
   next-themes: 0.2.1_ld2jel3hspngo3u5lti2kgl2sq
   nextra: 2.2.19_ld2jel3hspngo3u5lti2kgl2sq
-  nextra-theme-blog: 2.2.19_i765vautotixoofbdi6dinfkwe
+  nextra-theme-blog: 2.2.19_qznefywsw4ear54cvwfa5lowuq
   react: 18.2.0
+  react-cusdis: 2.1.3_biqbaboplfbrettd7655fr4n2y
   react-dom: 18.2.0_react@18.2.0
 
 devDependencies:
@@ -3484,7 +3486,7 @@ packages:
       - babel-plugin-macros
     dev: false
 
-  /nextra-theme-blog/2.2.19_i765vautotixoofbdi6dinfkwe:
+  /nextra-theme-blog/2.2.19_qznefywsw4ear54cvwfa5lowuq:
     resolution: {integrity: sha512-qWxpvQTmtxN+lMawz8tWxR/iPdcibr1APYcZAQcSDXg+xeUQbGEg0EuB8+PnDbS0My1aWsFjoxMBx9YccxdcWw==}
     peerDependencies:
       next: '>=9.5.3'
@@ -3500,6 +3502,7 @@ packages:
       next-themes: 0.2.1_ld2jel3hspngo3u5lti2kgl2sq
       nextra: 2.2.19_ld2jel3hspngo3u5lti2kgl2sq
       react: 18.2.0
+      react-cusdis: 2.1.3_biqbaboplfbrettd7655fr4n2y
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
@@ -3820,6 +3823,16 @@ packages:
   /queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: true
+
+  /react-cusdis/2.1.3_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-fUJOAUY7a3y21fNzlRWUSTr/ZMsejQAYWIWdsNuBPPZHbUrBvke/8Gw4OL5Mlrth7jLw8VTNssX0WBX5/prorQ==}
+    peerDependencies:
+      react: ^17.0.0
+      react-dom: ^17.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /react-dom/18.2.0_react@18.2.0:
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
