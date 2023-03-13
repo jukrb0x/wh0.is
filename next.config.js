@@ -24,7 +24,7 @@ const nextConfig = {
 };
 
 const withNextra = require('nextra')({
-    theme: 'nextra-theme-blog',
+    theme: './src/layouts',
     themeConfig: './theme.config.jsx'
 });
 
