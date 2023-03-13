@@ -14,6 +14,7 @@ export default function Home() {
                 <title>messing around</title>
             </Head>
             <main>
+                <p className="text-red">test uno</p>
                 Hi, welcome home.
                 <br />
                 <Link href={'/blog'}>blog</Link>
