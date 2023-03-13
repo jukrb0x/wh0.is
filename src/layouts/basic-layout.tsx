@@ -10,7 +10,7 @@ export const BasicLayout = ({ children }: { children: ReactNode }) => {
     const title = `${opts.title}${config.titleSuffix || ''}`;
     const ref = useRef<HTMLHeadingElement>(null);
     return (
-        <article className="nx-container nx-prose-sm dark:nx-prose-dark md:nx-prose" dir="ltr">
+        <article className="container prose-sm dark:prose-dark md:prose" dir="ltr">
             <Head>
                 <title>{title}</title>
                 {config.head?.({ title, meta: opts.frontMatter })}

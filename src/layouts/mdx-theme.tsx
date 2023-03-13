@@ -31,7 +31,7 @@ function HeadingLink({
     return (
         <Tag className={`subheading-${Tag}`} {...props}>
             {children}
-            <span className="nx-absolute -nx-mt-7" id={id} />
+            <span className="absolute -mt-7" id={id} />
             <a
                 href={id && `#${id}`}
                 className="subheading-anchor"
@@ -47,7 +47,7 @@ const A = ({ children, ...props }: ComponentProps<'a'>) => {
         return (
             <a target="_blank" rel="noreferrer" {...props}>
                 {children}
-                <span className="nx-sr-only"> (opens in a new tab)</span>
+                <span className="sr-only"> (opens in a new tab)</span>
             </a>
         );
     }
@@ -69,14 +69,14 @@ const useComponents = (): Components => {
         h6: (props) => <HeadingLink tag="h6" {...props} />,
         a: A,
         pre: ({ children, ...props }) => (
-            <div className="nx-not-prose">
+            <div className="not-prose">
                 <Pre {...props}>{children}</Pre>
             </div>
         ),
         tr: Tr,
         th: Th,
         td: Td,
-        table: (props) => <Table className="nx-not-prose" {...props} />,
+        table: (props) => <Table className="not-prose" {...props} />,
         code: Code,
         ...config.components
     };
