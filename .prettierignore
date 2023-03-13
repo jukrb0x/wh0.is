@@ -1,3 +1,5 @@
 .next
 public/
 *-lock.*
+*.old
+*.ignore
