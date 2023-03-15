@@ -56,7 +56,7 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
     });
     return (
         <BasicLayout>
-            <Nav />
+            {/* <Nav /> */}
             <MDXTheme>{children}</MDXTheme>
             {postList}
         </BasicLayout>

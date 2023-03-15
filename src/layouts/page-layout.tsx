@@ -7,7 +7,7 @@ import Nav from './nav';
 export const PageLayout = ({ children }: { children: ReactNode }) => {
     return (
         <BasicLayout>
-            <Nav />
+            {/* <Nav /> */}
             <MDXTheme>{children}</MDXTheme>
         </BasicLayout>
     );

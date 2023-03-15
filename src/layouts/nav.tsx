@@ -9,7 +9,8 @@ export default function Nav(): ReactElement {
     const { opts, config } = useBlogContext();
     const { navPages } = collectPostsAndNavs({ opts, config });
     return (
-        <div className="mb-8 flex items-center gap-3">
+        <div className="flex items-center gap-3 z-40 py-8">
+            <div>LOGO</div>
             <div className="flex grow flex-wrap items-center justify-end gap-3">
                 {navPages.map((page) => {
                     if (page.active) {
