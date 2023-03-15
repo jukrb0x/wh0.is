@@ -38,7 +38,7 @@ const BlogLayout = ({
     );
 };
 
-export default function Layout({ children, ...context }: NextraThemeLayoutProps) {
+export default function LayoutHome({ children, ...context }: NextraThemeLayoutProps) {
     const extendedConfig = { ...DEFAULT_THEME, ...context.themeConfig };
 
     return (
