@@ -8,6 +8,7 @@ specifiers:
   '@types/styled-components': ^5.1.26
   '@unocss/preset-uno': ^0.50.4
   '@unocss/webpack': ^0.50.4
+  clsx: ^1.2.1
   eslint: 8.36.0
   eslint-config-next: 13.2.4
   eslint-config-prettier: ^8.7.0
@@ -27,6 +28,7 @@ specifiers:
   unocss: ^0.50.4
 
 dependencies:
+  clsx: 1.2.1
   next: 13.2.4_dpxg4zawgzznnxdt7it3f5d76m
   next-themes: 0.2.1_ld2jel3hspngo3u5lti2kgl2sq
   nextra: 2.2.19_ld2jel3hspngo3u5lti2kgl2sq
@@ -1339,6 +1341,11 @@ packages:
     dependencies:
       arch: 2.2.0
       execa: 0.8.0
+    dev: false
+
+  /clsx/1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
     dev: false
 
   /color-convert/1.9.3:
