@@ -1,23 +1,23 @@
 .subheading-anchor {
-    @apply nx-opacity-0 nx-transition-opacity ltr:nx-ml-1 rtl:nx-mr-1;
+    @apply opacity-0 transition-opacity ltr:ml-1 rtl:mr-1;
 
     span:target + &,
     :hover > &,
     &:focus {
-        @apply nx-opacity-100;
+        @apply opacity-100;
     }
 
     span + &,
     :hover > & {
-        @apply !nx-no-underline;
+        @apply !no-underline;
     }
 
     &:after {
-        @apply nx-content-['#'] nx-px-1;
-        @apply nx-text-gray-300 dark:nx-text-neutral-700;
+        @apply content-['#'] px-1;
+        @apply text-gray-300 dark:text-neutral-700;
         span:target + & {
-            @apply nx-text-gray-400;
-            @apply dark:nx-text-neutral-500;
+            @apply text-gray-400;
+            @apply dark:text-neutral-500;
         }
     }
 }

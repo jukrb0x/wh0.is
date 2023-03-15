@@ -1,4 +1,5 @@
 import Link from 'next/link';
+// TODO: The components from nextra official should be re-implemented
 import { Code, Pre, Table, Td, Th, Tr } from 'nextra/components';
 import { MDXProvider } from 'nextra/mdx';
 import type { Components } from 'nextra/mdx';
@@ -58,6 +59,7 @@ const A = ({ children, ...props }: ComponentProps<'a'>) => {
     ) : null;
 };
 
+// TODO: rewrite all these components
 const useComponents = (): Components => {
     const { config } = useBlogContext();
     return {
