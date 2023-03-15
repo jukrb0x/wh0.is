@@ -26,7 +26,12 @@ export const getParent = ({ opts }: LayoutProps) => {
 
     if (parentPage) {
         back = parentPage.route;
+    } else {
+        // the parent is the root
+        const parent = parentPages[parentPages.length - 1];
+        if (parent) {
+            back = parent.route;
+        }
     }
-
     return { parentPage, back };
 };
