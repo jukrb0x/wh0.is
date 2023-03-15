@@ -8,13 +8,16 @@ import { MDXTheme } from './mdx-theme';
 import { collectPostsAndNavs } from './utils/collect';
 import getTags from './utils/get-tags';
 
+const isSameYear = (date1: Date, date2: Date) =>
+    date1 && date2 && date1.getFullYear() === date2.getFullYear();
+
 export const PostsLayout = ({ children }: { children: ReactNode }) => {
     const { config, opts } = useBlogContext();
     const { posts } = collectPostsAndNavs({ config, opts });
     const router = useRouter();
     const { type } = opts.frontMatter;
     const tagName = type === 'tag' ? router.query.tag : null;
-    const postList = posts.map((post) => {
+    const postList = posts.map((post, id) => {
         if (tagName) {
             const tags = getTags(post);
             if (!Array.isArray(tagName) && !tags.includes(tagName)) {
@@ -26,16 +29,13 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
 
         const postTitle = post.frontMatter?.title || post.name;
         const date = post.frontMatter?.date && new Date(post.frontMatter.date);
+        const showYear = id === 0 || !isSameYear(date, new Date(posts[id - 1].frontMatter?.date));
         const description = post.frontMatter?.description;
 
         return (
-            <div key={post.route} className="post-item no-underline">
-                <Link
-                    href={post.route}
-                    passHref
-                    legacyBehavior
-                    className={'mb-6 mt-2 no-underline'}
-                >
+            <div key={post.route} className="post-item mb-6 mt-2 no-underline">
+                {showYear && <div className="text-2xl font-bold mb-2">{date?.getFullYear()}</div>}
+                <Link href={post.route} passHref legacyBehavior>
                     <a className={'item'}>
                         <li>
                             <div className={'text-lg leading-1.2rem'}>
