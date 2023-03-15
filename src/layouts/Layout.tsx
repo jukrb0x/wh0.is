@@ -18,7 +18,6 @@ const layoutMap = {
     posts: PostsLayout,
     tag: PostsLayout
 };
-// a
 
 const BlogLayout = ({
     config,
