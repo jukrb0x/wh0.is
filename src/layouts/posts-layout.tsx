@@ -5,7 +5,6 @@ import type { ReactNode } from 'react';
 import { BasicLayout } from './basic-layout';
 import { useBlogContext } from './blog-context';
 import { MDXTheme } from './mdx-theme';
-import NavBar from './nav-bar';
 import { collectPostsAndNavs } from './utils/collect';
 import getTags from './utils/get-tags';
 
@@ -31,34 +30,35 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
 
         return (
             <div key={post.route} className="post-item">
-                <h3>
-                    <Link href={post.route} passHref legacyBehavior>
-                        <a className="!no-underline">{postTitle}</a>
-                    </Link>
-                </h3>
-                {description && (
-                    <p className="mb-2 text-gray-400">
-                        {description}
-                        {config.readMore && (
-                            <Link href={post.route} passHref legacyBehavior>
-                                <a className="post-item-more ml-2">{config.readMore}</a>
-                            </Link>
+                <Link href={post.route} passHref legacyBehavior>
+                    <li>
+                        <span>
+                            <a className="!no-underline">{postTitle}</a>
+                        </span>
+                        {config.showDescription && description && (
+                            <p className="mb-2 text-gray-400">
+                                {description}
+                                {config.readMore && (
+                                    <Link href={post.route} passHref legacyBehavior>
+                                        <a className="post-item-more ml-2">{config.readMore}</a>
+                                    </Link>
+                                )}
+                            </p>
                         )}
-                    </p>
-                )}
-                {date && (
-                    <time className="text-sm text-gray-300" dateTime={date.toISOString()}>
-                        {date.toDateString()}
-                    </time>
-                )}
+                        {date && (
+                            <time className="text-sm text-gray-300" dateTime={date.toISOString()}>
+                                {date.toDateString()}
+                            </time>
+                        )}
+                    </li>
+                </Link>
             </div>
         );
     });
     return (
         <BasicLayout>
-            {/* <Nav /> */}
             <MDXTheme>{children}</MDXTheme>
-            {postList}
+            <ul>{postList}</ul>
         </BasicLayout>
     );
 };
