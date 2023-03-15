@@ -1,5 +1,6 @@
+const { presetWebFonts, presetUno, presetIcons } = require('unocss');
 const UnoCSS = require('@unocss/webpack').default;
-const presetUno = require('@unocss/preset-uno').default;
+// const presetUno = require('@unocss/preset-uno').default;
 /**
  * @type {import('next').NextConfig}
  **/
@@ -10,7 +11,28 @@ const nextConfig = {
     //  - headers, security options
     //  - redirects from soem old sources
     webpack(config, context) {
-        config.plugins.push(UnoCSS({ presets: [presetUno()] }));
+        config.plugins.push(
+            // UnoCSS -------
+            UnoCSS({
+                presets: [
+                    presetUno(),
+                    presetWebFonts({
+                        fonts: {
+                            sans: 'Inter:400,600,800',
+                            mono: 'DM Mono'
+                        }
+                    }),
+                    presetIcons({
+                        extraProperties: {
+                            'display': 'inline-block',
+                            'height': '1.2em',
+                            'width': '1.2em',
+                            'vertical-align': 'text-bottom'
+                        }
+                    })
+                ]
+            })
+        );
 
         if (context.buildId !== 'development') {
             // * disable filesystem cache for build

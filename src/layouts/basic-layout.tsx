@@ -6,12 +6,16 @@ import { useBlogContext } from './blog-context';
 import { HeadingContext } from './mdx-theme';
 import Nav from './nav';
 
+/**
+ * Basic Layout for other layouts
+ * The base component
+ */
 export const BasicLayout = ({ children }: { children: ReactNode }) => {
     const { config, opts } = useBlogContext();
     const title = `${opts.title}${config.titleSuffix || ''}`;
     const ref = useRef<HTMLHeadingElement>(null);
     return (
-        <div>
+        <div className={'font-sans'}>
             <Nav />
             <article className="container mx-auto prose dark:prose-dark md:prose" dir="ltr">
                 <Head>
