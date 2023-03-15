@@ -34,19 +34,13 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
 
         return (
             <div key={post.route} className="post-item mb-6 mt-2 no-underline">
-                {
-                    showYear && (
-                        // <div className="text-2xl font-bold mb-2">
-                        <div className={'relative h20 pointer-events-none'}>
-                            <span
-                                className={'text-8em op10 absolute left--3rem top--2rem font-bold'}
-                            >
-                                {date?.getFullYear()}
-                            </span>
-                        </div>
-                    )
-                    // </div>
-                }
+                {showYear && (
+                    <div className={'relative h20 pointer-events-none'}>
+                        <span className={'text-8em op10 absolute left--3rem top--2rem font-bold'}>
+                            {date?.getFullYear()}
+                        </span>
+                    </div>
+                )}
                 <Link href={post.route} passHref legacyBehavior>
                     <a className={'item'}>
                         <li>

@@ -23,6 +23,7 @@
         "styled-components": "^5.3.9"
     },
     "devDependencies": {
+        "@iconify/json": "^2.2.35",
         "@trivago/prettier-plugin-sort-imports": "^4.1.1",
         "@types/node": "18.15.0",
         "@types/react": "18.0.28",
