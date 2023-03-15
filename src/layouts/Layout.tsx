@@ -2,6 +2,8 @@ import { ThemeProvider } from 'next-themes';
 import type { NextraThemeLayoutProps } from 'nextra';
 import type { ReactElement, ReactNode } from 'react';
 
+import { HomeLayout } from '@/layouts/home-layout';
+
 import { ArticleLayout } from './article-layout';
 import { BlogProvider } from './blog-context';
 import { DEFAULT_THEME } from './constants';
@@ -10,6 +12,7 @@ import { PostsLayout } from './posts-layout';
 import type { LayoutProps } from './types';
 
 const layoutMap = {
+    home: HomeLayout,
     post: ArticleLayout,
     page: PageLayout,
     posts: PostsLayout,
