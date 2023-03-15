@@ -16,7 +16,6 @@ const isSameYear = (date1: Date, date2: Date) =>
 
 export const PostsLayout = ({ children }: { children: ReactNode }) => {
     const { config, opts } = useBlogContext();
-    const { back } = getParent({ opts, config });
     const { posts } = collectPostsAndNavs({ config, opts });
     const router = useRouter();
     const { type } = opts.frontMatter;
@@ -82,7 +81,6 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
         <BasicLayout>
             <MDXTheme>{children}</MDXTheme>
             <ul>{postList}</ul>
-            {back && <Back href={back} />}
         </BasicLayout>
     );
 };
