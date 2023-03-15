@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import type { ReactNode } from 'react';
 
+import Back from '@/layouts/components/back';
+import { getParent } from '@/layouts/utils/parent';
+
 import { BasicLayout } from './basic-layout';
 import { useBlogContext } from './blog-context';
 import { MDXTheme } from './mdx-theme';
@@ -13,6 +16,7 @@ const isSameYear = (date1: Date, date2: Date) =>
 
 export const PostsLayout = ({ children }: { children: ReactNode }) => {
     const { config, opts } = useBlogContext();
+    const { back } = getParent({ opts, config });
     const { posts } = collectPostsAndNavs({ config, opts });
     const router = useRouter();
     const { type } = opts.frontMatter;
@@ -73,10 +77,12 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
             </div>
         );
     });
+
     return (
         <BasicLayout>
             <MDXTheme>{children}</MDXTheme>
             <ul>{postList}</ul>
+            {back && <Back href={back} />}
         </BasicLayout>
     );
 };

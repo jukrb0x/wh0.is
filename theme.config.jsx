@@ -10,8 +10,7 @@ const Footer = () => (
                 style={{ color: 'inherit' }}
             >
                 CC BY-NC-SA 4.0
-            </a>{' '}
-            {/*2021 - {year} © Jabriel <span className={'i-mdi-cards-heart'} />*/}
+            </a>
         </span>
         <div className="flex-auto" />
         <span className={'text-sm'}>2017 - {year} © Jabriel</span>
