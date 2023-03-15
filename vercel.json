@@ -3,5 +3,10 @@
     "installCommand": "pnpm install",
     "buildCommand": "next build",
     "devCommand": "next dev",
-    "public": false
+    "public": false,
+    "git": {
+        "deploymentEnabled": {
+            "main": true
+        }
+    }
 }
