@@ -2,8 +2,6 @@ import Head from 'next/head';
 import type { ReactNode } from 'react';
 import { useRef } from 'react';
 
-import ThemeSwitch from '@/layouts/theme-switch';
-
 import { useBlogContext } from './blog-context';
 import { HeadingContext } from './mdx-theme';
 import NavBar from './nav-bar';
