@@ -2,9 +2,11 @@ import Head from 'next/head';
 import type { ReactNode } from 'react';
 import { useRef } from 'react';
 
+import ThemeSwitch from '@/layouts/theme-switch';
+
 import { useBlogContext } from './blog-context';
 import { HeadingContext } from './mdx-theme';
-import Nav from './nav';
+import NavBar from './nav-bar';
 
 /**
  * Basic Layout for other layouts
@@ -16,7 +18,7 @@ export const BasicLayout = ({ children }: { children: ReactNode }) => {
     const ref = useRef<HTMLHeadingElement>(null);
     return (
         <div className={'font-sans'}>
-            <Nav />
+            <NavBar />
             <article className="container mx-auto prose dark:prose-dark md:prose" dir="ltr">
                 <Head>
                     <title>{title}</title>
