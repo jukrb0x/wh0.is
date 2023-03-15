@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@iconify/json': ^2.2.35
   '@trivago/prettier-plugin-sort-imports': ^4.1.1
   '@types/node': 18.15.0
   '@types/react': 18.0.28
@@ -39,6 +40,7 @@ dependencies:
   styled-components: 5.3.9_biqbaboplfbrettd7655fr4n2y
 
 devDependencies:
+  '@iconify/json': 2.2.35
   '@trivago/prettier-plugin-sort-imports': 4.1.1_prettier@2.8.4
   '@types/node': 18.15.0
   '@types/react': 18.0.28
@@ -294,6 +296,13 @@ packages:
 
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+    dev: true
+
+  /@iconify/json/2.2.35:
+    resolution: {integrity: sha512-x8la14O904XMHAw5lNPU36dEqIurckYNFG6SdeZ4o6AoZp8KvQSqciuAA9UA9zAVPED4W7oKKgA+zGR6afLPOA==}
+    dependencies:
+      '@iconify/types': 2.0.0
+      pathe: 1.1.0
     dev: true
 
   /@iconify/types/2.0.0:

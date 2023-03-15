@@ -1,5 +1,24 @@
+const year = new Date().getFullYear();
+
+const Footer = () => (
+    <div className="mt-10 mb-6 prose m-auto opacity-50 flex">
+        <span className="text-sm">
+            <span className={'i-ooui-logo-cc'} />{' '}
+            <a
+                target="_blank"
+                href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+                style={{ color: 'inherit' }}
+            >
+                CC BY-NC-SA 4.0
+            </a>{' '}
+            {/*2021 - {year} © Jabriel <span className={'i-mdi-cards-heart'} />*/}
+        </span>
+        <div className="flex-auto" />
+        <span className={'text-sm'}>2017 - {year} © Jabriel</span>
+    </div>
+);
 export default {
-    footer: <p>MIT 2023 © Nextra.</p>,
+    footer: <Footer />,
     head: ({ title, meta }) => (
         <>
             {meta.description && <meta name="description" content={meta.description} />}
