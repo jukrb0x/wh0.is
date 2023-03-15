@@ -29,28 +29,40 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
         const description = post.frontMatter?.description;
 
         return (
-            <div key={post.route} className="post-item">
-                <Link href={post.route} passHref legacyBehavior>
-                    <li>
-                        <span>
-                            <a className="!no-underline">{postTitle}</a>
-                        </span>
-                        {config.showDescription && description && (
-                            <p className="mb-2 text-gray-400">
-                                {description}
-                                {config.readMore && (
-                                    <Link href={post.route} passHref legacyBehavior>
-                                        <a className="post-item-more ml-2">{config.readMore}</a>
-                                    </Link>
-                                )}
-                            </p>
-                        )}
-                        {date && (
-                            <time className="text-sm text-gray-300" dateTime={date.toISOString()}>
-                                {date.toDateString()}
-                            </time>
-                        )}
-                    </li>
+            <div key={post.route} className="post-item no-underline">
+                <Link
+                    href={post.route}
+                    passHref
+                    legacyBehavior
+                    className={'mb-6 mt-2 no-underline'}
+                >
+                    <a className={'item'}>
+                        <li>
+                            <div className={'text-lg leading-1.2rem'}>
+                                <span className="no-underline">{postTitle}</span>
+                            </div>
+                            {config.showDescription && description && (
+                                <p className="text-gray-400">
+                                    {description}
+                                    {config.readMore && (
+                                        <Link href={post.route} passHref legacyBehavior>
+                                            <a className="post-item-more ml-2">{config.readMore}</a>
+                                        </Link>
+                                    )}
+                                </p>
+                            )}
+                            {date && (
+                                <div className={'no-underline'}>
+                                    <time
+                                        className="text-sm opacity-50"
+                                        dateTime={date.toISOString()}
+                                    >
+                                        {date.toDateString()}
+                                    </time>
+                                </div>
+                            )}
+                        </li>
+                    </a>
                 </Link>
             </div>
         );
