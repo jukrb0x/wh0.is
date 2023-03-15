@@ -5,7 +5,7 @@ import type { ReactNode } from 'react';
 import { BasicLayout } from './basic-layout';
 import { useBlogContext } from './blog-context';
 import { MDXTheme } from './mdx-theme';
-import Nav from './nav';
+import NavBar from './nav-bar';
 import { collectPostsAndNavs } from './utils/collect';
 import getTags from './utils/get-tags';
 
