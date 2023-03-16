@@ -8,9 +8,9 @@ export const Button = ({
     return (
         <button
             className={[
-                'nextra-button nx-transition-all active:nx-opacity-50',
-                'nx-bg-primary-700/5 nx-border nx-border-black/5 nx-text-gray-600 hover:nx-text-gray-900 nx-rounded-md nx-p-1.5',
-                'dark:nx-bg-primary-300/10 dark:nx-border-white/10 dark:nx-text-gray-400 dark:hover:nx-text-gray-50',
+                'nextra-button transition-all active:opacity-50',
+                'bg-blue-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5',
+                'dark:bg-blue-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50',
                 className
             ].join(' ')}
             {...props}

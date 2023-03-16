@@ -3,8 +3,7 @@ import type { ComponentProps } from 'react';
 export const Th = ({ className = '', ...props }: ComponentProps<'th'>) => (
     <th
         className={
-            'nx-m-0 nx-border nx-border-gray-300 nx-px-4 nx-py-2 nx-font-semibold dark:nx-border-gray-600 ' +
-            className
+            'm-0 border border-gray-300 px-4 py-2 font-semibold dark:border-gray-600 ' + className
         }
         {...props}
     />
