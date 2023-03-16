@@ -31,6 +31,7 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
         }
 
         const postTitle = post.frontMatter?.title || post.name;
+        const lang = post.frontMatter?.lang || 'en';
         const date = post.frontMatter?.date && new Date(post.frontMatter.date);
         const showYear = id === 0 || !isSameYear(date, new Date(posts[id - 1].frontMatter?.date));
         const description = post.frontMatter?.description;
@@ -48,7 +49,12 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
                     <a className={'item'}>
                         <li>
                             <div className={'text-lg leading-1.2rem'}>
-                                <span className="no-underline">{postTitle}</span>
+                                {lang === 'zh' && (
+                                    <span className="text-xs border border-solid border-current rounded px-1 pb-0.2 md:ml--10.5 mr2 align-middle">
+                                        中文
+                                    </span>
+                                )}
+                                <span className="no-underline align-middle">{postTitle}</span>
                             </div>
                             {config.showDescription && description && (
                                 <p className="text-gray-400">
