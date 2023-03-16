@@ -31,6 +31,7 @@
         "@types/react-dom": "18.0.11",
         "@types/styled-components": "^5.1.26",
         "@unocss/preset-uno": "^0.50.4",
+        "@unocss/transformer-directives": "^0.50.4",
         "@unocss/webpack": "^0.50.4",
         "eslint": "8.36.0",
         "eslint-config-next": "13.2.4",

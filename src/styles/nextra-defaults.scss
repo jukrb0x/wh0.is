@@ -1,4 +1,11 @@
-//@import './nx-variables.css';
-//@import './nx-code-block.scss';
-//@import './nx-subheading-anchor.scss';
-//@import "./nx-style.css";
+/*
+@import './nx-variables.css';
+@import './nx-code-block.scss';
+@import './nx-subheading-anchor.scss';
+@import "./nx-style.css";
+*/
+
+// TODO
+// doesn't work with @apply ------
+@import 'code-block.scss';
+@import 'subheading-anchor.scss';

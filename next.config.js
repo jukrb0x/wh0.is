@@ -1,4 +1,5 @@
-const { presetWebFonts, presetUno, presetIcons } = require('unocss');
+const { presetWebFonts, presetUno, presetIcons, transformerDirectives } = require('unocss');
+const { transformDirectives } = require('@unocss/transformer-directives');
 const UnoCSS = require('@unocss/webpack').default;
 
 /**
@@ -29,6 +30,13 @@ const nextConfig = {
                             'width': '1.2em',
                             'vertical-align': 'text-bottom'
                         }
+                    })
+                ],
+                include: [/(styles).*\.(s?css|[jt]sx?)$/],
+                exclude: [],
+                transformers: [
+                    transformerDirectives({
+                        enforce: 'pre'
                     })
                 ]
             })
