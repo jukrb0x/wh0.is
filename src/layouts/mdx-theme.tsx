@@ -1,6 +1,4 @@
 import Link from 'next/link';
-// TODO: The components from nextra official should be re-implemented
-import { Code, Pre, Table, Td, Th, Tr } from 'nextra/components';
 import { MDXProvider } from 'nextra/mdx';
 import type { Components } from 'nextra/mdx';
 import type { ComponentProps, ReactElement, ReactNode, RefObject } from 'react';
@@ -8,6 +6,7 @@ import { createContext, createRef, useContext, useEffect, useState } from 'react
 import { createPortal } from 'react-dom';
 
 import { useBlogContext } from './blog-context';
+import { Code, Pre, Table, Td, Th, Tr } from './components';
 
 export const HeadingContext = createContext<RefObject<HTMLHeadingElement | null>>(createRef());
 

@@ -2,9 +2,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import type { ReactNode } from 'react';
 
-import Back from '@/layouts/components/back';
-import { getParent } from '@/layouts/utils/parent';
-
 import { BasicLayout } from './basic-layout';
 import { useBlogContext } from './blog-context';
 import { MDXTheme } from './mdx-theme';

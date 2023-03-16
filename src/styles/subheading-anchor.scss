@@ -9,7 +9,7 @@
 
     span + &,
     :hover > & {
-        @apply !no-underline;
+        @apply \!-no-underline;
     }
 
     &:after {
