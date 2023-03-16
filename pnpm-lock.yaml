@@ -8,6 +8,7 @@ specifiers:
   '@types/react-dom': 18.0.11
   '@types/styled-components': ^5.1.26
   '@unocss/preset-uno': ^0.50.4
+  '@unocss/reset': ^0.50.4
   '@unocss/webpack': ^0.50.4
   clsx: ^1.2.1
   eslint: 8.36.0
@@ -29,6 +30,7 @@ specifiers:
   unocss: ^0.50.4
 
 dependencies:
+  '@unocss/reset': 0.50.4
   clsx: 1.2.1
   next: 13.2.4_dpxg4zawgzznnxdt7it3f5d76m
   next-themes: 0.2.1_ld2jel3hspngo3u5lti2kgl2sq
@@ -989,7 +991,6 @@ packages:
 
   /@unocss/reset/0.50.4:
     resolution: {integrity: sha512-UHNDhClJMx3sG3oi68XkOcTeJ2hkI20O0eHowSoua10NClbnS9tiKxeo4ZLInouzvac3tb1TsjKEgTosHfkR/w==}
-    dev: true
 
   /@unocss/scope/0.50.4:
     resolution: {integrity: sha512-USJ5hr1dVE8JOb0PJYqpfAWxGLB69b+z30ZGzdmDgblmVheYsyzWZ3KMclz/2x8HtXRsB2VuJT5KqUPW7lT3gw==}

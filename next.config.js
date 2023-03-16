@@ -1,6 +1,6 @@
 const { presetWebFonts, presetUno, presetIcons } = require('unocss');
 const UnoCSS = require('@unocss/webpack').default;
-// const presetUno = require('@unocss/preset-uno').default;
+
 /**
  * @type {import('next').NextConfig}
  **/
