@@ -2,7 +2,7 @@ import Head from 'next/head';
 import type { ReactNode } from 'react';
 import { useRef } from 'react';
 
-import Back from '@/layouts/components/back';
+import { Back } from '@/layouts/components';
 import { getParent } from '@/layouts/utils/parent';
 
 import { useBlogContext } from './blog-context';
