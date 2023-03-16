@@ -6,7 +6,8 @@
     "public": false,
     "git": {
         "deploymentEnabled": {
-            "main": true
+            "main": true,
+            "dev": false
         }
     }
 }
