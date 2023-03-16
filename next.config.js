@@ -15,12 +15,6 @@ const nextConfig = {
         config.plugins.push(UnoCSS());
         config.optimization.realContentHash = true;
         config.cache = false; // always turn off the cache for UnoCSS HMR
-        // if (context.buildId !== 'development') {
-        //     // * disable filesystem cache for build
-        //     // * https://github.com/unocss/unocss/issues/419
-        //     // * https://webpack.js.org/configuration/cache/
-        //     config.cache = false;
-        // }
 
         return config;
     },
