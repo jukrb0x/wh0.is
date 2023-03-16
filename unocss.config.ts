@@ -1,4 +1,5 @@
 // import transformerDirectives from '@unocss/transformer-directives';
+import path from 'path';
 import {
     defineConfig,
     presetIcons,
@@ -7,8 +8,9 @@ import {
     transformerDirectives
 } from 'unocss';
 
+const includedPath = path.join(__dirname, 'src', 'styles');
 export default defineConfig({
-    include: [/(styles|lib|pages).*\.(s?css|[jt]sx?)$/],
+    // include: [/(styles)(\/.*)*\/.*\.(s?css|[jt]sx?)$/],
     exclude: [],
     transformers: [
         transformerDirectives({
