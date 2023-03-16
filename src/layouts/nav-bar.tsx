@@ -14,7 +14,11 @@ export default function NavBar(): ReactElement {
             <div className={'logo w-[7rem] h-10 absolute lg:fixed m-6 select-none outline-none'}>
                 <Link href={'/'} passHref legacyBehavior className={'cursor-pointer'}>
                     <a>
-                        <Image src={'/vercel.svg'} alt={''} fill />
+                        <span
+                            className={'i-openmoji-alien-monster'}
+                            style={{ fontSize: '2.5rem' }}
+                        />
+                        {/*<Image src={'/vercel.svg'} alt={''} fill />*/}
                     </a>
                 </Link>
             </div>

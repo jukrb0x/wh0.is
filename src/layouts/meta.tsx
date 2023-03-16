@@ -58,14 +58,6 @@ export default function Meta(): ReactElement {
                     <div className="not-prose mt-1 flex flex-wrap items-center gap-1">{tagsEl}</div>
                 )}
             </div>
-            <div className="flex items-center gap-3 print:hidden">
-                {back && (
-                    <Link href={back} passHref legacyBehavior>
-                        <a>Back</a>
-                    </Link>
-                )}
-                {config.darkMode && <ThemeSwitch />}
-            </div>
         </div>
     );
 }

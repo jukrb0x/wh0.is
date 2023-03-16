@@ -33,6 +33,7 @@ export type BlogFrontMatter = {
     tag?: string | string[];
     title?: string;
     type?: 'post' | 'page' | 'posts' | 'tag';
+    lang?: 'en' | 'zh';
 };
 
 export interface LayoutProps {
