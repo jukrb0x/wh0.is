@@ -75,6 +75,10 @@ html {
     background: var(--c-scrollbar-hover);
 }
 
+h1 {
+    letter-spacing: -0.03em;
+}
+
 h2 + p > em:first-child {
     opacity: 0.5;
     display: block;
@@ -88,4 +92,8 @@ h2 + p > em:first-child {
 
 html:not(.dark) [img-dark] {
     display: none;
+}
+body {
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
