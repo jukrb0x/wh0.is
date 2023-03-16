@@ -1,4 +1,13 @@
 .subheading-anchor {
+    //float: left;
+    //margin-top: 0.125em;
+    //margin-left: -1.2em;
+    //padding-right: 0.5em;
+    //font-size: 0.85em;
+    //opacity: 0;
+    //text-decoration: none;
+    //border: 0 !important;
+
     @apply opacity-0 transition-opacity ltr:ml-1 rtl:mr-1;
 
     span:target + &,
@@ -9,7 +18,7 @@
 
     span + &,
     :hover > & {
-        @apply !no-underline;
+        @apply '!no-underline';
     }
 
     &:after {
