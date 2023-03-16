@@ -18,6 +18,7 @@ export default function Home() {
                 Hi, welcome home.
                 <br />
                 <Link href={'/posts'}>blog</Link>
+                <code>printf()</code>
             </main>
         </>
     );
