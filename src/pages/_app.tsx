@@ -2,6 +2,7 @@ import '@unocss/reset/tailwind.css';
 import type { AppProps } from 'next/app';
 import 'uno.css';
 
+import '@/styles/global.css';
 import '@/styles/main.css';
 import '@/styles/markdown.css';
 import '@/styles/nextra-defaults.scss';
