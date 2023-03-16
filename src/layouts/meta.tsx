@@ -57,7 +57,6 @@ export default function Meta(): ReactElement {
                 {readingTime && (
                     <div className="not-prose mt-1 flex flex-wrap items-center gap-1">{tagsEl}</div>
                 )}
-                {}
             </div>
         </div>
     );
