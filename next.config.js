@@ -1,5 +1,6 @@
 const { presetWebFonts, presetUno, presetIcons, transformerDirectives } = require('unocss');
 const { transformDirectives } = require('@unocss/transformer-directives');
+const path = require('path');
 const UnoCSS = require('@unocss/webpack').default;
 
 /**
@@ -31,14 +32,14 @@ const nextConfig = {
                             'vertical-align': 'text-bottom'
                         }
                     })
-                ],
-                include: [/(styles).*\.(s?css|[jt]sx?)$/],
-                exclude: [],
-                transformers: [
-                    transformerDirectives({
-                        enforce: 'pre'
-                    })
                 ]
+                // include: [/(styles).*\.(s?css)$/],
+                // exclude: [],
+                // transformers: [
+                //     transformerDirectives({
+                //         enforce: 'pre'
+                //     })
+                // ]
             })
         );
 
@@ -52,7 +53,7 @@ const nextConfig = {
         return config;
     }
     // sassOptions: {
-    //   includePaths: [path.join(__dirname, 'styles')],
+    //   includePaths: [path.join(__dirname, 'src', 'styles')],
     // },
 };
 
