@@ -9,3 +9,4 @@ Roadmap:
 -   [ ] code block highlighting
 -   [ ] mdx styles are broken
 -   [ ] `code` dark scheme color not changed
+-   [ ] profiling and speed optimization
