@@ -77,7 +77,7 @@ export default defineConfig({
                     content: 'none'
                 },
                 'blockquote': {
-                    'border-left': 'inherit', // clean up defaults
+                    'border-left': 'inherit', // override defaults
                     'font-weight': 'normal',
                     'font-style': 'normal',
                     'color': 'inherit',
