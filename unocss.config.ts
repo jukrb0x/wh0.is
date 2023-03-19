@@ -12,7 +12,6 @@ import {
 const includedPath = path.join(__dirname, 'src', 'styles');
 
 export default defineConfig({
-    // include: [/(styles)(\/.*)*\/.*\.(s?css|[jt]sx?)$/],
     include: [/(styles|layouts|pages).*\.(s?css|[jt]sx?)$/, 'theme.config.jsx'],
     exclude: [],
     transformers: [
