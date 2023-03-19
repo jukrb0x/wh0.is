@@ -1,7 +1,26 @@
-Personal website built on top of Next.js
+### wh0.is - who's this?
 
-working in progress....
+My personal website built on top of Next.js
+
+Actively Working In Progress....
+
+Latest Preview: [wh0.is](https://next.wh0.is)
+
+The design is inspired by the [antfu.me](https://antfu.me)
+
+#### Current Technical Features
+
+-   React, Next.js
+-   Nextra, SSG MDX
+-   UnoCSS
+-   KaTex
+
+#### Upcoming
+
+-   Table of Contents
+-   Decap CMS (Netlify CMS)
 
 <hr />
 
-<samp>code is licensed under <a href='./LICENSE'>MIT</a>,<br> words and images are licensed under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a></samp>.
+<samp>Code is licensed under <a href='./LICENSE'>MIT</a>,<br> Words and images are licensed
+under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a></samp>.
