@@ -83,7 +83,7 @@ export default defineConfig({
                     'line-height': '1.5em',
                     'border-left-width': '0.25rem',
                     'border-color': 'rgba(125, 125, 125, 0.3)',
-                    'margin-top': '2.6em',
+                    'margin-top': '1.6em',
                     'margin-bottom': '1.6em',
                     'padding': '0.6em 1.2em',
                     'opacity': '0.8',
