@@ -21,7 +21,7 @@ export const BasicLayout = ({ children }: { children: ReactNode }) => {
     return (
         <div className={'font-sans'}>
             <NavBar />
-            <div className="container mx-auto prose dark:prose-invert md:prose" dir="ltr">
+            <div className="container mx-auto prose dark:prose-invert" dir="ltr">
                 <Head>
                     <title>{title}</title>
                     {config.head?.({ title, meta: opts.frontMatter })}

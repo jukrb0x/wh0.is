@@ -50,7 +50,7 @@ export default function Meta(): ReactElement {
                         </time>
                     )}
                     {(author || date) && (readingTime || tags.length > 0) && (
-                        <span className="px-1">•</span>
+                        <span className="px-1">·</span>
                     )}
                     {readingTime || tagsEl}
                 </div>
