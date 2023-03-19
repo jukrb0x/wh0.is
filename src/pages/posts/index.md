@@ -1,7 +1,7 @@
 ---
 type: posts
-title: Thoughts
+title: Blog
 date: 2020-01-03
 ---
 
-# Random Thoughts
+# Blog

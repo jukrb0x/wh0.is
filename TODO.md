@@ -6,8 +6,8 @@ Problems I met during the development:
 
 Roadmap:
 
--   [ ] code block highlighting
--   [ ] `code` dark scheme color not changed
+-   [ ] table of contents
 -   [ ] table heading font color is not inverted in dark mode
 -   [ ] table is not fit the container 100%
 -   [ ] profiling and speed optimization
+-   [ ] icons, friends
