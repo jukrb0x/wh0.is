@@ -10,8 +10,8 @@ The design is inspired by [antfu.me](https://antfu.me)
 
 #### Current Technical Features
 
--   React, Next.js
--   Nextra, SSG MDX
+-   React, Next.js, TypeScript
+-   Nextra SSG, MDX
 -   UnoCSS
 -   KaTex
 
