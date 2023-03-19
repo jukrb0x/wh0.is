@@ -60,6 +60,8 @@ export default defineConfig({
                     'font-weight': '600'
                 },
                 'hr': {
+                    'border': 'inherit', // override defaults
+                    'border-top-width': '1px',
                     'width': '50px',
                     'margin': '2em auto',
                     'border-color': 'rgba(125, 125, 125, 0.3)',

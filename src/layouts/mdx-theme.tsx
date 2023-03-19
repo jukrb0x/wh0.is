@@ -49,12 +49,13 @@ const A = ({ children, ...props }: ComponentProps<'a'>) => {
             <>
                 <a target="_blank" rel="noreferrer" {...props}>
                     {children}
-                    <span className="sr-only"> (opens in a new tab)</span>
+                    <span className="sr-only"> (open in a new tab) </span>
                 </a>
                 <sup>
                     <a
-                        className={'i-ic:round-open-in-new no-underline text-xs text-gray-400 px-1'}
+                        className="i-ic:round-open-in-new no-underline text-xs text-gray-400 px-1"
                         target={'_blank'}
+                        title={'Open in a new tab'}
                         rel={'noreferrer'}
                         {...props}
                     />
