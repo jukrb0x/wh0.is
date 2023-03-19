@@ -1,4 +1,4 @@
-personal website on top of Next.js
+Personal website built on top of Next.js
 
 working in progress...
 
