@@ -15,6 +15,7 @@ specifiers:
   eslint: 8.36.0
   eslint-config-next: 13.2.4
   eslint-config-prettier: ^8.7.0
+  katex: ^0.16.4
   lefthook: ^1.3.3
   next: 13.2.4
   next-themes: ^0.2.1
@@ -33,6 +34,7 @@ specifiers:
 dependencies:
   '@unocss/reset': 0.50.5
   clsx: 1.2.1
+  katex: 0.16.4
   next: 13.2.4_dpxg4zawgzznnxdt7it3f5d76m
   next-themes: 0.2.1_ld2jel3hspngo3u5lti2kgl2sq
   nextra: 2.2.19_ld2jel3hspngo3u5lti2kgl2sq

@@ -1,7 +1,7 @@
 const year = new Date().getFullYear();
 
 const Footer = () => (
-    <div className="mt-10 pb-10 prose dark:prose-invert m-auto opacity-50 flex">
+    <div className="mt-10 pb-10 prose dark:prose-invert m-auto opacity-50 flex justify-between">
         <span className="text-sm">
             <span className={'i-ooui-logo-cc'} />{' '}
             <a
@@ -12,7 +12,6 @@ const Footer = () => (
                 CC BY-NC-SA 4.0
             </a>
         </span>
-        <div className="flex-auto" />
         <span className={'text-sm'}>2017 - {year} © Jabriel</span>
     </div>
 );

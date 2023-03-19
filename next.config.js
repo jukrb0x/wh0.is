@@ -26,7 +26,7 @@ const nextConfig = {
 const withNextra = require('nextra')({
     theme: './src/layouts',
     themeConfig: './theme.config.jsx',
-    // extra
+    latex: true,
     staticImage: true,
     defaultShowCopyCode: true,
     readingTime: true
