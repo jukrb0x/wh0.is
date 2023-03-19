@@ -1,0 +1,14 @@
+name: Trigger Vercel Deployment from dev branch
+
+on:
+  pull_request:
+    types: [opened, reopened]
+    branches: 'dev'
+
+jobs:
+  trigger_deployment:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: trigger
+      run: curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_qf7JUB07veqzGnM590wR7rkV5I05/X7GtkGiJ5r
