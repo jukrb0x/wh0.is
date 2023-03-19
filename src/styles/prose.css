@@ -17,6 +17,14 @@
     line-height: 1.75;
 }
 
+html.dark .prose {
+    --fg: #bbb;
+    --fg-deep: #ddd;
+    --fg-deeper: #fff;
+}
+
+/* TODO: find the use cases */
+/*
 .prose [class~='lead'] {
     color: #4b5563;
     font-size: 1.25em;
@@ -24,16 +32,11 @@
     margin-top: 1.2em;
     margin-bottom: 1.2em;
 }
+*/
 
-.prose a {
-    color: var(--fg-deeper);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.prose strong {
-    color: var(--fg-deep);
-    font-weight: 600;
+.prose ol,
+.prose ul {
+    padding-left: 0;
 }
 
 .prose ol[type='A'] {
@@ -101,12 +104,15 @@
     left: 0.25em;
 }
 
+/*
 .prose hr {
     border-color: rgba(125, 125, 125, 0.3);
     margin-top: 3em;
     margin-bottom: 3em;
 }
+*/
 
+/*
 .prose blockquote {
     font-weight: 500;
     font-style: italic;
@@ -114,18 +120,19 @@
     border-left-width: 0.25rem;
     border-color: rgba(125, 125, 125, 0.3);
     quotes: '\201C''\201D''\2018''\2019';
-    margin-top: 1.6em;
+    margin-top: 2.6em;
     margin-bottom: 1.6em;
     padding-left: 1em;
 }
+*/
 
-.prose blockquote p:first-of-type::before {
+/*.prose blockquote p:first-of-type::before {
     content: open-quote;
 }
 
 .prose blockquote p:last-of-type::after {
     content: close-quote;
-}
+}*/
 
 .prose h1 {
     color: var(--fg-deeper);
@@ -184,9 +191,6 @@
     content: '`';
 }
 */
-.prose a code {
-    color: #111827;
-}
 
 .prose pre {
     color: #e5e7eb;
@@ -196,10 +200,7 @@
     margin-top: 1.7142857em;
     margin-bottom: 1.7142857em;
     border-radius: 0.375rem;
-    padding-top: 0.8571429em;
-    padding-right: 1.1428571em;
-    padding-bottom: 0.8571429em;
-    padding-left: 1.1428571em;
+    /*padding: 0.8571429em 1.1428571em;*/
 }
 
 .prose pre code {
@@ -257,16 +258,15 @@
 
 .prose tbody td {
     vertical-align: top;
-    padding-top: 0.5714286em;
-    padding-right: 0.5714286em;
-    padding-bottom: 0.5714286em;
-    padding-left: 0.5714286em;
+    padding: 0.5714286em;
 }
 
+/*
 .prose p {
     margin-top: 1.25em;
     margin-bottom: 1.25em;
 }
+*/
 
 .prose img {
     margin-top: 2em;
@@ -391,6 +391,7 @@
     color: inherit;
 }
 
+/*
 .prose-sm {
     font-size: 0.875rem;
     line-height: 1.7142857;
@@ -616,3 +617,4 @@
 .prose-sm > :last-child {
     margin-bottom: 0;
 }
+*/
