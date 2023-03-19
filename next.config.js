@@ -20,6 +20,16 @@ const nextConfig = {
     },
     sassOptions: {
         includePaths: [path.join(__dirname, './src/styles')]
+    },
+    async redirects() {
+        return [
+            // backwards compatibility
+            {
+                source: '/p/:slug',
+                destination: '/posts/:slug',
+                permanent: true
+            }
+        ];
     }
 };
 
