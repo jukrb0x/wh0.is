@@ -34,7 +34,8 @@ function HeadingLink({
             <span className="absolute -mt-7" id={id} />
             <a
                 href={id && `#${id}`}
-                className="subheading-anchor"
+                // FIXME
+                className="header-anchor Xsubheading-anchor"
                 aria-label="Permalink for this section"
             />
         </Tag>
@@ -70,6 +71,7 @@ const useComponents = (): Components => {
         h6: (props) => <HeadingLink tag="h6" {...props} />,
         a: A,
         pre: ({ children, ...props }) => (
+            // FIXME
             <div className="not-prose">
                 <Pre {...props}>{children}</Pre>
             </div>
@@ -77,7 +79,8 @@ const useComponents = (): Components => {
         tr: Tr,
         th: Th,
         td: Td,
-        table: (props) => <Table className="not-prose" {...props} />,
+        // FIXME
+        table: (props) => <Table className="removed-not-prose" {...props} />,
         code: Code,
         ...config.components
     };
