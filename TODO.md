@@ -7,9 +7,10 @@ Problems I met during the development:
 Website Roadmap:
 
 -   [ ] table of contents
+-   [ ] meta data for SEO, Security, etc
 -   [ ] table is not fit the container 100%
--   [ ] profiling and speed optimization
--   [ ] icons, friends
--   [ ] migrating contents
+-   [ ] link with icons, friends, migrating contents
 -   [ ] 404 page
 -   [ ] external link icon (mask?) after pseudo element, align center, prevent line break
+-   [ ] design the website icon/favicon
+-   [ ] profiling and speed optimization
