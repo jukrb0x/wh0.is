@@ -1,7 +1,7 @@
 const year = new Date().getFullYear();
 
 const Footer = () => (
-    <div className="mt-10 pb-10 prose m-auto opacity-50 flex">
+    <div className="mt-10 pb-10 prose dark:prose-invert m-auto opacity-50 flex">
         <span className="text-sm">
             <span className={'i-ooui-logo-cc'} />{' '}
             <a

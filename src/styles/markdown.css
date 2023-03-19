@@ -1,46 +1,19 @@
 /**
- * copied from @antfu
- * https://github.com/antfu/antfu.me/tree/main/src/styles
+ * Acknowledgement
+ * @antfu https://github.com/antfu/antfu.me/tree/main/src/styles
  */
 
-.prose pre:not(.shiki) {
-    padding: 0;
-    margin: 0;
-    background: transparent;
-}
-
-.prose .shiki {
-    font-family: 'DM Mono', 'Input Mono', 'Fira Code', monospace;
-    font-size: 1.05em;
-    line-height: 1.4;
-    margin: 0.5em 0;
-}
-
-.prose img {
-    width: 100%;
-}
-
-.shiki-light {
-    background: #f8f8f8 !important;
-}
-.shiki-dark {
-    background: #0e0e0e !important;
-}
-
-html.dark .shiki-light {
-    display: none;
-}
-
-html:not(.dark) .shiki-dark {
-    display: none;
-}
-
+/* prose variable */
 .prose {
     --fg: #555;
     --fg-deep: #222;
     --fg-deeper: #000;
 
     color: var(--fg);
+}
+
+.prose img {
+    width: 100%;
 }
 
 .prose a {
@@ -134,7 +107,9 @@ h6:focus .header-anchor {
 .prose blockquote p:first-of-type::after {
     content: none;
 }
+/* ------ */
 
+/* TODO */
 @media (max-width: 1200px) {
     .table-of-contents {
         display: none;
