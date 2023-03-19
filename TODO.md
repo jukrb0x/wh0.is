@@ -6,8 +6,12 @@ Problems I met during the development:
 
 Website Roadmap:
 
--   [ ] table of contents
--   [ ] table heading font color is not inverted in dark mode
+-   [ ] `high` table of contents
+-   [ ] `medium` meta data for SEO, Security, etc
 -   [ ] table is not fit the container 100%
--   [ ] profiling and speed optimization
--   [ ] icons, friends
+-   [ ] link with icons, friends, migrating contents
+-   [ ] 404 page
+-   [ ] external link icon (mask?) after pseudo element, align center, prevent line break
+-   [ ] design the website icon/favicon
+-   [ ] `low` profiling and speed optimization
+-   [ ] `maybe` image popup on click
