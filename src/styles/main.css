@@ -108,6 +108,23 @@ body {
     padding-right: 1rem;
 }
 
+/* navigation bar */
+nav a,
+nav span {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+    opacity: 0.6;
+    outline: none;
+}
+
+nav a:hover,
+nav span:hover {
+    opacity: 1;
+    text-decoration-color: inherit;
+}
+
 /* --------- */
 
 a.item {

@@ -25,7 +25,8 @@ export default function NavBar(): ReactElement {
             <nav className="flex grow flex-wrap items-center justify-end gap-4">
                 <style jsx>
                     {`
-                        a {
+                        /*
+                        nav a {
                             cursor: pointer;
                             text-decoration: none;
                             color: inherit;
@@ -34,10 +35,11 @@ export default function NavBar(): ReactElement {
                             outline: none;
                         }
 
-                        a:hover {
+                        nav a:hover {
                             opacity: 1;
                             text-decoration-color: inherit;
                         }
+                        */
                     `}
                 </style>
                 {navPages.map((page) => {

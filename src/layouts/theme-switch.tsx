@@ -18,14 +18,18 @@ export default function ThemeSwitch({ cursor = false }: { cursor?: boolean }) {
         <span
             role="button"
             aria-label="Toggle Dark Mode"
-            className={clsx('p-2 text-current', cursor ? 'cursor-pointer' : 'cursor-default')}
+            className={clsx('text-4 text-current', cursor ? 'cursor-pointer' : 'cursor-default')}
             tabIndex={0}
             onClick={toggleTheme}
             onKeyDown={(e) => {
                 if (e.key === 'Enter') toggleTheme();
             }}
         >
-            {mounted && isDark ? <MoonIcon size={16} /> : <SunIcon size={16} />}
+            {mounted && isDark ? (
+                <span className={'i-ph:moon-bold'} />
+            ) : (
+                <span className={'i-ph:sun-bold'} />
+            )}
         </span>
     );
 }
