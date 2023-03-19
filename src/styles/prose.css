@@ -234,10 +234,16 @@ html.dark .prose {
 }
 
 .prose thead {
-    color: #111827;
+    --table-font-color: #111827;
+    --table-font-color-dark: #d1d5db;
+    color: var(--table-font-color);
     font-weight: 600;
     border-bottom-width: 1px;
     border-bottom-color: #d1d5db;
+}
+
+html.dark .prose thead {
+    color: var(--table-font-color-dark);
 }
 
 .prose thead th {
