@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import { useTheme } from 'next-themes';
 import { useMounted } from 'nextra/hooks';
-import { MoonIcon, SunIcon } from 'nextra/icons';
+
+import { MoonIcon, SunIcon } from './icons';
 
 export default function ThemeSwitch({ cursor = false }: { cursor?: boolean }) {
     const { setTheme, resolvedTheme } = useTheme();
@@ -24,7 +25,7 @@ export default function ThemeSwitch({ cursor = false }: { cursor?: boolean }) {
                 if (e.key === 'Enter') toggleTheme();
             }}
         >
-            {mounted && isDark ? <MoonIcon /> : <SunIcon />}
+            {mounted && isDark ? <MoonIcon size={16} /> : <SunIcon size={16} />}
         </span>
     );
 }
