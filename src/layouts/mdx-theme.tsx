@@ -34,10 +34,11 @@ function HeadingLink({
             <span className="absolute -mt-7" id={id} />
             <a
                 href={id && `#${id}`}
-                // FIXME
-                className="header-anchor Xsubheading-anchor"
+                className="header-anchor"
                 aria-label="Permalink for this section"
-            />
+            >
+                #
+            </a>
         </Tag>
     );
 }
