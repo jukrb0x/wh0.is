@@ -6,7 +6,7 @@ Actively Working In Progress....
 
 Latest Preview: [wh0.is](https://next.wh0.is)
 
-The design is inspired by the [antfu.me](https://antfu.me)
+The design is inspired by [antfu.me](https://antfu.me)
 
 #### Current Technical Features
 
