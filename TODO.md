@@ -11,3 +11,5 @@ Website Roadmap:
 -   [ ] profiling and speed optimization
 -   [ ] icons, friends
 -   [ ] migrating contents
+-   [ ] 404 page
+-   [ ] external link icon (mask?) after pseudo element, align center, prevent line break
