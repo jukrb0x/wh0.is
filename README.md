@@ -1,6 +1,6 @@
 Personal website built on top of Next.js
 
-working in progress...
+working in progress.......
 
 <hr />
 
