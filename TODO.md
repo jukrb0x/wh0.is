@@ -4,10 +4,10 @@ Problems I met during the development:
 2. prettier will consider mdx as markdown file so that the comment block won't work after formatting
 3. the latest `@unocss/postcss` plugin can cause stucking at dev compiling
 
-Roadmap:
+Website Roadmap:
 
--   [ ] code block highlighting
--   [ ] `code` dark scheme color not changed
+-   [ ] table of contents
 -   [ ] table heading font color is not inverted in dark mode
 -   [ ] table is not fit the container 100%
 -   [ ] profiling and speed optimization
+-   [ ] icons, friends

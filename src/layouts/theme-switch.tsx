@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import { useTheme } from 'next-themes';
 import { useMounted } from 'nextra/hooks';
-import { MoonIcon, SunIcon } from 'nextra/icons';
+
+import { MoonIcon, SunIcon } from './icons';
 
 export default function ThemeSwitch({ cursor = false }: { cursor?: boolean }) {
     const { setTheme, resolvedTheme } = useTheme();
@@ -17,14 +18,18 @@ export default function ThemeSwitch({ cursor = false }: { cursor?: boolean }) {
         <span
             role="button"
             aria-label="Toggle Dark Mode"
-            className={clsx('p-2 text-current', cursor ? 'cursor-pointer' : 'cursor-default')}
+            className={clsx('text-4 text-current', cursor ? 'cursor-pointer' : 'cursor-default')}
             tabIndex={0}
             onClick={toggleTheme}
             onKeyDown={(e) => {
                 if (e.key === 'Enter') toggleTheme();
             }}
         >
-            {mounted && isDark ? <MoonIcon /> : <SunIcon />}
+            {mounted && isDark ? (
+                <span className={'i-ph:moon-bold'} />
+            ) : (
+                <span className={'i-ph:sun-bold'} />
+            )}
         </span>
     );
 }

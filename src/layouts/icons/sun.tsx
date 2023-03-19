@@ -1,12 +1,16 @@
 import type { ComponentProps, ReactElement } from 'react';
 
-export function SunIcon(props: ComponentProps<'svg'>): ReactElement {
+interface SunIconProps extends ComponentProps<'svg'> {
+    size?: number;
+}
+
+export function SunIcon(props: SunIconProps): ReactElement {
     return (
         <svg
             fill="none"
             viewBox="3 3 18 18"
-            width="12"
-            height="12"
+            width={props.size ?? 12}
+            height={props.size ?? 12}
             stroke="currentColor"
             {...props}
         >

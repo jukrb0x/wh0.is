@@ -34,10 +34,11 @@ function HeadingLink({
             <span className="absolute -mt-7" id={id} />
             <a
                 href={id && `#${id}`}
-                // FIXME
-                className="header-anchor Xsubheading-anchor"
+                className="header-anchor"
                 aria-label="Permalink for this section"
-            />
+            >
+                #
+            </a>
         </Tag>
     );
 }
@@ -46,10 +47,21 @@ const A = ({ children, ...props }: ComponentProps<'a'>) => {
     const isExternal = props.href?.startsWith('https://') || props.href?.startsWith('http://');
     if (isExternal) {
         return (
-            <a target="_blank" rel="noreferrer" {...props}>
-                {children}
-                <span className="sr-only"> (opens in a new tab)</span>
-            </a>
+            <>
+                <a target="_blank" rel="noreferrer" {...props}>
+                    {children}
+                    <span className="sr-only"> (open in a new tab) </span>
+                </a>
+                <sup>
+                    <a
+                        className="i-ic:round-open-in-new no-underline text-xs text-gray-400 px-1"
+                        target={'_blank'}
+                        title={'Open in a new tab'}
+                        rel={'noreferrer'}
+                        {...props}
+                    />
+                </sup>
+            </>
         );
     }
     return props.href ? (
