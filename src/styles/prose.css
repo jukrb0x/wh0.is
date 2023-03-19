@@ -256,15 +256,10 @@ html.dark .prose {
     border-bottom-width: 0;
 }
 
+/*
 .prose tbody td {
     vertical-align: top;
     padding: 0.5714286em;
-}
-
-/*
-.prose p {
-    margin-top: 1.25em;
-    margin-bottom: 1.25em;
 }
 */
 
@@ -359,6 +354,7 @@ html.dark .prose {
     letter-spacing: 2px;
 }
 
+/*
 .prose thead th:first-child {
     padding-left: 0;
 }
@@ -374,6 +370,7 @@ html.dark .prose {
 .prose tbody td:last-child {
     padding-right: 0;
 }
+*/
 
 .prose > :first-child {
     margin-top: 0;
