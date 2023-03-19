@@ -46,10 +46,20 @@ const A = ({ children, ...props }: ComponentProps<'a'>) => {
     const isExternal = props.href?.startsWith('https://') || props.href?.startsWith('http://');
     if (isExternal) {
         return (
-            <a target="_blank" rel="noreferrer" {...props}>
-                {children}
-                <span className="sr-only"> (opens in a new tab)</span>
-            </a>
+            <>
+                <a target="_blank" rel="noreferrer" {...props}>
+                    {children}
+                    <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+                <sup>
+                    <a
+                        className={'i-ic:round-open-in-new no-underline text-xs text-gray-400 px-1'}
+                        target={'_blank'}
+                        rel={'noreferrer'}
+                        {...props}
+                    />
+                </sup>
+            </>
         );
     }
     return props.href ? (
