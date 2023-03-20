@@ -20,7 +20,9 @@ The design is inspired by [antfu.me](https://antfu.me)
 -   Table of Contents
 -   Decap CMS (Netlify CMS)
 
+To-do list is in [TODO.md](./TODO.md)
+
 <hr />
 
-<samp>Code is licensed under <a href='./LICENSE'>MIT</a>,<br> Words and images are licensed
+<samp>Code is licensed under <a href='./LICENSE'>MIT</a>,<br> Unless stated otherwise, Words and images are licensed
 under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a></samp>.
