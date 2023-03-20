@@ -6,4 +6,4 @@ pre-commit:
         next-linter:
             run: pnpm lint
         prettier:
-            run: pnpm prettier -w {staged_files} && git add {staged_files}
+            run: pnpm prettier --write --ignore-unknown {staged_files} && git add {staged_files}

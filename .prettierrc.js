@@ -1,4 +1,5 @@
 module.exports = {
+    filepath: '**/*.{js,jsx,ts,tsx,css,scss,html,json,md,mdx,yml,yaml}',
     pluginSearchDirs: ['.'],
     trailingComma: 'none',
     semi: true,

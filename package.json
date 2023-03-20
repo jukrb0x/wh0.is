@@ -8,7 +8,9 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "format": "prettier --write ./src",
+        "format": "pnpm format:check; pnpm format:write",
+        "format:check": "prettier --check ./src",
+        "format:write": "prettier --write ./src",
         "clean": "rimraf .next"
     },
     "dependencies": {
