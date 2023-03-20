@@ -8,6 +8,7 @@ Problems I met during the development:
 
 ### Roadmap
 
+-   [ ] `low` first load the website is day mode, then switch to dark mode after 1s, set a gentle background for eyes
 -   [ ] `high` incorrect color of code block background in dark mode
 -   [ ] `high` table of contents
 -   [ ] `high` figure caption
