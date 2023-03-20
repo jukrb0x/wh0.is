@@ -4,7 +4,7 @@ My personal website built on top of Next.js
 
 Actively Working In Progress....
 
-Latest Preview: [wh0.is](https://next.wh0.is)
+Website: [wh0.is](https://wh0.is)
 
 The design is inspired by [antfu.me](https://antfu.me)
 
