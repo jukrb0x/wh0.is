@@ -4,7 +4,7 @@ My personal website built on top of Next.js
 
 Actively Working In Progress....
 
-Latest Preview: [wh0.is](https://next.wh0.is)
+Website: [wh0.is](https://wh0.is)
 
 The design is inspired by [antfu.me](https://antfu.me)
 
@@ -20,7 +20,9 @@ The design is inspired by [antfu.me](https://antfu.me)
 -   Table of Contents
 -   Decap CMS (Netlify CMS)
 
+See the Roadmap & To-do list in [TODO.md](./TODO.md)
+
 <hr />
 
-<samp>Code is licensed under <a href='./LICENSE'>MIT</a>,<br> Words and images are licensed
+<samp>Code is licensed under <a href='./LICENSE'>MIT</a>,<br> Unless stated otherwise, Words and images are licensed
 under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a></samp>.

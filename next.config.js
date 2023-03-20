@@ -4,13 +4,13 @@ const UnoCSS = require('@unocss/webpack').default;
 /**
  * @type {import('next').NextConfig}
  **/
+// TODO:
+//  ref: https://github.com/spencerwooo/spencerwoo.com/blob/main/next.config.js
+//  - headers, security options, og:image, etc.
+//  - maybe: og in frontmatter, investigate nextra source code.
 const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
-    // TODO:
-    //  ref: https://github.com/spencerwooo/spencerwoo.com/blob/main/next.config.js
-    //  - headers, security options
-    //  - redirects from soem old sources
     webpack(config, context) {
         config.plugins.push(UnoCSS());
         config.optimization.realContentHash = true;
@@ -43,4 +43,3 @@ const withNextra = require('nextra')({
 });
 
 module.exports = withNextra(nextConfig);
-// module.exports = nextConfig
