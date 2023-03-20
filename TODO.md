@@ -8,6 +8,7 @@ Problems I met during the development:
 
 -   [ ] `high` table of contents
 -   [ ] `high` figure caption
+-   [ ] frontmatter function: draft
 -   [ ] `low` search
 -   [ ] `medium` meta data for SEO, Security, etc
 -   [ ] table is not fit the container 100%
