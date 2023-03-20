@@ -20,7 +20,7 @@ The design is inspired by [antfu.me](https://antfu.me)
 -   Table of Contents
 -   Decap CMS (Netlify CMS)
 
-To-do list is in [TODO.md](./TODO.md)
+See the Roadmap & To-do list in [TODO.md](./TODO.md)
 
 <hr />
 
