@@ -14,6 +14,7 @@ const isPost = (page: PageMapItem): page is MdxFile => {
     return !type || type === 'post';
 };
 
+// TODO: sorting priority
 export const collectPostsAndNavs = ({ opts }: LayoutProps) => {
     const posts: MdxFile[] = [];
     const navPages: (MdxFile & { active: boolean })[] = [];
