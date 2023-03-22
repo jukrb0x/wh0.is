@@ -8,10 +8,6 @@ import Meta from './meta';
 
 export const ArticleLayout = ({ children }: { children: ReactNode }) => {
     const { opts, config } = useBlogContext();
-    const isDraft = opts.frontMatter.draft === true;
-    if (isDraft) {
-        return <ErrorPage statusCode={404} />;
-    }
     return (
         <BasicLayout>
             <Meta />
