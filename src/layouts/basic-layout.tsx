@@ -1,3 +1,4 @@
+import ErrorPage from 'next/error';
 import Head from 'next/head';
 import type { ReactNode } from 'react';
 import { useRef } from 'react';
@@ -18,6 +19,13 @@ export const BasicLayout = ({ children }: { children: ReactNode }) => {
     const title = `${opts.title}${config.titleSuffix || ''}`;
     const ref = useRef<HTMLHeadingElement>(null);
     const { back } = getParent({ opts, config });
+
+    const isDraft = opts.frontMatter.draft === true;
+
+    if (isDraft) {
+        return <ErrorPage statusCode={404} />;
+    }
+
     return (
         <div className={'font-sans'}>
             <NavBar />

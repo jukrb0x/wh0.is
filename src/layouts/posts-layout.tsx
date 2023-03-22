@@ -18,6 +18,12 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
     const { type } = opts.frontMatter;
     const tagName = type === 'tag' ? router.query.tag : null;
     const postList = posts.map((post, id) => {
+        // FIXME: this just hides the post, but it should be removed from the list
+        const isDraft = post.frontMatter?.draft === true;
+        if (isDraft) {
+            return null;
+        }
+
         if (tagName) {
             const tags = getTags(post);
             if (!Array.isArray(tagName) && !tags.includes(tagName)) {
@@ -32,11 +38,6 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
         const date = post.frontMatter?.date && new Date(post.frontMatter.date);
         const showYear = id === 0 || !isSameYear(date, new Date(posts[id - 1].frontMatter?.date));
         const description = post.frontMatter?.description;
-        const isDraft = post.frontMatter?.draft === true;
-
-        if (isDraft) {
-            return null;
-        }
 
         return (
             <div key={post.route} className="post-item mb-6 mt-2 no-underline">
