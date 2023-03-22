@@ -17,13 +17,11 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
     const router = useRouter();
     const { type } = opts.frontMatter;
     const tagName = type === 'tag' ? router.query.tag : null;
-    const postList = posts.map((post, id) => {
-        // FIXME: this just hides the post, but it should be removed from the list
-        const isDraft = post.frontMatter?.draft === true;
-        if (isDraft) {
-            return null;
-        }
 
+    // remove draft posts from the list
+    const filteredPosts = posts.filter((post) => post.frontMatter?.draft !== true);
+
+    const postList = filteredPosts.map((post, id) => {
         if (tagName) {
             const tags = getTags(post);
             if (!Array.isArray(tagName) && !tags.includes(tagName)) {
