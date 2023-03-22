@@ -23,25 +23,6 @@ export default function NavBar(): ReactElement {
                 </Link>
             </div>
             <nav className="flex grow flex-wrap items-center justify-end gap-4">
-                <style jsx>
-                    {`
-                        /*
-                        nav a {
-                            cursor: pointer;
-                            text-decoration: none;
-                            color: inherit;
-                            transition: opacity 0.2s ease;
-                            opacity: 0.6;
-                            outline: none;
-                        }
-
-                        nav a:hover {
-                            opacity: 1;
-                            text-decoration-color: inherit;
-                        }
-                        */
-                    `}
-                </style>
                 {navPages.map((page) => {
                     if (page.active) {
                         return (

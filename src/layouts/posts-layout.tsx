@@ -13,15 +13,15 @@ const isSameYear = (date1: Date, date2: Date) =>
 
 export const PostsLayout = ({ children }: { children: ReactNode }) => {
     const { config, opts } = useBlogContext();
-    const { posts } = collectPostsAndNavs({ config, opts });
+    const { posts: allPosts } = collectPostsAndNavs({ config, opts });
     const router = useRouter();
     const { type } = opts.frontMatter;
     const tagName = type === 'tag' ? router.query.tag : null;
 
     // remove draft posts from the list
-    const filteredPosts = posts.filter((post) => post.frontMatter?.draft !== true);
+    const posts = allPosts.filter((post) => post.frontMatter?.draft !== true);
 
-    const postList = filteredPosts.map((post, id) => {
+    const postList = posts.map((post, id) => {
         if (tagName) {
             const tags = getTags(post);
             if (!Array.isArray(tagName) && !tags.includes(tagName)) {
