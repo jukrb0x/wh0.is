@@ -28,10 +28,10 @@ export default {
     postFooter: null,
     darkMode: false,
     navs: [
-        {
-            url: 'https://github.com/shuding/nextra',
-            name: 'Nextra'
-        }
+        // {
+        //     url: 'https://github.com/shuding/nextra',
+        //     name: 'Nextra'
+        // }
     ],
     showDescription: false
 };
