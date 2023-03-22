@@ -34,6 +34,7 @@ export type BlogFrontMatter = {
     title?: string;
     type?: 'post' | 'page' | 'posts' | 'tag';
     lang?: 'en' | 'zh';
+    draft?: boolean;
 };
 
 export interface LayoutProps {

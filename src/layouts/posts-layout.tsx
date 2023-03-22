@@ -32,6 +32,11 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
         const date = post.frontMatter?.date && new Date(post.frontMatter.date);
         const showYear = id === 0 || !isSameYear(date, new Date(posts[id - 1].frontMatter?.date));
         const description = post.frontMatter?.description;
+        const isDraft = post.frontMatter?.draft === true;
+
+        if (isDraft) {
+            return null;
+        }
 
         return (
             <div key={post.route} className="post-item mb-6 mt-2 no-underline">
