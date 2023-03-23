@@ -8,6 +8,7 @@ Problems I met during the development:
 
 ### Roadmap
 
+-   [ ] `high` heading anchor in mobile view (margin/padding)
 -   [ ] `high` table of contents
 -   [ ] `medium` navs sorting priority - `order` in frontmatter - replacement after sorting
 -   [ ] `high` incorrect color of code block background in dark mode
