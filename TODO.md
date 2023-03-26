@@ -8,6 +8,7 @@ Problems I met during the development:
 
 ### Roadmap
 
+-   [ ] `medium` posts view pagination
 -   [ ] `high` nav icon in mobile view
 -   [ ] `high` table of contents
 -   [ ] `medium` navs sorting priority - `order` in frontmatter - replacement after sorting
