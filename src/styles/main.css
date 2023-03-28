@@ -104,7 +104,8 @@ html:not(.dark) [img-dark] {
 }
 
 body {
-    @apply px-1.7rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 /* navigation bar */
