@@ -1,4 +1,11 @@
-import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
+import {
+    GetStaticProps,
+    GetStaticPropsContext,
+    GetStaticPropsResult,
+    InferGetStaticPropsType
+} from 'next';
+
+// TODO: move this to a single layout
 
 export const getStaticPaths = async () => {
     // fake data
@@ -11,8 +18,9 @@ export const getStaticPaths = async () => {
         fallback: false
     };
 };
-export const getStaticProps = async (context) => {
-    const { page } = context.params;
+
+export const getStaticProps = async (context: GetStaticPropsContext) => {
+    const { page } = context.params!;
     return {
         props: {
             page
