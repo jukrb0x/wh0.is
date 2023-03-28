@@ -12,7 +12,6 @@ Problems I met during the development:
 -   [ ] `high` nav icon in mobile view
 -   [ ] `high` table of contents
 -   [ ] `medium` navs sorting priority - `order` in frontmatter - replacement after sorting
--   [ ] `high` incorrect color of code block background in dark mode
 -   [ ] `low` first load the website is day mode, then switch to dark mode after 1s, set a gentle background for eyes
 -   [ ] `high` figure caption
 -   [ ] `medium` words spelling check, ethical check, etc.
@@ -26,6 +25,7 @@ Problems I met during the development:
 -   [ ] design the website icon/favicon
 -   [ ] `low` profiling and speed optimization
 -   [ ] `maybe` image popup on click
+-   [x] `high` incorrect color of code block background in dark mode
 -   [x] `high` heading anchor in mobile view (margin/padding)
 -   [x] `medium` frontmatter function: draft
 -   [x] table heading font color is not inverted in dark mode
