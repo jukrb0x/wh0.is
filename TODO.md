@@ -8,6 +8,7 @@ Problems I met during the development:
 
 ### Roadmap
 
+-   [ ] `high` highlighting inline code in dark mode is buggy
 -   [ ] `medium` posts view pagination
 -   [ ] `high` nav icon in mobile view
 -   [ ] `high` table of contents
