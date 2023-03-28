@@ -22,12 +22,7 @@ The design is inspired by [antfu.me](https://antfu.me)
 
 See the Roadmap & To-do list in [TODO.md](./TODO.md)
 
----
+<hr />
 
-**wh0.is © 2023 Jabriel**
-
-This repository contains code licensed under the MIT license and blog content (including all images and words) licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) by default.
-
-The copyright for the entire project, including the code and blog content, is owned by [Jabriel](https://github.com/jukrb0x/) unless stated otherwise.
-
-For more information on the MIT license and CC BY-NC-SA 4.0, please see the `LICENSE` and `CC-BY-NC-SA-4.0` files in this repository.
+<samp>Code is licensed under <a href='./LICENSE'>MIT</a>,<br> Unless stated otherwise, words and images are licensed
+under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a></samp>.
