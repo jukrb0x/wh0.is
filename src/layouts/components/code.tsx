@@ -6,7 +6,6 @@ export const Code = ({
     ...props
 }: ComponentProps<'code'>): ReactElement => {
     const hasLineNumbers = 'data-line-numbers' in props;
-    console.log(props);
     const isCodeBlock = 'data-language' in props || 'data-theme' in props;
     return (
         <code
