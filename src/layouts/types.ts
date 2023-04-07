@@ -35,6 +35,7 @@ export type BlogFrontMatter = {
     type?: 'post' | 'page' | 'posts' | 'tag';
     lang?: 'en' | 'zh';
     draft?: boolean;
+    navOrder?: number;
 };
 
 export interface LayoutProps {
