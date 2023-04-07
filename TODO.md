@@ -9,21 +9,19 @@ Problems I met during the development:
 ### Roadmap
 
 -   [ ] `high` highlighting inline code in dark mode is buggy, word highlighting is not clear
--   [ ] `medium` posts view pagination
--   [ ] `high` nav icon in mobile view
 -   [ ] `high` table of contents
--   [ ] `medium` navs sorting priority - `order` in frontmatter - replacement after sorting
--   [ ] `low` first load the website is day mode, then switch to dark mode after 1s, set a gentle background for eyes
--   [ ] `high` figure caption
+-   [ ] `medium` figure caption
+-   [ ] `medium` posts view pagination
+-   [ ] `medium` meta data for SEO, Security, etc
 -   [ ] `medium` words spelling check, ethical check, etc.
+-   [ ] `low` first load the website is day mode, then switch to dark mode after 1s, set a gentle background for eyes
 -   [ ] `low` redirect component inside mdx
 -   [ ] `low` search
--   [ ] `medium` meta data for SEO, Security, etc
 -   [ ] table is not fit the container 100%
 -   [ ] link with icons, friends, migrating contents
 -   [ ] 404 page
--   [ ] `low` external link icon (mask?) after pseudo element, align center, prevent line break
 -   [ ] design the website icon/favicon
+-   [ ] `low` external link icon (mask?) after pseudo element, align center, prevent line break
 -   [ ] `low` profiling and speed optimization
 -   [ ] `maybe` image popup on click
 -   [x] `high` incorrect color of code block background in dark mode
@@ -33,3 +31,5 @@ Problems I met during the development:
 -   [x] code block highlighting
 -   [x] code block dark scheme color not changed
 -   [x] mdx styles are broken
+-   [x] `medium` navs sorting priority - `order` in frontmatter - replacement after sorting
+-   [x] `high` nav icon in mobile view
