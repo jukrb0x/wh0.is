@@ -9,6 +9,7 @@ import { collectPostsAndNavs } from './utils/collect';
 export default function NavBar(): ReactElement {
     const { opts, config } = useBlogContext();
     const { navPages } = collectPostsAndNavs({ opts, config });
+    navPages.sort((a, b) => a.frontMatter?.navOrder - b.frontMatter?.navOrder);
     return (
         <div className="flex items-center z-40 py-8 mx-7">
             <div className={'logo w-[7rem] h-10 absolute lg:fixed m-6 select-none outline-none'}>
