@@ -9,15 +9,16 @@ import { collectPostsAndNavs } from './utils/collect';
 export default function NavBar(): ReactElement {
     const { opts, config } = useBlogContext();
     const { navPages } = collectPostsAndNavs({ opts, config });
-    navPages.sort((a, b) => a.frontMatter?.navOrder - b.frontMatter?.navOrder);
+    navPages.sort((a, b) => a.frontMatter?.order - b.frontMatter?.order);
     return (
-        <div className="flex items-center z-40 py-8 mx-7">
+        <div className="flex items-center z-40 py-8 sm:mx-7">
             <div className={'logo w-[7rem] h-10 absolute lg:fixed m-6 select-none outline-none'}>
                 <Link href={'/'} passHref legacyBehavior className={'cursor-pointer'}>
                     <a>
                         <span
-                            className={'i-openmoji-alien-monster'}
-                            style={{ fontSize: '2.5rem' }}
+                            className={
+                                'i-openmoji-alien-monster text-center text-[2.2rem] sm:text-[2.5rem]'
+                            }
                         />
                         {/*<Image src={'/vercel.svg'} alt={''} fill />*/}
                     </a>
