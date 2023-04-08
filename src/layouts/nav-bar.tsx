@@ -12,7 +12,7 @@ export default function NavBar(): ReactElement {
     navPages.sort((a, b) => a.frontMatter?.order - b.frontMatter?.order);
     return (
         <div className="flex items-center z-40 py-8 sm:mx-7">
-            <div className={'logo w-[7rem] h-10 absolute lg:fixed no-m-6 select-none outline-none'}>
+            <div className={'logo w-[7rem] h-10 absolute lg:fixed select-none outline-none'}>
                 <Link href={'/'} passHref legacyBehavior className={'cursor-pointer'}>
                     <a>
                         <span
