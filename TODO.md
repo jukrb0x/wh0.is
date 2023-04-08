@@ -8,6 +8,7 @@ Problems I met during the development:
 
 ### Roadmap
 
+-   [ ] `high` logo hovering opacity mask
 -   [ ] `high` highlighting inline code in dark mode is buggy, word highlighting is not clear
 -   [ ] `high` table of contents
 -   [ ] `medium` figure caption
