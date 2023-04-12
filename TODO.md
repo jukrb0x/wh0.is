@@ -34,3 +34,7 @@ Problems I met during the development:
 -   [x] mdx styles are broken
 -   [x] `medium` navs sorting priority - `order` in frontmatter - replacement after sorting
 -   [x] `high` nav icon in mobile view
+
+### New Feat
+
+-   [ ] new layout for _microscope_ page
