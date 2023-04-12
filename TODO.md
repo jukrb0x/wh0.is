@@ -8,6 +8,7 @@ Problems I met during the development:
 
 ### Roadmap
 
+-   [ ] `high` logo hovering opacity mask
 -   [ ] `high` highlighting inline code in dark mode is buggy, word highlighting is not clear
 -   [ ] `high` table of contents
 -   [ ] `medium` figure caption
@@ -33,3 +34,7 @@ Problems I met during the development:
 -   [x] mdx styles are broken
 -   [x] `medium` navs sorting priority - `order` in frontmatter - replacement after sorting
 -   [x] `high` nav icon in mobile view
+
+### New Feat
+
+-   [ ] new layout for _microscope_ page
