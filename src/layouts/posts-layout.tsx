@@ -1,12 +1,39 @@
+import { GetStaticPaths, GetStaticProps } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useSSG } from 'nextra/ssg';
 import type { ReactNode } from 'react';
+import { global } from 'styled-jsx/css';
 
 import { BasicLayout } from './basic-layout';
 import { useBlogContext } from './blog-context';
 import { MDXTheme } from './mdx-theme';
 import { collectPostsAndNavs } from './utils/collect';
+import { getStaticPosts } from './utils/get-posts';
 import getTags from './utils/get-tags';
+
+const NEXTRA_INTERNAL = Symbol.for('__nextra_internal__');
+
+const POSTS_PER_PAGE = 1; // todo: make this configurable in nextra
+
+export const getStaticPaths: GetStaticPaths = () => {
+    const posts = getStaticPosts((globalThis as any)[NEXTRA_INTERNAL].pageMap);
+    const pages = Math.ceil(posts.length / POSTS_PER_PAGE);
+    return {
+        paths: Array.from({ length: pages }, (_, i) => ({ params: { page: (i + 1).toString() } })),
+        fallback: false
+    };
+};
+
+export const getStaticProps: GetStaticProps = ({ params }) => {
+    return {
+        props: {
+            ssg: {
+                page: params?.page
+            }
+        }
+    };
+};
 
 const isSameYear = (date1: Date, date2: Date) =>
     date1 && date2 && date1.getFullYear() === date2.getFullYear();
@@ -17,11 +44,19 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
     const router = useRouter();
     const { type } = opts.frontMatter;
     const tagName = type === 'tag' ? router.query.tag : null;
+    const page: number = router.query.page ? parseInt(router.query.page as string) : 1;
 
     // remove draft posts from the list
-    const posts = allPosts.filter((post) => post.frontMatter?.draft !== true);
+    const publishedPosts = allPosts.filter((post) => post.frontMatter?.draft !== true);
 
-    const postList = posts.map((post, id) => {
+    // pagination
+    const isTheFirstPage = page === 1 || page === undefined;
+    const isTheLastPage = page === Math.ceil(publishedPosts.length / POSTS_PER_PAGE);
+    // slice the posts to show only the ones for the current page
+    const slicedPosts = publishedPosts.slice((page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE);
+
+    const postList = slicedPosts.map((post, id) => {
+        // if a tag is specified in the query, only show posts with that tag
         if (tagName) {
             const tags = getTags(post);
             if (!Array.isArray(tagName) && !tags.includes(tagName)) {
@@ -34,7 +69,8 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
         const postTitle = post.frontMatter?.title || post.name;
         const lang = post.frontMatter?.lang || 'en';
         const date = post.frontMatter?.date && new Date(post.frontMatter.date);
-        const showYear = id === 0 || !isSameYear(date, new Date(posts[id - 1].frontMatter?.date));
+        const showYear =
+            id === 0 || !isSameYear(date, new Date(publishedPosts[id - 1].frontMatter?.date));
         const description = post.frontMatter?.description;
 
         return (
@@ -92,6 +128,22 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
         <BasicLayout>
             <MDXTheme>{children}</MDXTheme>
             <ul>{postList}</ul>
+            <div className="flex justify-between mt-8">
+                <div>
+                    {!isTheFirstPage && (
+                        <Link href={`/posts/page/${page - 1}`} passHref legacyBehavior>
+                            <a className="text-gray-400 hover:text-gray-500">← Previous</a>
+                        </Link>
+                    )}
+                </div>
+                <div>
+                    {!isTheLastPage && (
+                        <Link href={`/posts/page/${page + 1}`} passHref legacyBehavior>
+                            <a className="text-gray-400 hover:text-gray-500">Next →</a>
+                        </Link>
+                    )}
+                </div>
+            </div>
         </BasicLayout>
     );
 };

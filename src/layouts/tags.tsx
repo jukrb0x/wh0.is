@@ -28,6 +28,7 @@ export const getStaticPaths: GetStaticPaths = () => {
         fallback: false
     };
 };
+
 export const getStaticProps: GetStaticProps = ({ params }) => {
     return {
         props: {
