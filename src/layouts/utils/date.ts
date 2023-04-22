@@ -6,6 +6,12 @@ export const sortDate = (a: MdxFile, b: MdxFile): number => {
     return new Date(b.frontMatter.date).getTime() - new Date(a.frontMatter.date).getTime();
 };
 
+export const sortOrder = (a: MdxFile, b: MdxFile): number => {
+    if (!a.frontMatter?.order || !b.frontMatter?.order) return -1;
+
+    return a.frontMatter.order - b.frontMatter.order;
+};
+
 const DATE_REGEX = /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2})?(:\d{2}\.\d{3}Z)?$/;
 const DATE_REGEX_WITH_SLASH = /^\d{4}\/\d{1,2}\/\d{1,2}( \d{1,2}:\d{1,2})?$/;
 

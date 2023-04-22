@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { ReactElement } from 'react';
 
+import { sortOrder } from '@/layouts/utils/date';
+
 import { useBlogContext } from './blog-context';
 import ThemeSwitch from './theme-switch';
 import { collectPostsAndNavs } from './utils/collect';
@@ -9,7 +11,7 @@ import { collectPostsAndNavs } from './utils/collect';
 export default function NavBar(): ReactElement {
     const { opts, config } = useBlogContext();
     const { navPages } = collectPostsAndNavs({ opts, config });
-    navPages.sort((a, b) => a.frontMatter?.order - b.frontMatter?.order);
+    navPages.sort(sortOrder);
     return (
         <div className="flex items-center z-40 py-8 sm:mx-7">
             <div className={'logo w-[7rem] h-10 absolute lg:fixed select-none outline-none'}>
