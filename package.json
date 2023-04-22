@@ -14,6 +14,7 @@
         "clean": "rimraf .next"
     },
     "dependencies": {
+        "@geist-ui/core": "^2.3.8",
         "@unocss/reset": "^0.50.6",
         "clsx": "^1.2.1",
         "katex": "^0.16.4",
