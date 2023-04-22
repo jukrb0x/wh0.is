@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 
 import { BasicLayout } from './basic-layout';
@@ -59,12 +60,26 @@ const ACard = () => {
     );
 };
 
-const Card = ({ avatar, name, description }) => {
+const Card = ({
+    avatar,
+    name,
+    description
+}: {
+    avatar: string;
+    name: string;
+    description: string;
+}) => {
     return (
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
             <div className="p-4 sm:p-5 flex items-center">
                 <div className="mr-6">
-                    <img className="h-16 w-16 rounded-full" src={avatar} alt={name} />
+                    <Image
+                        src={avatar}
+                        alt={name}
+                        width={100}
+                        height={100}
+                        className={'rounded-full'}
+                    />
                 </div>
                 <div className="text-left">
                     <h3 className="text-lg font-medium leading-6 text-gray-900">{name}</h3>
@@ -80,7 +95,7 @@ export const FriendsLayout = ({ children }: { children: ReactNode }) => {
         <BasicLayout>
             <MDXTheme>{children}</MDXTheme>
             <div className={'flex'}>
-                <Card avatar={''} name={'asdad'} description={'ddd'} />
+                <Card avatar={'/elon.jpg'} name={'asdad'} description={'ddd'} />
             </div>
         </BasicLayout>
     );
