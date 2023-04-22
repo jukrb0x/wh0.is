@@ -55,7 +55,9 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
     // slice the posts to show only the ones for the current page
     const slicedPosts = publishedPosts.slice((page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE);
 
-    const postList = slicedPosts.map((post, id) => {
+    const posts = tagName ? publishedPosts : slicedPosts; // currently, tags page doesn't support pagination
+
+    const postList = posts.map((post, id) => {
         // if a tag is specified in the query, only show posts with that tag
         if (tagName) {
             const tags = getTags(post);
@@ -130,14 +132,14 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
             <ul>{postList}</ul>
             <div className="flex justify-between my-8 not-prose">
                 <div>
-                    {!isTheFirstPage && (
+                    {!tagName && !isTheFirstPage && (
                         <Link href={`/posts/page/${page - 1}`} passHref legacyBehavior>
                             <a className="font-mono op50 hover:op75 transition-all">← Previous</a>
                         </Link>
                     )}
                 </div>
                 <div>
-                    {!isTheLastPage && (
+                    {!tagName && !isTheLastPage && (
                         <Link href={`/posts/page/${page + 1}`} passHref legacyBehavior>
                             <a className="font-mono op50 hover:op75 transition-all">Next →</a>
                         </Link>
