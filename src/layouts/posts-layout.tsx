@@ -14,7 +14,7 @@ import getTags from './utils/get-tags';
 
 const NEXTRA_INTERNAL = Symbol.for('__nextra_internal__');
 
-const POSTS_PER_PAGE = 1; // todo: make this configurable in nextra
+const POSTS_PER_PAGE = 10; // todo: make this configurable in nextra
 
 export const getStaticPaths: GetStaticPaths = () => {
     const posts = getStaticPosts((globalThis as any)[NEXTRA_INTERNAL].pageMap);
@@ -128,21 +128,25 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
         <BasicLayout>
             <MDXTheme>{children}</MDXTheme>
             <ul>{postList}</ul>
-            <div className="flex justify-between mt-8">
+            <div className="flex justify-between my-8 not-prose">
                 <div>
                     {!isTheFirstPage && (
                         <Link href={`/posts/page/${page - 1}`} passHref legacyBehavior>
-                            <a className="text-gray-400 hover:text-gray-500">← Previous</a>
+                            <a className="font-mono op50 hover:op75 transition-all">← Previous</a>
                         </Link>
                     )}
                 </div>
                 <div>
                     {!isTheLastPage && (
                         <Link href={`/posts/page/${page + 1}`} passHref legacyBehavior>
-                            <a className="text-gray-400 hover:text-gray-500">Next →</a>
+                            <a className="font-mono op50 hover:op75 transition-all">Next →</a>
                         </Link>
                     )}
                 </div>
+            </div>
+
+            <div className="flex justify-center">
+                <div className="w-12 border-t border-gray-200"></div>
             </div>
         </BasicLayout>
     );
