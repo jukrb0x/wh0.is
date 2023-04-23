@@ -40,22 +40,22 @@ const isSameYear = (date1: Date, date2: Date) =>
 
 export const PostsLayout = ({ children }: { children: ReactNode }) => {
     const { config, opts } = useBlogContext();
-    const { posts: allPosts } = collectPostsAndNavs({ config, opts });
-    const router = useRouter();
+    let { posts } = collectPostsAndNavs({ config, opts });
     const { type } = opts.frontMatter;
+    const router = useRouter();
+
     const tagName = type === 'tag' ? router.query.tag : null;
     const page: number = router.query.page ? parseInt(router.query.page as string) : 1;
 
-    // remove draft posts from the list
-    const publishedPosts = allPosts.filter((post) => post.frontMatter?.draft !== true);
-
-    // pagination
+    // pagination indicator
     const isTheFirstPage = page === 1 || page === undefined;
-    const isTheLastPage = page === Math.ceil(publishedPosts.length / POSTS_PER_PAGE);
-    // slice the posts to show only the ones for the current page
-    const slicedPosts = publishedPosts.slice((page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE);
+    const isTheLastPage = page === Math.ceil(posts.length / POSTS_PER_PAGE);
 
-    const posts = tagName ? publishedPosts : slicedPosts; // currently, tags page doesn't support pagination
+    /**
+     * slice the posts to show only the ones for the current page
+     * currently, tags page doesn't support pagination
+     */
+    posts = tagName ? posts : posts.slice((page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE);
 
     const postList = posts.map((post, id) => {
         // if a tag is specified in the query, only show posts with that tag
@@ -71,8 +71,7 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
         const postTitle = post.frontMatter?.title || post.name;
         const lang = post.frontMatter?.lang || 'en';
         const date = post.frontMatter?.date && new Date(post.frontMatter.date);
-        const showYear =
-            id === 0 || !isSameYear(date, new Date(publishedPosts[id - 1].frontMatter?.date));
+        const showYear = id === 0 || !isSameYear(date, new Date(posts[id - 1].frontMatter?.date));
         const description = post.frontMatter?.description;
 
         return (
