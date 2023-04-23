@@ -28,10 +28,10 @@ export default {
     postFooter: null,
     darkMode: false,
     navs: [
-        {
-            url: '/friends',
-            name: 'Friends'
-        }
+        // {
+        //     url: '/friends',
+        //     name: 'Friends'
+        // }
     ],
     showDescription: false
 };
