@@ -2,6 +2,7 @@ import { ThemeProvider } from 'next-themes';
 import type { NextraThemeLayoutProps } from 'nextra';
 import type { ReactElement, ReactNode } from 'react';
 
+import { FriendsLayout } from '@/layouts/friends-layout';
 import { HomeLayout } from '@/layouts/home-layout';
 
 import { ArticleLayout } from './article-layout';
@@ -16,7 +17,8 @@ const layoutMap = {
     post: ArticleLayout,
     page: PageLayout,
     posts: PostsLayout,
-    tag: PostsLayout
+    tag: PostsLayout,
+    friends: FriendsLayout
 };
 
 const BlogLayout = ({
@@ -28,7 +30,9 @@ const BlogLayout = ({
     const Layout = layoutMap[type];
     if (!Layout) {
         throw new Error(
-            `nextra-theme-blog does not support the layout type "${type}" It only supports "post", "page", "posts" and "tag"`
+            `Layout Type is not curentlly supported: ${type}. Please use one of the following: ${Object.keys(
+                layoutMap
+            ).join(', ')}`
         );
     }
     return (

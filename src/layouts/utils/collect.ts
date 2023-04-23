@@ -14,19 +14,27 @@ const isPost = (page: PageMapItem): page is MdxFile => {
     return !type || type === 'post';
 };
 
-// TODO: sorting priority
-export const collectPostsAndNavs = ({ opts }: LayoutProps) => {
+/**
+ * Collects all posts and nav pages from the page map
+ * Sorted by date
+ * @param opts
+ * @param includeDraft
+ */
+export const collectPostsAndNavs = ({ opts }: LayoutProps, includeDraft = false) => {
     const posts: MdxFile[] = [];
     const navPages: (MdxFile & { active: boolean })[] = [];
     const { route } = opts;
     traverse(opts.pageMap, (page) => {
-        if (isNav(page)) {
+        const isInclusive = includeDraft || !(page as MdxFile).frontMatter?.draft;
+
+        if (isNav(page) && isInclusive) {
             navPages.push({ ...page, active: page.route === route });
         }
-        if (isPost(page)) {
+        if (isPost(page) && isInclusive) {
             posts.push(page);
         }
     });
+
     posts.sort(sortDate);
     navPages.sort(sortDate);
     return { posts, navPages };
