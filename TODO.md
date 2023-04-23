@@ -12,7 +12,7 @@ Problems I met during the development:
 -   [ ] `high` highlighting inline code in dark mode is buggy, word highlighting is not clear
 -   [ ] `high` table of contents
 -   [ ] `medium` figure caption
--   [ ] `medium` posts view pagination
+-   [x] `medium` posts view pagination
 -   [ ] `medium` meta data for SEO, Security, etc
 -   [ ] `medium` words spelling check, ethical check, etc.
 -   [ ] `low` first load the website is day mode, then switch to dark mode after 1s, set a gentle background for eyes
