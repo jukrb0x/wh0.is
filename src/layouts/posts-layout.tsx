@@ -1,9 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useSSG } from 'nextra/ssg';
 import type { ReactNode } from 'react';
-import { global } from 'styled-jsx/css';
 
 import { BasicLayout } from './basic-layout';
 import { useBlogContext } from './blog-context';
@@ -21,7 +19,7 @@ export const getStaticPaths: GetStaticPaths = () => {
     const pages = Math.ceil(posts.length / POSTS_PER_PAGE);
     return {
         paths: Array.from({ length: pages }, (_, i) => ({ params: { page: (i + 1).toString() } })),
-        fallback: false
+        fallback: true
     };
 };
 
