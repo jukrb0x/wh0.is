@@ -18,7 +18,8 @@ export const getStaticTags = (pageMap: PageMapItem[]) => {
 };
 
 export default function getTags(page: MdxFile<BlogFrontMatter>) {
-    if (!page.frontMatter) {
+    // remove non-post pages and drafts
+    if (!page.frontMatter || page.frontMatter.draft) {
         return [];
     }
     return split(page.frontMatter.tag);
