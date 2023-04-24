@@ -17,15 +17,13 @@ const FriendCard = ({ name, description, avatar, url }: FriendCardProps) => {
                 <Link href={urlToUse} target={'_blank'}>
                     <Grid.Container gap={2}>
                         <Grid xs={6}>
-                            <div>
-                                <Image
-                                    src={avatarSrc}
-                                    alt={'avatar'}
-                                    height={100}
-                                    width={100}
-                                    className={'not-prose rounded-full'}
-                                />
-                            </div>
+                            <Image
+                                src={avatarSrc}
+                                alt={'avatar'}
+                                height={100}
+                                width={100}
+                                className={'rounded-full'}
+                            />
                         </Grid>
                         <Grid xs={18} direction={'column'}>
                             <div>
@@ -51,7 +49,7 @@ const FriendCards = () => {
     return (
         <div className={'not-prose'}>
             <Grid.Container gap={2} justify={'flex-start'}>
-                {friends.map((friend, i) => (
+                {friends.map((friend: FriendInfo, i) => (
                     <Grid xs={24} md={12} key={i}>
                         <FriendCard
                             name={friend.name}
