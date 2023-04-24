@@ -12,9 +12,9 @@ const FriendCard = ({ name, description, avatar, url }: FriendCardProps) => {
     const urlToUse = hasUrl ? url : '#';
     const avatarSrc = hasAvatar ? avatar : '/elon.jpg';
     return (
-        <Card hoverable shadow width={'100%'} className={'not-prose'}>
+        <Card hoverable width={'100%'} className={'not-prose'} title={description}>
             <Card.Content>
-                <Link href={urlToUse}>
+                <Link href={urlToUse} target={'_blank'}>
                     <Grid.Container gap={2}>
                         <Grid xs={6}>
                             <div>
@@ -50,7 +50,7 @@ const FriendCard = ({ name, description, avatar, url }: FriendCardProps) => {
 const FriendCards = () => {
     return (
         <div className={'not-prose'}>
-            <Grid.Container gap={2} justify={'center'}>
+            <Grid.Container gap={2} justify={'flex-start'}>
                 {friends.map((friend, i) => (
                     <Grid xs={24} md={12} key={i}>
                         <FriendCard

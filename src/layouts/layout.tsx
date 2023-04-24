@@ -2,7 +2,6 @@ import { ThemeProvider } from 'next-themes';
 import type { NextraThemeLayoutProps } from 'nextra';
 import type { ReactElement, ReactNode } from 'react';
 
-import { FriendsLayout } from '@/layouts/friends-layout';
 import { HomeLayout } from '@/layouts/home-layout';
 
 import { ArticleLayout } from './article-layout';
@@ -17,8 +16,7 @@ const layoutMap = {
     post: ArticleLayout,
     page: PageLayout,
     posts: PostsLayout,
-    tag: PostsLayout,
-    friends: FriendsLayout
+    tag: PostsLayout
 };
 
 const BlogLayout = ({

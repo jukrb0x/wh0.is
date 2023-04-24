@@ -32,7 +32,7 @@ export type BlogFrontMatter = {
     description?: string;
     tag?: string | string[];
     title?: string;
-    type?: 'post' | 'page' | 'posts' | 'tag' | 'home' | 'friends';
+    type?: 'post' | 'page' | 'posts' | 'tag' | 'home';
     lang?: 'en' | 'zh';
     draft?: boolean;
     order?: number; // navbar sorting
