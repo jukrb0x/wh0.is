@@ -30,6 +30,15 @@ const nextConfig = {
                 permanent: true
             }
         ];
+    },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'avatars.githubusercontent.com',
+                pathname: '/u/**'
+            }
+        ]
     }
 };
 
