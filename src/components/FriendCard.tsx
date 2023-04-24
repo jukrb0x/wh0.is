@@ -12,36 +12,49 @@ const FriendCard = ({ name, description, avatar, url }: FriendCardProps) => {
     const urlToUse = hasUrl ? url : '#';
     const avatarSrc = hasAvatar ? avatar : '/elon.jpg';
     return (
-        <Card hoverable width={'100%'} className={'not-prose'} title={description}>
-            <Card.Content>
-                <Link href={urlToUse} target={'_blank'}>
-                    <Grid.Container gap={2}>
-                        <Grid xs={6}>
-                            <Image
-                                src={avatarSrc}
-                                alt={'avatar'}
-                                height={100}
-                                width={100}
-                                className={'rounded-full'}
-                            />
-                        </Grid>
-                        <Grid xs={18} direction={'column'}>
-                            <div>
-                                <Text h3 className={'text-lg font-medium text-gray-900 truncate'}>
-                                    {name}
-                                </Text>
-                                <Text
-                                    type={'secondary'}
-                                    className={'mt-1 text-sm text-gray-600 text-ellipsis truncate'}
-                                >
-                                    {description}
-                                </Text>
-                            </div>
-                        </Grid>
-                    </Grid.Container>
-                </Link>
-            </Card.Content>
-        </Card>
+        <>
+            <style jsx global>{`
+                .rounded-full {
+                    border-radius: 9999px;
+                }
+            `}</style>
+
+            <Card hoverable width={'100%'} className={'not-prose'} title={description}>
+                <Card.Content>
+                    <Link href={urlToUse} target={'_blank'}>
+                        <Grid.Container gap={2}>
+                            <Grid xs={6}>
+                                <Image
+                                    src={avatarSrc}
+                                    alt={'avatar'}
+                                    height={100}
+                                    width={100}
+                                    className={'rounded-full'}
+                                />
+                            </Grid>
+                            <Grid xs={18} direction={'column'}>
+                                <div>
+                                    <Text
+                                        h3
+                                        className={'text-lg font-medium text-gray-900 truncate'}
+                                    >
+                                        {name}
+                                    </Text>
+                                    <Text
+                                        type={'secondary'}
+                                        className={
+                                            'mt-1 text-sm text-gray-600 text-ellipsis truncate'
+                                        }
+                                    >
+                                        {description}
+                                    </Text>
+                                </div>
+                            </Grid>
+                        </Grid.Container>
+                    </Link>
+                </Card.Content>
+            </Card>
+        </>
     );
 };
 
