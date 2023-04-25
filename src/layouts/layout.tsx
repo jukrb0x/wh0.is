@@ -1,4 +1,5 @@
-import { ThemeProvider } from 'next-themes';
+import { CssBaseline, GeistProvider } from '@geist-ui/core';
+import { ThemeProvider, useTheme } from 'next-themes';
 import type { NextraThemeLayoutProps } from 'nextra';
 import type { ReactElement, ReactNode } from 'react';
 
@@ -26,6 +27,7 @@ const BlogLayout = ({
 }: LayoutProps & { children: ReactNode }): ReactElement => {
     const type = opts.frontMatter.type || 'post';
     const Layout = layoutMap[type];
+    const { resolvedTheme } = useTheme();
     if (!Layout) {
         throw new Error(
             `Layout Type is not curentlly supported: ${type}. Please use one of the following: ${Object.keys(
@@ -35,7 +37,9 @@ const BlogLayout = ({
     }
     return (
         <BlogProvider opts={opts} config={config}>
-            <Layout>{children}</Layout>
+            <GeistProvider themeType={resolvedTheme === 'dark' ? 'dark' : 'light'}>
+                <Layout>{children}</Layout>
+            </GeistProvider>
         </BlogProvider>
     );
 };
