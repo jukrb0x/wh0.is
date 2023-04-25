@@ -27,7 +27,6 @@ const BlogLayout = ({
 }: LayoutProps & { children: ReactNode }): ReactElement => {
     const type = opts.frontMatter.type || 'post';
     const Layout = layoutMap[type];
-    const { resolvedTheme } = useTheme();
     if (!Layout) {
         throw new Error(
             `Layout Type is not curentlly supported: ${type}. Please use one of the following: ${Object.keys(
@@ -37,21 +36,22 @@ const BlogLayout = ({
     }
     return (
         <BlogProvider opts={opts} config={config}>
-            <GeistProvider themeType={resolvedTheme === 'dark' ? 'dark' : 'light'}>
-                <Layout>{children}</Layout>
-            </GeistProvider>
+            <Layout>{children}</Layout>
         </BlogProvider>
     );
 };
 
 export default function Layout({ children, ...context }: NextraThemeLayoutProps) {
     const extendedConfig = { ...DEFAULT_THEME, ...context.themeConfig };
+    const { resolvedTheme } = useTheme();
 
     return (
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <BlogLayout config={extendedConfig} opts={context.pageOpts}>
-                {children}
-            </BlogLayout>
+            <GeistProvider themeType={resolvedTheme === 'dark' ? 'dark' : 'light'}>
+                <BlogLayout config={extendedConfig} opts={context.pageOpts}>
+                    {children}
+                </BlogLayout>
+            </GeistProvider>
         </ThemeProvider>
     );
 }
