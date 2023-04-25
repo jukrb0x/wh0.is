@@ -26,8 +26,8 @@ const BlogLayout = ({
     opts
 }: LayoutProps & { children: ReactNode }): ReactElement => {
     const type = opts.frontMatter.type || 'post';
-    const Layout = layoutMap[type];
     const { resolvedTheme } = useTheme();
+    const Layout = layoutMap[type];
     if (!Layout) {
         throw new Error(
             `Layout Type is not curentlly supported: ${type}. Please use one of the following: ${Object.keys(
@@ -36,11 +36,11 @@ const BlogLayout = ({
         );
     }
     return (
-        <BlogProvider opts={opts} config={config}>
-            <GeistProvider themeType={resolvedTheme === 'dark' ? 'dark' : 'light'}>
+        <GeistProvider themeType={resolvedTheme === 'dark' ? 'dark' : 'light'}>
+            <BlogProvider opts={opts} config={config}>
                 <Layout>{children}</Layout>
-            </GeistProvider>
-        </BlogProvider>
+            </BlogProvider>
+        </GeistProvider>
     );
 };
 
