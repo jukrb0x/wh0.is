@@ -26,6 +26,7 @@ const BlogLayout = ({
     opts
 }: LayoutProps & { children: ReactNode }): ReactElement => {
     const type = opts.frontMatter.type || 'post';
+    const { resolvedTheme } = useTheme();
     const Layout = layoutMap[type];
     if (!Layout) {
         throw new Error(
@@ -35,23 +36,22 @@ const BlogLayout = ({
         );
     }
     return (
-        <BlogProvider opts={opts} config={config}>
-            <Layout>{children}</Layout>
-        </BlogProvider>
+        <GeistProvider themeType={resolvedTheme === 'dark' ? 'dark' : 'light'}>
+            <BlogProvider opts={opts} config={config}>
+                <Layout>{children}</Layout>
+            </BlogProvider>
+        </GeistProvider>
     );
 };
 
 export default function Layout({ children, ...context }: NextraThemeLayoutProps) {
     const extendedConfig = { ...DEFAULT_THEME, ...context.themeConfig };
-    const { resolvedTheme } = useTheme();
 
     return (
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <GeistProvider themeType={resolvedTheme === 'dark' ? 'dark' : 'light'}>
-                <BlogLayout config={extendedConfig} opts={context.pageOpts}>
-                    {children}
-                </BlogLayout>
-            </GeistProvider>
+            <BlogLayout config={extendedConfig} opts={context.pageOpts}>
+                {children}
+            </BlogLayout>
         </ThemeProvider>
     );
 }
