@@ -64,9 +64,9 @@ Ultimately, I chose [Nextra](https://nextra.site/) - another reason I stuck with
 
 ## The new website
 
-The plan is Next.js + Nextra, and some spicies addon, so let's take a first view of the project structure.
+The new setup is Next.js + Nextra with a few extra goodies sprinkled in. Let's take a quick look under the hood!
 
-### Structure
+### Project Structure
 
 This is a typical Next.js project which incorporates spices of TypeScript, UnoCSS and other customizations that I will discuss later.
 
@@ -96,9 +96,58 @@ This is a typical Next.js project which incorporates spices of TypeScript, UnoCS
 
 ### Nextra
 
-Nextra proves the
+[Nextra](https://nextra.site/) provides the static site tooling, including:
+
+-   MDX integration and LaTex support
+-   Advanced syntax highlighting with [Shiki](https://shiki.matsu.io/)
+-   Links and images optimization for Next.js
+
+Even though it only has basic support for blog site - it was designed for documentations, so I did some decorations for it.
 
 ### Theme and UnoCSS
+
+The styling of the blog was initially inspired by [Anthony Fu](https://antfu.me/), who is a talented frontend developer dedicating to Vue ecosystem. His minimal and elegent design resonated with me, so I set out to achieve something similar with React and Next.js.
+
+![Anthony's Blog Homepage](./antfu.me_posts.png)
+
+[UnoCSS](https://unocss.dev/) is an atomic CSS Engine that generates styles on demand instantly, it's fast and atomic. After using UnoCSS for a while, you may find it differs from WindiCSS and TailwindCSS in impactful ways.
+
+> Read more about Atomic CSS: [Reimagine Atomic CSS](https://antfu.me/posts/reimagine-atomic-css) by Anthony Fu
+
+UnoCSS is loaded with `@unocss/webpack` for Next.js, and I could rewrite my blog's theme easily with the help of UnoCSS inituative directives. Here's an example for code syntax highlighting:
+
+```sass filename="code-blocks.sass"
+code {
+    @apply bg-red-100 dark:bg-red-900;
+    box-decoration-break: clone;
+    font-feature-settings: 'rlig' 1, 'calt' 1, 'ss01' 1;
+    .line {
+        &.highlighted {
+            @apply bg-blue-600/10 text-blue-600/50 shadow-[2px_0_currentColor_inset];
+        }
+        .highlighted {
+            @apply rounded-sm shadow-[0_0_0_2px_rgba(0,0,0,.3)];
+            @apply bg-blue-800/10 shadow-blue-800/10;
+            @apply dark:bg-blue-300/10 dark:shadow-blue-300/10;
+        }
+    }
+}
+```
+
+Or use in components:
+
+```tsx filename="nav-bar.tsx"
+export default function NavBar(): ReactElement {
+    const { opts, config } = useBlogContext();
+    const { navPages } = collectPostsAndNavs({ opts, config });
+    navPages.sort(sortOrder);
+    return (
+        <div className="flex items-center z-40 py-8 sm:mx-7">
+            <div className="logo w-[7rem] h-10 absolute lg:fixed select-none outline-none">
+            ...
+    );
+}
+```
 
 ### Post Management
 
