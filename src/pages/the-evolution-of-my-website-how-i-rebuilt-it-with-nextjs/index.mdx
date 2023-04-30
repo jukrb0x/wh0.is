@@ -60,7 +60,7 @@ Ok, to be honest, I love Vue.js as well as React, Vue.js feels more intuitive an
 
 A great way to begin a new project is researching exisiting solutions - they may have already sovled issues you'll face. [Pliny](https://github.com/timlrx/pliny) is one option for a Next.js CMS, using Contentlayer for modeling. Check out [Spencer's blog](https://spencerwoo.com/) for inspiration.
 
-Ultimately, I chose [Nextra](https://nextra.site/) - another reason I stuck with Next.js. It bridges Next.js and MDX (Markdown with React components). For example, [Friends](/friends) page uses a custom component within Markdown. Many docs sites are built with it, such as [Turbo](https://turbo.build/) and [SWR](https://swr.vercel.app/). Though Nextra supports basic blogging features, I customized it extensively for my needs.
+Ultimately, I chose [Nextra](https://nextra.site/) - another reason I stuck with Next.js. It bridges Next.js and MDX (Markdown with React components). Many docs sites are built with it, such as [Turbo](https://turbo.build/) and [SWR](https://swr.vercel.app/). Though Nextra supports basic blogging features, I customized it extensively for my needs.
 
 ## The new website
 
@@ -68,7 +68,7 @@ The plan is Next.js + Nextra, and some spicies addon, so let's take a first view
 
 ### Structure
 
-The project directory tree view:
+This is a typical Next.js project which incorporates spices of TypeScript, UnoCSS and other customizations that I will discuss later.
 
 ```bash {3-8}
 .
@@ -90,16 +90,24 @@ The project directory tree view:
 └── vercel.json
 ```
 
-This is a typical Next.js project, with spices of TypeScript, UnoCSS and other customizations that I will introduce later.
+-   The `layout` and `styles` directories contain stayling and layout components for the blog theme.
+-   The `pages` holds the posts and pages in MDX format. MDX allows writing markdown seamlessly with interactive react components.
+-   The `components` enabled by MDX are used to enhance the content within pages and posts. (For example, [Friends](/friends) page uses a custom component within Markdown.)
+
+### Nextra
 
 ### Theme and UnoCSS
-
-### Comment System
-
-cusdis is out-of-box with Nextra Blog Theme,
 
 ### Post Management
 
 #### Git
 
 #### DecapCMS (formerly Netlify CMS)
+
+### Comment System
+
+cusdis is out-of-box with Nextra Blog Theme,
+
+## Future work
+
+some of ...
