@@ -163,11 +163,24 @@ I developed this entire blog using Git for verrson control, so manageing posts t
 -   The `blog` branch is where I draft new posts and write content in MDX.
 -   The `dev` branch contains features and bugfix for the blog system, the isolation between `blog` and `dev` allows me to test the changes without impacting the live branch or in-progress writing.
 
-#### DecapCMS (formerly Netlify CMS)
+#### Online Editing
+
+Writing my blog posts locally in Markdown (MDX) files on my machine has been simple enough so far. However, what if I want to write or make edits when I'm on the go using mobile devices or while travelling, and still preview how the posts will look? Maintaining a local-only workflow wouldn't allow for that level of flexibility and continuity, until I found this:
+
+> **Decap CMS** (formerly Netlify CMS) is an open source content management system for your Git workflow that enables you to provide editors with a friendly UI and intuitive workflows. You can use it with any static site generator to create faster, more flexible web projects. Content is stored in your Git repository alongside your code for easier versioning, multi-channel publishing, and the option to handle content updates directly in Git.
+
+Sounds pretty cool, right? Decap can be intergrated into my GitHub repository with [github backend](https://decapcms.org/docs/github-backend/). For this moment, I am still working on this. Check out thier [official demo](https://cms-demo.netlify.com/).
+
+Another option to consider is GitHub Codespaces, you can launch a web VS Code development environment and start composing on the fly. However, a full-featured IDE for editing may feel rather heavy-weight.
 
 ### Comment System
 
-cusdis is out-of-box with Nextra Blog Theme,
+A comment system is not a absolute must-have for my needs. Adding a comment system isn't high in my to-do list as I'm pounding out words here, but I believe providing a way for readers to interact and share their thoughts on posts can be valuable.
+
+Here are some considerations:
+
+1. [Cusdis](https://cusdis.com/) is a lightweight open-source comment system, out-of-box with Nextra Blog Theme.
+2. [giscus](https://giscus.app/), comment system powered by GitHub Discussions.
 
 ## Future work
 
