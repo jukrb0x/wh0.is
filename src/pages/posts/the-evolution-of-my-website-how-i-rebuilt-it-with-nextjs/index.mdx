@@ -66,6 +66,8 @@ Ultimately, I chose [Nextra](https://nextra.site/) - another reason I stuck with
 
 The new setup is Next.js + Nextra with a few extra goodies sprinkled in. Let's take a quick look under the hood!
 
+![mindmap](./mindmap.png)
+
 ### Project Structure
 
 This is a typical Next.js project which incorporates spices of TypeScript, UnoCSS and other customizations that I will discuss later.
@@ -152,6 +154,14 @@ export default function NavBar(): ReactElement {
 ### Post Management
 
 #### Git
+
+The whole blog is developed with Git, so it's easy to have the idea to manage the posts in the Git, that is my current way to keep the things tidy. I have different Git branches for the blog feature development and writing blogs, finally they will be merged into main branch and ship and deploy to Vercel.
+
+I developed this entire blog using Git for verrson control, so manageing posts through Git as well seemed a natural fit. Git branches helpe me keep everything tidy:
+
+-   The `main` branch for the live blog site currently deployed to Vercel.
+-   The `blog` branch is where I draft new posts and write content in MDX.
+-   The `dev` branch contains features and bugfix for the blog system, the isolation between `blog` and `dev` allows me to test the changes without impacting the live branch or in-progress writing.
 
 #### DecapCMS (formerly Netlify CMS)
 
