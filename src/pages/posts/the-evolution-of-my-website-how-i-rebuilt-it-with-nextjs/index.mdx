@@ -174,6 +174,34 @@ Sounds pretty cool, right? Decap can be intergrated into my GitHub repository wi
 
 Another option to consider is GitHub Codespaces, you can launch a web VS Code development environment and start composing on the fly. However, a full-featured IDE for editing may feel rather heavy-weight.
 
+### Asset Management
+
+Nextra uses Next Image to wrap all `<img>` from MDX files, all links and images will be optimized auomatically by Nextra,
+
+```markdown
+[Learn more](/more)
+![Hero](./hero.png)
+```
+
+the above code will automatically be transofrmed into component syntax:
+
+```tsx
+<Link .../>
+<Image .../>
+```
+
+This is much convenient for post asset management, I can handle all images along with the post under a signle directory:
+
+```bash
+.
+├── antfu.me_posts.png
+├── index.mdx                # the post MDX file
+├── mindmap.png
+└── react-vs-vue.png
+```
+
+But there are some issues for the image handling by Nextra, I cannot easily custom an MDX image component as I want since it will break the static-import workflow. Ultimately, Nextra uses a MDX plugin to parse all images into statically imported images wrapped by `next/image`. Also, The relative URL is not handled for the Open Graph Image (og:image). I am still working on unifying this.
+
 ### Comment System
 
 A comment system is not a absolute must-have for my needs. Adding a comment system isn't high in my to-do list as I'm pounding out words here, but I believe providing a way for readers to interact and share their thoughts on posts can be valuable.
