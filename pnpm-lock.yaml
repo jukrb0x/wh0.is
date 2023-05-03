@@ -40,6 +40,9 @@ dependencies:
   sharp:
     specifier: ^0.32.1
     version: 0.32.1
+  slash:
+    specifier: ^5.0.1
+    version: 5.0.1
   styled-components:
     specifier: ^5.3.10
     version: 5.3.10(react-dom@18.2.0)(react@18.2.0)
@@ -4618,6 +4621,11 @@ packages:
     resolution: {integrity: sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==}
     engines: {node: '>=12'}
     dev: true
+
+  /slash@5.0.1:
+    resolution: {integrity: sha512-ywNzUOiXwetmLvTUiCBZpLi+vxqN3i+zDqjs2HHfUSV3wN4UJxVVKWrS1JZDeiJIeBFNgB5pmioC2g0IUTL+rQ==}
+    engines: {node: '>=14.16'}
+    dev: false
 
   /sort-keys@5.0.0:
     resolution: {integrity: sha512-Pdz01AvCAottHTPQGzndktFNdbRA75BgOfeT1hH+AMnJFv8lynkPi42rfeEhpx1saTEI3YNMWxfqu0sFD1G8pw==}
