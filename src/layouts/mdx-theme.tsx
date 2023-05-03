@@ -83,25 +83,24 @@ const Image = ({ src, alt, ...props }: ComponentProps<'img'>): ReactElement => {
     }
     let url = decodeURI(src as string);
 
-    if (EXTERNAL_URL_REGEX.test(url)) {
-        return (
-            <div>
-                <NextImage src={url} alt={alt as string} fill />
-            </div>
-        );
-    }
-
-    if (url.startsWith('/')) {
-        const urlPath = path.join(PUBLIC_DIR, url);
-        // if (!existsSync(urlPath)) {
-        //     return <></>
-        // }
-        url = slash(urlPath);
-    }
+    // if (EXTERNAL_URL_REGEX.test(url)) {
+    //     return (
+    //         <>
+    //             <NextImage src={url} alt={alt as string} fill />
+    //         </>
+    //     );
+    // }
+    //
+    // if (url.startsWith('/')) {
+    //     const urlPath = path.join(PUBLIC_DIR, url);
+    //     // if (!existsSync(urlPath)) {
+    //     //     return <></>
+    //     // }
+    //     url = slash(urlPath);
+    // }
     return (
-        <div>
-            <NextImage src={url} alt={alt as string} fill />
-        </div>
+        // HEIGHT AND WIDTH WILL NOT BE AUTOMATICALLY SET SINCE NEXT IMAGE SEE IT AS A REMOTE URL
+        <NextImage src={url} alt={alt as string} width={100} height={100} />
     );
 };
 

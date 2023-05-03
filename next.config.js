@@ -46,7 +46,7 @@ const withNextra = require('nextra')({
     theme: './src/layouts',
     themeConfig: './theme.config.jsx',
     latex: true,
-    staticImage: true,
+    staticImage: false,
     defaultShowCopyCode: true,
     readingTime: true
 });
