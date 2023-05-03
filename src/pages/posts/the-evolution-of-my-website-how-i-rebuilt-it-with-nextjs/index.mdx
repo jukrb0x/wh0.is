@@ -176,7 +176,7 @@ Another option to consider is GitHub Codespaces, you can launch a web VS Code de
 
 ### Asset Management
 
-Nextra uses Next Image to wrap all `<img>` from MDX files, all links and images will be optimized auomatically by Nextra,
+Nextra uses Next Image to wrap each `<img>` from MDX files, all links and images will be optimized auomatically by Nextra,
 
 ```markdown
 [Learn more](/more)
@@ -190,7 +190,7 @@ the above code will automatically be transofrmed into component syntax:
 <Image .../>
 ```
 
-This is much convenient for post asset management, I can handle all images along with the post under a signle directory:
+Grouping all images for a post is efficient and orderly. Nextra's [Static Next Image](https://nextra.site/docs/guide/image) lets me consolidate media in one directory along with the post content:
 
 ```bash
 .
@@ -200,7 +200,7 @@ This is much convenient for post asset management, I can handle all images along
 └── react-vs-vue.png
 ```
 
-But there are some issues for the image handling by Nextra, I cannot easily custom an MDX image component as I want since it will break the static-import workflow. Ultimately, Nextra uses a MDX plugin to parse all images into statically imported images wrapped by `next/image`. Also, The relative URL is not handled for the Open Graph Image (og:image). I am still working on unifying this.
+But there are some issues for the image handling by Nextra, I cannot easily customize an MDX image component as I want, since it will disrupt the static-import workflow. Ultimately, Nextra uses a MDX plugin to parse all images into statically imported images enveloped by `next/image`. Adiditionally, The relative URLs are not handled for the Open Graph Image (og:image) in meta. I'm still working to reconcile these issues.
 
 ### Comment System
 
@@ -219,4 +219,4 @@ Nextra didn't come with a multifaceted blogging framework, so I built (or buildi
 -   [x] Pagniation of Posts Page
 -   [ ] Image Gallery & Lightbox
 
-I will come later for this section, Stay tuned.
+I will come later for this section. Stay tuned.

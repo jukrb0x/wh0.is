@@ -36,6 +36,7 @@ export type BlogFrontMatter = {
     lang?: 'en' | 'zh';
     draft?: boolean;
     order?: number; // navbar sorting
+    image?: string; // og:image
 };
 
 export interface LayoutProps {
