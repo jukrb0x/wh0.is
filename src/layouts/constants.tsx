@@ -1,3 +1,5 @@
+import path from 'path';
+
 import type { NextraBlogTheme } from './types';
 
 export const DEFAULT_THEME: NextraBlogTheme = {
@@ -6,3 +8,9 @@ export const DEFAULT_THEME: NextraBlogTheme = {
     ),
     readMore: 'Read More →'
 };
+
+export const CWD = process.cwd();
+
+export const PUBLIC_DIR = path.join(CWD, 'public');
+
+export const EXTERNAL_URL_REGEX = /^https?:\/\//;
