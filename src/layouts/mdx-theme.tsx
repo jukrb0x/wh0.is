@@ -1,9 +1,15 @@
+import { existsSync } from 'fs';
+import NextImage from 'next/image';
 import Link from 'next/link';
 import { MDXProvider } from 'nextra/mdx';
 import type { Components } from 'nextra/mdx';
+import path from 'path';
 import type { ComponentProps, ReactElement, ReactNode, RefObject } from 'react';
 import { createContext, createRef, useContext, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+import slash from 'slash';
+
+import { EXTERNAL_URL_REGEX, PUBLIC_DIR } from '@/layouts/constants';
 
 import { useBlogContext } from './blog-context';
 import { Code, Pre, Table, Td, Th, Tr } from './components';
@@ -71,6 +77,36 @@ const A = ({ children, ...props }: ComponentProps<'a'>) => {
     ) : null;
 };
 
+const Image = ({ src, alt, ...props }: ComponentProps<'img'>): ReactElement => {
+    // FIXME: NOT WORK FOR NOW since nextra uses mdx plugin to parse images
+
+    if (src === undefined) {
+        return <></>;
+    }
+    let url = decodeURI(src as string);
+
+    if (EXTERNAL_URL_REGEX.test(url)) {
+        return (
+            <div>
+                <NextImage src={url} alt={alt as string} fill />
+            </div>
+        );
+    }
+
+    if (url.startsWith('/')) {
+        const urlPath = path.join(PUBLIC_DIR, url);
+        // if (!existsSync(urlPath)) {
+        //     return <></>
+        // }
+        url = slash(urlPath);
+    }
+    return (
+        <div>
+            <NextImage src={url} alt={alt as string} fill />
+        </div>
+    );
+};
+
 // TODO: rewrite all these components
 const useComponents = (): Components => {
     const { config } = useBlogContext();
@@ -94,6 +130,8 @@ const useComponents = (): Components => {
         // FIXME
         table: (props) => <Table className="removed-not-prose" {...props} />,
         code: Code,
+        // todo: img lightbox
+        img: Image,
         ...config.components
     };
 };
