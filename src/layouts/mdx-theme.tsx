@@ -78,6 +78,8 @@ const A = ({ children, ...props }: ComponentProps<'a'>) => {
 };
 
 const Image = ({ src, alt, ...props }: ComponentProps<'img'>): ReactElement => {
+    // FIXME: NOT WORK FOR NOW since nextra uses mdx plugin to parse images
+
     if (src === undefined) {
         return <></>;
     }
