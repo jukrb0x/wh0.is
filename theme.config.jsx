@@ -22,6 +22,7 @@ export default {
             {meta.description && <meta name="description" content={meta.description} />}
             {meta.tag && <meta name="keywords" content={meta.tag} />}
             {meta.author && <meta name="author" content={meta.author} />}
+            {meta.image && <meta name="og:image" content={meta.image} />}
         </>
     ),
     readMore: /*'Read More →'*/ false,
