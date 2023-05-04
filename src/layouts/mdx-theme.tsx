@@ -77,33 +77,24 @@ const A = ({ children, ...props }: ComponentProps<'a'>) => {
     ) : null;
 };
 
-const Image = ({ src, alt, ...props }: ComponentProps<'img'>): ReactElement => {
-    // FIXME: NOT WORK FOR NOW since nextra uses mdx plugin to parse images
-
-    if (src === undefined) {
-        return <></>;
-    }
-    let url = decodeURI(src as string);
-
-    if (EXTERNAL_URL_REGEX.test(url)) {
-        return (
-            <div>
-                <NextImage src={url} alt={alt as string} fill />
-            </div>
-        );
-    }
-
-    if (url.startsWith('/')) {
-        const urlPath = path.join(PUBLIC_DIR, url);
-        // if (!existsSync(urlPath)) {
-        //     return <></>
-        // }
-        url = slash(urlPath);
-    }
+/**
+ * This custom MDX component takes a feature patch for nextra `staticImage` to support next/image.
+ * The function receives the same props as the `next/image` component.
+ *
+ * @see https://github.com/shuding/nextra/issues/1821
+ * @see https://nextjs.org/docs/api-reference/next/image
+ */
+const Image = ({
+    src,
+    alt,
+    height,
+    width,
+    ...props
+}: ComponentProps<typeof NextImage>): ReactElement => {
     return (
-        <div>
-            <NextImage src={url} alt={alt as string} fill />
-        </div>
+        <>
+            <NextImage src={src} alt={alt as string} height={height} width={width} />
+        </>
     );
 };
 
