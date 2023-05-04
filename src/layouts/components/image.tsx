@@ -100,6 +100,7 @@ export const Image = ({
                     console.log('click');
                     setOpen(true);
                 }}
+                {...props}
             />
             <span className={'sr-only'}>Image</span>
             <span className="text-center text-gray-5 text-sm pt-2 block">{alt}</span>
