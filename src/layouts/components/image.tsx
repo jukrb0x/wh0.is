@@ -3,16 +3,23 @@ import { ComponentProps, ReactElement, useState } from 'react';
 import { ContainerRect, Lightbox, Slide } from 'yet-another-react-lightbox';
 import { isImageFitCover, isImageSlide, useLightboxProps } from 'yet-another-react-lightbox/core';
 
+// TODO: Zoom Plugin for Next Image
+// @see  https://yet-another-react-lightbox.com/examples/nextjs
+function nextImageUrl(src: string, size: number) {
+    return `/_next/image?url=${encodeURIComponent(src)}&w=${size}&q=75`;
+}
+
 const LightBoxNextImageRenderer = ({ slide, rect }: { slide: Slide; rect: ContainerRect }) => {
     const { imageFit } = useLightboxProps().carousel;
     const cover = isImageSlide(slide) && isImageFitCover(slide, imageFit);
 
+    const scale = 0.95 || Math.min(rect.width / slide.width!, rect.height / slide.height!);
     const width = !cover
-        ? Math.round(Math.min(rect.width, (rect.height / slide.height!) * slide.width!))
+        ? Math.round(Math.min(rect.width, (rect.height / slide.height!) * slide.width!)) * scale
         : rect.width;
 
     const height = !cover
-        ? Math.round(Math.min(rect.height, (rect.width / slide.width!) * slide.height!))
+        ? Math.round(Math.min(rect.height, (rect.width / slide.width!) * slide.height!)) * scale
         : rect.height;
 
     return (
