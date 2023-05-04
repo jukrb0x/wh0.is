@@ -1,5 +1,3 @@
-## TODO
-
 Problems I met during the development:
 
 1. neovim tresitter support for mdx is not ok
@@ -7,6 +5,44 @@ Problems I met during the development:
 3. ~~the latest `@unocss/postcss` plugin can cause stucking at dev compiling~~
 
 ### Roadmap
+
+#### Alpha
+
+-   CI/CD - Vercel
+-   Basic blogging framework based on Nextra
+-   Layouts: post and page
+-   Navbar and footer
+
+#### 0.1.0 Beta
+
+-   Dark mode
+-   Layout: Post list page
+-   Code highlighting
+-   Pagination
+-   Post management: draft or published, tags, categories, etc.
+
+#### 0.1.0
+
+-   Analytics
+-   Friend-link page
+-   MDX Image Component (patching Nextra static image)
+    -   Caption
+    -   Lightbox
+
+#### 0.2.0
+
+-   Table of contents
+-   SEO and social media meta data
+
+#### X
+
+-   Layout: Photo gallery
+-   Layout: The timeline
+-   Search
+-   404 Page
+-   Comment system
+
+### To-do
 
 -   [ ] `high` logo hovering opacity mask
 -   [ ] `high` table of contents
@@ -18,12 +54,15 @@ Problems I met during the development:
 -   [ ] `low` redirect component inside mdx
 -   [ ] `low` search
 -   [ ] `low` table is not fit the container 100%
--   [ ] `low` figure caption
 -   [ ] `low` design the website icon/favicon
 -   [ ] `low` external link icon (mask?) after pseudo element, align center, prevent line break
 -   [ ] `low` profiling and speed optimization
 -   [ ] `maybe` image popup overlay on click
 -   [ ] `maybe` 404 page
+
+### Completed
+
+-   [x] figure caption
 -   [x] incorrect color of code block background in dark mode
 -   [x] heading anchor in mobile view (margin/padding)
 -   [x] draft
@@ -37,4 +76,4 @@ Problems I met during the development:
 
 ### New Feat
 
--   [ ] new layout for _microscope_ page
+-   [ ] new layout for \_timeline page
