@@ -7,3 +7,4 @@ export { Table } from './table';
 export { Th } from './th';
 export { Tr } from './tr';
 export { Back } from './back';
+export { Image } from './image';
