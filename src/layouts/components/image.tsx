@@ -7,14 +7,12 @@ const LightBoxNextImageRenderer = ({ slide, rect }: { slide: Slide; rect: Contai
     const { imageFit } = useLightboxProps().carousel;
     const cover = isImageSlide(slide) && isImageFitCover(slide, imageFit);
 
-    const imgSrc: StaticImageData = slide.src as never;
-
     const width = !cover
-        ? Math.round(Math.min(rect.width, (rect.height / imgSrc.height) * imgSrc.width!))
+        ? Math.round(Math.min(rect.width, (rect.height / slide.height!) * slide.width!))
         : rect.width;
 
     const height = !cover
-        ? Math.round(Math.min(rect.height, (rect.width / imgSrc.width) * imgSrc.height))
+        ? Math.round(Math.min(rect.height, (rect.width / slide.width!) * slide.height!))
         : rect.height;
 
     return (
@@ -22,9 +20,9 @@ const LightBoxNextImageRenderer = ({ slide, rect }: { slide: Slide; rect: Contai
             <NextImage
                 fill
                 alt={''}
-                src={slide.src}
-                // height={ imgSrc.height }
-                // width={ imgSrc.width }
+                src={slide as StaticImageData}
+                // height={ slide.height }
+                // width={ slide.width }
                 loading="eager"
                 placeholder="blur"
                 draggable={false}
@@ -41,7 +39,7 @@ const ImageLightBox = ({
     onOpen,
     onClose
 }: {
-    src: string;
+    src: StaticImageData;
     open: boolean;
     onOpen: () => void;
     onClose: () => void;
@@ -52,7 +50,7 @@ const ImageLightBox = ({
         <>
             <Lightbox
                 open={open}
-                slides={[{ src: src }]}
+                slides={[src]}
                 render={{ slide: LightBoxNextImageRenderer, buttonPrev: hide, buttonNext: hide }}
                 carousel={{ imageFit: 'contain', finite: true }}
                 close={() => {
@@ -81,7 +79,7 @@ export const Image = ({
     return (
         <>
             <ImageLightBox
-                src={src as string}
+                src={src as StaticImageData}
                 open={open}
                 onOpen={() => {}}
                 onClose={() => setOpen(false)}
