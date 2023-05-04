@@ -20,7 +20,8 @@ html.dark {
 }
 
 html {
-    overflow: scroll;
+    // no need, this causes a unwanted padding.
+    //overflow: scroll;
 }
 
 #nprogress {
