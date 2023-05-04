@@ -124,7 +124,7 @@ const useComponents = (): Components => {
         table: (props) => <Table className="removed-not-prose" {...props} />,
         code: Code,
         // todo: img lightbox
-        img: Image,
+        img: Image as never,
         ...config.components
     };
 };
