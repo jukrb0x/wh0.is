@@ -27,8 +27,8 @@
         "react-cusdis": "^2.1.3",
         "react-dom": "18.2.0",
         "sharp": "^0.32.1",
-        "slash": "^5.0.1",
-        "styled-components": "^5.3.10"
+        "styled-components": "^5.3.10",
+        "yet-another-react-lightbox": "^3.5.3"
     },
     "devDependencies": {
         "@iconify/json": "^2.2.58",
