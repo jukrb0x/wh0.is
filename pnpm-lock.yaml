@@ -35,7 +35,6 @@ specifiers:
   rimraf: ^5.0.0
   sass: ^1.62.1
   sharp: ^0.32.1
-  slash: ^5.0.1
   styled-components: ^5.3.10
   typescript: 5.0.4
   unocss: ^0.51.8
@@ -55,7 +54,6 @@ dependencies:
   react-cusdis: 2.1.3_biqbaboplfbrettd7655fr4n2y
   react-dom: 18.2.0_react@18.2.0
   sharp: 0.32.1
-  slash: 5.0.1
   styled-components: 5.3.10_biqbaboplfbrettd7655fr4n2y
   yet-another-react-lightbox: 3.5.3_biqbaboplfbrettd7655fr4n2y
 
@@ -4711,11 +4709,6 @@ packages:
     resolution: {integrity: sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==}
     engines: {node: '>=12'}
     dev: true
-
-  /slash/5.0.1:
-    resolution: {integrity: sha512-ywNzUOiXwetmLvTUiCBZpLi+vxqN3i+zDqjs2HHfUSV3wN4UJxVVKWrS1JZDeiJIeBFNgB5pmioC2g0IUTL+rQ==}
-    engines: {node: '>=14.16'}
-    dev: false
 
   /sort-keys/5.0.0:
     resolution: {integrity: sha512-Pdz01AvCAottHTPQGzndktFNdbRA75BgOfeT1hH+AMnJFv8lynkPi42rfeEhpx1saTEI3YNMWxfqu0sFD1G8pw==}
