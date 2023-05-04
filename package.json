@@ -49,5 +49,10 @@
         "sass": "^1.62.1",
         "typescript": "5.0.4",
         "unocss": "^0.51.8"
+    },
+    "pnpm": {
+        "patchedDependencies": {
+            "nextra@2.4.2": "patches/nextra@2.4.2.patch"
+        }
     }
 }
