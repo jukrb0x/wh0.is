@@ -94,6 +94,8 @@ const Image = ({
     return (
         <>
             <NextImage src={src} alt={alt as string} height={height} width={width} />
+            <div className={'sr-only'}>Image</div>
+            <div className="text-center text-gray-5 text-sm pt-2">{alt}</div>
         </>
     );
 };
