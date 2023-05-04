@@ -39,6 +39,7 @@ specifiers:
   styled-components: ^5.3.10
   typescript: 5.0.4
   unocss: ^0.51.8
+  yet-another-react-lightbox: ^3.5.3
 
 dependencies:
   '@geist-ui/core': 2.3.8_biqbaboplfbrettd7655fr4n2y
@@ -56,6 +57,7 @@ dependencies:
   sharp: 0.32.1
   slash: 5.0.1
   styled-components: 5.3.10_biqbaboplfbrettd7655fr4n2y
+  yet-another-react-lightbox: 3.5.3_biqbaboplfbrettd7655fr4n2y
 
 devDependencies:
   '@iconify/json': 2.2.60
@@ -5401,6 +5403,17 @@ packages:
 
   /yallist/4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
+
+  /yet-another-react-lightbox/3.5.3_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-MKJkBPtHLFKmZIUsLTUARfzyGpr9iqSM37eHzLY7o8eEPwZ/Hx4hEkAH46SE0GV394mkUPFS3F5Jg5A+2SHs4Q==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /yocto-queue/0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
