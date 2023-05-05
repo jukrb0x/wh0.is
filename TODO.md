@@ -41,6 +41,8 @@ Problems I met during the development:
 -   Search
 -   404 Page
 -   Comment system
+-   Online Editing
+-   MDX-biased images carousal lightbox
 
 ### To-do
 
