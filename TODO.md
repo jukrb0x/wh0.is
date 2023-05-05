@@ -43,6 +43,7 @@ Problems I met during the development:
 -   Comment system
 -   Online Editing
 -   MDX-biased images carousal lightbox
+-   Command to create new post from templates
 
 ### To-do
 
