@@ -11,7 +11,7 @@ function nextImageUrl(src: string, size: number) {
     return `/_next/image?url=${encodeURIComponent(src)}&w=${size}&q=75`;
 }
 
-const LightBoxNextImageRenderer = ({ slide, rect }: { slide: Slide; rect: ContainerRect }) => {
+const NextImageSlideRenderer = ({ slide, rect }: { slide: Slide; rect: ContainerRect }) => {
     const { imageFit } = useLightboxProps().carousel;
     const cover = isImageSlide(slide) && isImageFitCover(slide, imageFit);
 
@@ -30,7 +30,7 @@ const LightBoxNextImageRenderer = ({ slide, rect }: { slide: Slide; rect: Contai
                 fill
                 alt={slide.alt ?? ''}
                 src={slide as StaticImageData}
-                loading="eager"
+                loading="eager" // immediate loading the image when lightbox is opened
                 placeholder="blur"
                 draggable={false}
                 style={{ objectFit: cover ? 'cover' : 'contain' }}
@@ -58,11 +58,12 @@ const ImageLightBox = ({
             <Lightbox
                 open={open}
                 slides={[src]}
-                render={{ slide: LightBoxNextImageRenderer, buttonPrev: hide, buttonNext: hide }}
+                render={{ slide: NextImageSlideRenderer, buttonPrev: hide, buttonNext: hide }}
                 carousel={{ imageFit: 'contain', finite: true }}
                 close={() => {
                     onClose();
                 }}
+                controller={{ closeOnBackdropClick: true }}
             />
         </>
     );
