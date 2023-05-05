@@ -1,18 +1,13 @@
-import { existsSync } from 'fs';
 import NextImage from 'next/image';
 import Link from 'next/link';
 import { MDXProvider } from 'nextra/mdx';
 import type { Components } from 'nextra/mdx';
-import path from 'path';
 import type { ComponentProps, ReactElement, ReactNode, RefObject } from 'react';
 import { createContext, createRef, useContext, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import slash from 'slash';
-
-import { EXTERNAL_URL_REGEX, PUBLIC_DIR } from '@/layouts/constants';
 
 import { useBlogContext } from './blog-context';
-import { Code, Pre, Table, Td, Th, Tr } from './components';
+import { Code, Image, Pre, Table, Td, Th, Tr } from './components';
 
 export const HeadingContext = createContext<RefObject<HTMLHeadingElement | null>>(createRef());
 
@@ -75,29 +70,6 @@ const A = ({ children, ...props }: ComponentProps<'a'>) => {
             <a {...props}>{children}</a>
         </Link>
     ) : null;
-};
-
-/**
- * This custom MDX component takes a feature patch for nextra `staticImage` to support next/image.
- * The function receives the same props as the `next/image` component.
- *
- * @see https://github.com/shuding/nextra/issues/1821
- * @see https://nextjs.org/docs/api-reference/next/image
- */
-const Image = ({
-    src,
-    alt,
-    height,
-    width,
-    ...props
-}: ComponentProps<typeof NextImage>): ReactElement => {
-    return (
-        <>
-            <NextImage src={src} alt={alt as string} height={height} width={width} />
-            <span className={'sr-only'}>Image</span>
-            <span className="text-center text-gray-5 text-sm pt-2 block">{alt}</span>
-        </>
-    );
 };
 
 // TODO: rewrite all these components
