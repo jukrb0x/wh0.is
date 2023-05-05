@@ -3,6 +3,8 @@ import { ComponentProps, ReactElement, useState } from 'react';
 import { ContainerRect, Lightbox, Slide } from 'yet-another-react-lightbox';
 import { isImageFitCover, isImageSlide, useLightboxProps } from 'yet-another-react-lightbox/core';
 
+const enableLightbox = true;
+
 // TODO: Zoom Plugin for Next Image
 // @see  https://yet-another-react-lightbox.com/examples/nextjs
 function nextImageUrl(src: string, size: number) {
@@ -26,10 +28,8 @@ const LightBoxNextImageRenderer = ({ slide, rect }: { slide: Slide; rect: Contai
         <div style={{ position: 'relative', width, height }}>
             <NextImage
                 fill
-                alt={''}
+                alt={slide.alt ?? ''}
                 src={slide as StaticImageData}
-                // height={ slide.height }
-                // width={ slide.width }
                 loading="eager"
                 placeholder="blur"
                 draggable={false}
@@ -85,19 +85,22 @@ export const Image = ({
     const [open, setOpen] = useState(false);
     return (
         <>
-            <ImageLightBox
-                src={src as StaticImageData}
-                open={open}
-                onOpen={() => {}}
-                onClose={() => setOpen(false)}
-            />
+            {enableLightbox && (
+                <ImageLightBox
+                    src={src as StaticImageData}
+                    open={open}
+                    onOpen={() => {}}
+                    onClose={() => setOpen(false)}
+                />
+            )}
             <NextImage
+                className={enableLightbox ? 'cursor-pointer' : ''}
                 src={src}
                 alt={alt as string}
                 height={height}
                 width={width}
                 onClick={() => {
-                    console.log('click');
+                    if (!enableLightbox) return;
                     setOpen(true);
                 }}
                 {...props}
