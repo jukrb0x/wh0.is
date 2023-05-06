@@ -44,6 +44,7 @@ Problems I met during the development:
 -   Online Editing
 -   MDX-biased images carousal lightbox
 -   Command to create new post from templates
+-   Optimization: Ignore draft when building
 
 ### To-do
 
@@ -52,6 +53,7 @@ Problems I met during the development:
 -   [ ] `medium` link with icons, friends, migrating contents
 -   [ ] `medium` meta data for SEO, Security, og, etc
 -   [ ] `medium` CI: words spelling check, ethical check, etc.
+-   [ ] `medium` ignore draft when building
 -   [ ] `low` highlighting inline code in dark mode is buggy, word highlighting is not clear
 -   [ ] `low` first load the website is day mode, then switch to dark mode after 1s, set a gentle background for eyes
 -   [ ] `low` redirect component inside mdx
@@ -60,6 +62,7 @@ Problems I met during the development:
 -   [ ] `low` design the website icon/favicon
 -   [ ] `low` external link icon (mask?) after pseudo element, align center, prevent line break
 -   [ ] `low` profiling and speed optimization
+-   [ ] `low` post creation templates with command line
 -   [ ] `maybe` image popup overlay on click
 -   [ ] `maybe` 404 page
 
