@@ -199,7 +199,7 @@ Grouping all images for a post is efficient and orderly. Nextra's [Static Next I
 └── react-vs-vue.png
 ```
 
-Nextra uses a MDX plugin to parse all images into statically imported images enveloped by `next/image`. But there are some issues for the image handling by Nextra, it's not easy to customize an MDX image component, since it will disrupt the static-import workflow. Fortunately, I can patch the package to work around this issue (see [this commit](https://github.com/jukrb0x/wh0.is/commit/fdeb9fe55c22e0fe774768f4bdfff61136156dc6) for now. Additionally, The relative URLs are not handled for the Open Graph Image (og:image) in meta. I'm still working to reconcile these issues.
+Nextra uses a MDX plugin to parse all images into statically imported images enveloped by `next/image`. But there are some issues for the image handling by Nextra, it's not easy to customize an MDX image component, since it will disrupt the static-import workflow. Fortunately, I can patch the package to work around this issue (see [this commit](https://github.com/jukrb0x/wh0.is/commit/fdeb9fe55c22e0fe774768f4bdfff61136156dc6)) for now. Additionally, The relative URLs are not handled for the Open Graph Image (og:image) in meta. I'm still working to reconcile these issues.
 
 ### Comment System
 
