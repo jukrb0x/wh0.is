@@ -30,7 +30,7 @@ const config: NextraBlogThemeConfig = {
             </>
         );
     },
-    readMore: /*'Read More →'*/ '',
+    readMore: '',
     postFooter: undefined,
     darkMode: false,
     navs: [

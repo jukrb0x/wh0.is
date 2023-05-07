@@ -3,6 +3,7 @@ import { MdxFile, PageMapItem } from 'nextra';
 interface Page extends MdxFile {
     children?: Page[];
 }
+
 export const flattenPageMap = (page: Page, result: PageMapItem[] = []) => {
     if (Array.isArray(page.children!)) {
         page.children.forEach((p) => flattenPageMap(p, result));

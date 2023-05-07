@@ -7,7 +7,7 @@ import { HomeLayout } from '@/layouts/home-layout';
 
 import { ArticleLayout } from './article-layout';
 import { BlogProvider } from './blog-context';
-import { DEFAULT_THEME } from './constants';
+import { DEFAULT_THEME_CONFIG } from './constants';
 import { PageLayout } from './page-layout';
 import { PostsLayout } from './posts-layout';
 import type { LayoutProps } from './types';
@@ -45,7 +45,7 @@ const BlogLayout = ({
 };
 
 export default function Layout({ children, ...context }: NextraThemeLayoutProps) {
-    const extendedConfig = { ...DEFAULT_THEME, ...context.themeConfig };
+    const extendedConfig = { ...DEFAULT_THEME_CONFIG, ...context.themeConfig };
 
     return (
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
