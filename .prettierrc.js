@@ -1,5 +1,5 @@
 module.exports = {
-    filepath: '**/*.{js,jsx,ts,tsx,css,scss,html,json,md,mdx,yml,yaml}',
+    filepath: '{**/*,*}.{js,jsx,ts,tsx,css,scss,html,json,md,mdx,yml,yaml}',
     pluginSearchDirs: ['.'],
     trailingComma: 'none',
     semi: true,
@@ -11,5 +11,6 @@ module.exports = {
     plugins: ['@trivago/prettier-plugin-sort-imports'],
     importOrder: ['<THIRD_PARTY_MODULES>', '^@/', '^[./]'],
     importOrderSeparation: true,
-    importOrderSortSpecifiers: true
+    importOrderSortSpecifiers: true,
+    bracketSpacing: true
 };

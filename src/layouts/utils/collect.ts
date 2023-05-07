@@ -2,7 +2,7 @@ import type { MdxFile, PageMapItem } from 'nextra';
 
 import type { LayoutProps } from '../types';
 import { sortDate } from './date';
-import { previewDraft } from './env';
+import { ShouldPreviewDraft } from './env';
 import traverse from './traverse';
 
 const isNav = (page: PageMapItem): page is MdxFile => {
@@ -27,7 +27,7 @@ export const collectPostsAndNavs = ({ opts }: LayoutProps, includeDraft = false)
     const { route } = opts;
     traverse(opts.pageMap, (page) => {
         // include draft posts if previewDraft is true
-        if (previewDraft) includeDraft = true;
+        if (ShouldPreviewDraft()) includeDraft = true;
         // include non-draft posts
         const isInclusive = includeDraft || !(page as MdxFile).frontMatter?.draft;
 

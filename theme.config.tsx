@@ -19,6 +19,7 @@ const Footer = () => (
 );
 
 const config: NextraBlogThemeConfig = {
+    siteName: 'Jabriel | wh0.is',
     footer: <Footer />,
     head: ({ title, meta }) => {
         return (
@@ -29,7 +30,7 @@ const config: NextraBlogThemeConfig = {
             </>
         );
     },
-    readMore: /*'Read More →'*/ '',
+    readMore: '',
     postFooter: undefined,
     darkMode: false,
     navs: [

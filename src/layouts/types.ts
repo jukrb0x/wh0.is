@@ -3,6 +3,7 @@ import type { Components } from 'nextra/mdx';
 import type { ReactNode } from 'react';
 
 export interface NextraBlogThemeConfig {
+    siteName?: string;
     comments?: ReactNode;
     components?: Components;
     cusdis?: {
