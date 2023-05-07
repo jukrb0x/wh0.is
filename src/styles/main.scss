@@ -20,7 +20,7 @@ html.dark {
 }
 
 html {
-    // no need, this causes a unwanted padding.
+    // no need, this causes a unwanted padding (layout shift).
     //overflow: scroll;
 }
 

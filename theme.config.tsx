@@ -1,3 +1,5 @@
+import { NextraBlogThemeConfig } from '@/layouts/types';
+
 const year = new Date().getFullYear();
 
 const Footer = () => (
@@ -15,7 +17,8 @@ const Footer = () => (
         <span className={'text-sm'}>2017 - {year} © Jabriel</span>
     </div>
 );
-export default {
+
+const config: NextraBlogThemeConfig = {
     footer: <Footer />,
     head: ({ title, meta }) => {
         return (
@@ -26,8 +29,8 @@ export default {
             </>
         );
     },
-    readMore: /*'Read More →'*/ false,
-    postFooter: null,
+    readMore: /*'Read More →'*/ '',
+    postFooter: undefined,
     darkMode: false,
     navs: [
         // {
@@ -35,5 +38,8 @@ export default {
         //     name: 'Friends'
         // }
     ],
-    showDescription: false
+    showDescription: false,
+    previewDraft: true
 };
+
+export default config;

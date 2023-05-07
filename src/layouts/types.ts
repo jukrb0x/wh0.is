@@ -2,7 +2,7 @@ import type { PageOpts } from 'nextra';
 import type { Components } from 'nextra/mdx';
 import type { ReactNode } from 'react';
 
-export interface NextraBlogTheme {
+export interface NextraBlogThemeConfig {
     comments?: ReactNode;
     components?: Components;
     cusdis?: {
@@ -21,6 +21,7 @@ export interface NextraBlogTheme {
     readMore?: string;
     titleSuffix?: string;
     showDescription?: boolean;
+    previewDraft?: boolean;
 }
 
 export type BlogPageOpts = PageOpts<BlogFrontMatter>;
@@ -40,6 +41,6 @@ export type BlogFrontMatter = {
 };
 
 export interface LayoutProps {
-    config: NextraBlogTheme;
+    config: NextraBlogThemeConfig;
     opts: BlogPageOpts;
 }
