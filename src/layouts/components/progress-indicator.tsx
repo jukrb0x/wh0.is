@@ -2,14 +2,6 @@ import { Router } from 'next/router';
 import NP from 'nprogress';
 import { ReactElement, useEffect, useState } from 'react';
 
-// client-side only
-function isValidColor(strColor: string) {
-    if (!strColor) return false;
-    const s = new Option().style;
-    s.color = strColor;
-    return s.color == strColor;
-}
-
 export interface NProgressProps {
     delayMs?: number;
     showSpinner?: boolean;
@@ -18,7 +10,6 @@ export interface NProgressProps {
 
 /**
  * NProgress component
- * should only be used in client-side code
  */
 export default function NProgress({
     delayMs = 0,
@@ -49,7 +40,7 @@ export default function NProgress({
         };
     }, []);
 
-    const colorStyle = isValidColor(color!) ? color : '#29d';
+    const colorStyle = color ? color : '#29d';
     return (
         <>
             <style jsx global>
