@@ -9,6 +9,7 @@ import { getParent } from '@/layouts/utils/parent';
 import { useBlogContext } from './blog-context';
 import { HeadingContext } from './mdx-theme';
 import NavBar from './nav-bar';
+import { isDev, previewDraft } from './utils/env';
 
 /**
  * Basic Layout for other layouts
@@ -22,7 +23,7 @@ export const BasicLayout = ({ children }: { children: ReactNode }) => {
 
     const isDraft = opts.frontMatter.draft === true;
 
-    if (isDraft) {
+    if (isDraft && !previewDraft) {
         return <ErrorPage statusCode={404} />;
     }
 
