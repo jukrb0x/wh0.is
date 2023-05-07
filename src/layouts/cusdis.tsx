@@ -22,17 +22,22 @@ const Comments = () => {
         return null;
     }
     return (
-        <Cusdis
-            lang={cusdis.lang}
-            style={{ marginTop: '4rem' }}
-            attrs={{
-                host: cusdis.host || 'https://cusdis.com',
-                appId: cusdis.appId,
-                pageId: router.pathname,
-                pageTitle: opts.title,
-                theme: resolvedTheme === 'dark' ? 'dark' : 'light'
-            }}
-        />
+        <>
+            <div className="flex justify-center">
+                <div className="w-12 border-t border-gray-200"></div>
+            </div>
+            <Cusdis
+                lang={cusdis.lang}
+                style={{ marginTop: '4rem' }}
+                attrs={{
+                    host: cusdis.host || 'https://cusdis.com',
+                    appId: cusdis.appId,
+                    pageId: router.pathname,
+                    pageTitle: opts.title,
+                    theme: resolvedTheme === 'dark' ? 'dark' : 'light'
+                }}
+            />
+        </>
     );
 };
 

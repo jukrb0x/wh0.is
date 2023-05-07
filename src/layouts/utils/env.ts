@@ -1,5 +1,13 @@
-import config from '#ROOT/theme.config';
+import { useBlogContext } from '@/layouts/blog-context';
 
 export const isDev = process.env.NODE_ENV === 'development';
 
-export const previewDraft = isDev && config.previewDraft;
+/**
+ * Return true if previewDraft is true in theme.config
+ * this should work only in development mode, always return false otherwise
+ */
+export const ShouldPreviewDraft = () => {
+    const { config } = useBlogContext();
+    const temp = config.previewDraft || false;
+    return isDev && temp;
+};
