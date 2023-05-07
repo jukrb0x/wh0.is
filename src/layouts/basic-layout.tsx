@@ -9,7 +9,7 @@ import { getParent } from '@/layouts/utils/parent';
 import { useBlogContext } from './blog-context';
 import { HeadingContext } from './mdx-theme';
 import NavBar from './nav-bar';
-import { ShouldPreviewDraft, isDev } from './utils/env';
+import { ShouldPreviewDraft } from './utils/env';
 
 /**
  * Basic Layout for other layouts
