@@ -38,7 +38,7 @@ export const BasicLayout = ({ children }: { children: ReactNode }) => {
                         // TODO: static import support
                         <meta property="og:image" content={opts.frontMatter.image} />
                     )}
-                    <meta name="og:site_name" content={'Jabriel | wh0.is'} />
+                    {config.siteName && <meta name="og:site_name" content={config.siteName} />}
                 </Head>
                 <HeadingContext.Provider value={ref}>
                     <article>
