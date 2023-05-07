@@ -8,7 +8,7 @@ author: Jabriel
 draft: true
 ---
 
-I have been blogging since 2017 when I was young. Over the years, I have used many blogging systems, some dynamic ones mostly written in PHP, such as WordPress and Typecho, and some static ones like Hexo and Hugo. The two approaches have their own pros and cons. Ultimately, I transitioned from dynamic blogging platforms to a fully static website.
+I have been blogging since 2017 when I was young. Over the years, I have used many blogging systems, some dynamic ones mostly written in PHP, such as WordPress and Typecho, and some static ones like Hexo and Hugo. The two approaches have their own pros and cons. Ultimately, I transitioned from dynamic blogging platforms to a _static_ website (well, it's not static build, we require server-side rendering).
 
 I love exploring new things, and recently I have been delving into React, and [Next.js](https://nextjs.org/), a React framework dedicated to web development. I think it's the time to build a brand-new website based on it.
 
@@ -20,7 +20,13 @@ Lately, it dawned on me that none of these technical optimizations mattered if I
 
 So I made the decision to start from scratch. Build a new blog, with a renewed vision - a place to discover and nurture my own voice. The technology powering it almost seems secondary now, but I still wanted to build something that was fast, accessible, and easy to maintain. This new blog represents a fresh start on a journey to rediscover myself. The blog I always meant to have, beyond any flash or fanfare, with writing at its heart.
 
+But let's talk about the tech first anyway.
+
 ## Dynamic vs. Static
+
+<p className="sr-only"></p>
+
+The new website is not a static-build website, it's a server-side rendered _static_ website, that means we still need a node server responding to the requests, but we will have static optimizations that makes the experience fast and smooth.
 
 I'm loving life with a static website now after switching from those dynamic ones like WordPress. Sure, those had their perks:
 
@@ -35,16 +41,17 @@ However, dynamic websites also came with some significant downsides:
 -   Potential security vulnerabilities required constant updates to fix
 -   Backups and disaster recovery were complicated by the database-driven structure
 
-After digging in some static site generators (SSG), I found that they are much more suitable for my needs:
+After digging in some static site generators (SSG) such as Hugo, Astro, VuePress, I found that they are much more suitable for my needs:
 
--   Free to host on GitHub Pages, Vercel, Netlify, or any other static hosting service
+-   Free to host on GitHub Pages (only for static build), Vercel, Netlify, or any other static hosting service
 -   No database means increased security and no backend to maintain
 -   Full autonomy over my site and content, I do what I want
 -   Easy to backup and restore using Git
+-   Some of them supports SSR (Server-side Rendering)
 
 ## What I deprecated and Why
 
-Hexo and Hugo are both excellent static site generators. Hexo suits blogs well, while Hugo is more versatile and faster than Hexo (Hugo allegedly the world's fastest SSG). Initially, I was content with Hugo. However, I found it difficult to customize themes and work within the constraints of its templates, I don't feel the full control of the website. I also became enamored with the idea of Frontend Engineering, and wanted to build a website with React.
+Hexo and Hugo are both excellent static site generators. They export static builds of pages. Hexo suits blogs well, while Hugo is more versatile and faster than Hexo (Hugo allegedly the world's fastest SSG). Initially, I was content with Hugo. However, I found it difficult to customize themes and work within the constraints of its templates, I don't feel the full control of the website. I also became enamored with the idea of Frontend Engineering, and wanted to build a website with React.
 
 ### Why React and Next.js?
 
@@ -52,7 +59,8 @@ Hexo and Hugo are both excellent static site generators. Hexo suits blogs well, 
 
 Ok, to be honest, I love Vue.js as well as React, Vue.js feels more intuitive and easier to learn, **Vue 3 is fantastic**. However, React is more widely used and has a larger community, and I'm keen to dive deeper into React (🤩 go to see their [latest doc here](https://react.dev/)). I also looked at VuePress, Gatsby, Astro, and Svelte, but Next.js is the most mature with the best documentation, whether you're just getting into web dev or you've been doing it for years. Next.js also provides many out-of-box optimizations, here are some ideas I love:
 
--   Next.js pre-renders pages ahead of requests (Server-side rendering, SSR) which provides fast and responsive blog site experience
+-   Next.js pre-renders pages ahead of requests (SSR) which provides fast and responsive blog site experience
+-   It also supports Hybrid Rendering (SSG + SSR) which is the best of both worlds
 -   Images optimization `next/image` and lazy loading components
 -   Built-in Sass support and component-level styling
 -   File-system based routing and intuitive URLs organization
@@ -224,11 +232,4 @@ Nextra didn't come with a multifaceted blogging framework, so I built (or buildi
 
 See [Roadmap](/roadmap) for more details.
 
-I will come later for this section. Stay tuned.
-
-### Blog Theme built with UnoCSS
-
-### Custom Image Component
-
-Nextra uses Next Image to wrap each `<img>` from MDX files, all links and images will be optimized auomatically by Nextra,
-....
+Someday I will come for this section, stay tuned.
