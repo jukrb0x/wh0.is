@@ -51,14 +51,14 @@ Hexo and Hugo are both excellent static site generators. Hexo suits blogs well, 
 
 Ok, to be honest, I love Vue.js as well as React, Vue.js feels more intuitive and easier to learn, **Vue 3 is fantastic**. However, React is more widely used and has a larger community, and I'm keen to dive deeper into React (🤩 go to see their [latest doc here](https://react.dev/)). I also looked at VuePress, Gatsby, Astro, and Svelte, but Next.js is the most mature with the best documentation, whether you're just getting into web dev or you've been doing it for years. Next.js also provides many out-of-box optimizations, here are some ideas I love:
 
--   Next.js pre-renders pages ahead of requests (Server-side rendering, SSR) which proviedes fast and responsive blog site experience
+-   Next.js pre-renders pages ahead of requests (Server-side rendering, SSR) which provides fast and responsive blog site experience
 -   Images optimization `next/image` and lazy loading components
 -   Built-in Sass support and component-level styling
 -   File-system based routing and intuitive URLs organization
 
 ### Looking for solutions
 
-A great way to begin a new project is researching exisiting solutions - they may have already sovled issues you'll face. [Pliny](https://github.com/timlrx/pliny) is one option for a Next.js CMS, using Contentlayer for modeling. Check out [Spencer's blog](https://spencerwoo.com/) for inspiration.
+A great way to begin a new project is researching existing solutions - they may have already solved issues you'll face. [Pliny](https://github.com/timlrx/pliny) is one option for a Next.js CMS, using Contentlayer for modeling. Check out [Spencer's blog](https://spencerwoo.com/) for inspiration.
 
 Ultimately, I chose [Nextra](https://nextra.site/) - another reason I stuck with Next.js. It bridges Next.js and MDX (Markdown with React components). Many docs sites are built with it, such as [Turbo](https://turbo.build/) and [SWR](https://swr.vercel.app/). Though Nextra supports basic blogging features, I customized it extensively for my needs.
 
@@ -92,7 +92,7 @@ This is a typical Next.js project which incorporates spices of TypeScript, UnoCS
 └── vercel.json
 ```
 
--   The `layout` and `styles` directories contain stayling and layout components for the blog theme.
+-   The `layout` and `styles` directories contain styling and layout components for the blog theme.
 -   The `pages` holds the posts and pages in MDX format. MDX allows writing markdown seamlessly with interactive react components.
 -   The `components` enabled by MDX are used to enhance the content within pages and posts. (For example, [Friends](/friends) page uses a custom component within Markdown.)
 
@@ -108,7 +108,7 @@ Even though it only has basic support for blog site - it was designed for docume
 
 ### Theme and UnoCSS
 
-The styling of the blog was initially inspired by [Anthony Fu](https://antfu.me/), who is a talented frontend developer dedicating to Vue ecosystem. His minimal and elegent design resonated with me, so I set out to achieve something similar with React and Next.js.
+The styling of the blog was initially inspired by [Anthony Fu](https://antfu.me/), who is a talented frontend developer dedicating to Vue ecosystem. His minimal and elegant design resonated with me, so I set out to achieve something similar with React and Next.js.
 
 ![Anthony's Blog Homepage](./antfu.me_posts.png)
 
@@ -116,7 +116,7 @@ The styling of the blog was initially inspired by [Anthony Fu](https://antfu.me/
 
 > Read more about Atomic CSS: [Reimagine Atomic CSS](https://antfu.me/posts/reimagine-atomic-css) by Anthony Fu
 
-UnoCSS is loaded with `@unocss/webpack` for Next.js, and I could rewrite my blog's theme easily with the help of UnoCSS inituative directives. Here's an example for code syntax highlighting:
+UnoCSS is loaded with `@unocss/webpack` for Next.js, and I could rewrite my blog's theme easily with the help of UnoCSS intuitive directives. Here's an example for code syntax highlighting:
 
 ```sass filename="code-blocks.sass"
 code {
@@ -157,7 +157,7 @@ export default function NavBar(): ReactElement {
 
 The whole blog is developed with Git, so it's easy to have the idea to manage the posts in the Git, that is my current way to keep the things tidy. I have different Git branches for the blog feature development and writing blogs, finally they will be merged into main branch and ship and deploy to Vercel.
 
-I developed this entire blog using Git for verrson control, so manageing posts through Git as well seemed a natural fit. Git branches helpe me keep everything tidy:
+I developed this entire blog using Git for version control, so managing posts through Git as well seemed a natural fit. Git branches helped me keep everything tidy:
 
 -   The `main` branch for the live blog site currently deployed to Vercel.
 -   The `blog` branch is where I draft new posts and write content in MDX.
@@ -165,24 +165,24 @@ I developed this entire blog using Git for verrson control, so manageing posts t
 
 #### Online Editing
 
-Writing my blog posts locally in Markdown (MDX) files on my machine has been simple enough so far. However, what if I want to write or make edits when I'm on the go using mobile devices or while travelling, and still preview how the posts will look? Maintaining a local-only workflow wouldn't allow for that level of flexibility and continuity, until I found this:
+Writing my blog posts locally in Markdown (MDX) files on my machine has been simple enough so far. However, what if I want to write or make edits when I'm on the go using mobile devices or while traveling, and still preview how the posts will look? Maintaining a local-only workflow wouldn't allow for that level of flexibility and continuity, until I found this:
 
 > **Decap CMS** (formerly Netlify CMS) is an open source content management system for your Git workflow that enables you to provide editors with a friendly UI and intuitive workflows. You can use it with any static site generator to create faster, more flexible web projects. Content is stored in your Git repository alongside your code for easier versioning, multi-channel publishing, and the option to handle content updates directly in Git.
 
-Sounds pretty cool, right? Decap can be intergrated into my GitHub repository with [github backend](https://decapcms.org/docs/github-backend/). For this moment, I am still working on this. Check out thier [official demo](https://cms-demo.netlify.com/).
+Sounds pretty cool, right? Decap can be integrated into my GitHub repository with [github backend](https://decapcms.org/docs/github-backend/). For this moment, I am still working on this. Check out thier [official demo](https://cms-demo.netlify.com/).
 
 Another option to consider is GitHub Codespaces, you can launch a web VS Code development environment and start composing on the fly. However, a full-featured IDE for editing may feel rather heavy-weight.
 
 ### Asset Management
 
-Nextra uses Next Image to wrap each `<img>` from MDX files, all links and images will be optimized auomatically by Nextra,
+Nextra uses Next Image to wrap each `<img>` from MDX files, all links and images will be optimized automatically by Nextra,
 
 ```markdown
 [Learn more](/more)
 ![Hero](./hero.png)
 ```
 
-the above code will automatically be transofrmed into component syntax:
+the above code will automatically be transformed into component syntax:
 
 ```tsx
 <Link .../>
@@ -199,13 +199,13 @@ Grouping all images for a post is efficient and orderly. Nextra's [Static Next I
 └── react-vs-vue.png
 ```
 
-But there are some issues for the image handling by Nextra, I cannot easily customize an MDX image component as I want, since it will disrupt the static-import workflow. Ultimately, Nextra uses a MDX plugin to parse all images into statically imported images enveloped by `next/image`. Adiditionally, The relative URLs are not handled for the Open Graph Image (og:image) in meta. I'm still working to reconcile these issues.
+Nextra uses a MDX plugin to parse all images into statically imported images enveloped by `next/image`. But there are some issues for the image handling by Nextra, it's not easy to customize an MDX image component, since it will disrupt the static-import workflow. Fortunately, I can patch the package to work around this issue (see [this commit](https://github.com/jukrb0x/wh0.is/commit/fdeb9fe55c22e0fe774768f4bdfff61136156dc6)) for now. Additionally, The relative URLs are not handled for the Open Graph Image (og:image) in meta. I'm still working to reconcile these issues.
 
 ### Comment System
 
 A comment system is not a absolute must-have for my needs. Adding a comment system isn't high in my to-do list as I'm pounding out words here, but I believe providing a way for readers to interact and share their thoughts on posts can be valuable.
 
-Having a comment system whcih requires a database for comments, here are some considerations:
+Having a comment system which requires a database for comments, here are some considerations:
 
 1. [Cusdis](https://cusdis.com/) is a lightweight open-source comment system, out-of-box with Nextra Blog Theme.
 2. [giscus](https://giscus.app/), comment system powered by GitHub Discussions.
@@ -216,7 +216,7 @@ Nextra didn't come with a multifaceted blogging framework, so I built (or buildi
 
 -   [x] Custom Blog Theme with UnoCSS
 -   [ ] Table of Contents
--   [x] Pagniation of Posts Page
+-   [x] Pagination of Posts Page
 -   [x] Customizing MDX `img` component
     -   [x] Caption
     -   [x] Lightbox
