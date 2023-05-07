@@ -30,7 +30,7 @@ const BlogLayout = ({
     const Layout = layoutMap[type];
     if (!Layout) {
         throw new Error(
-            `Layout Type is not curentlly supported: ${type}. Please use one of the following: ${Object.keys(
+            `Layout Type is not currently supported: ${type}. Please use one of the following: ${Object.keys(
                 layoutMap
             ).join(', ')}`
         );
