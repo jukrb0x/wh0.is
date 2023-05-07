@@ -1,14 +1,42 @@
 import { Router } from 'next/router';
 import NP from 'nprogress';
-import { ReactElement, useEffect } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
+
+// client-side only
+function isValidColor(strColor: string) {
+    if (!strColor) return false;
+    const s = new Option().style;
+    s.color = strColor;
+    return s.color == strColor;
+}
+
+export interface NProgressProps {
+    delayMs?: number;
+    showSpinner?: boolean;
+    color?: string;
+}
 
 /**
  * NProgress component
+ * should only be used in client-side code
  */
-export const NProgress = (): ReactElement => {
+export default function NProgress({
+    delayMs = 0,
+    showSpinner,
+    color
+}: NProgressProps): ReactElement {
     useEffect(() => {
-        const handleRouteStart = () => NP.start();
-        const handleRouteDone = () => NP.done();
+        let timer: NodeJS.Timeout;
+        const handleRouteStart = () => {
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                NP.start();
+            }, delayMs);
+        };
+        const handleRouteDone = () => {
+            clearTimeout(timer);
+            NP.done();
+        };
 
         Router.events.on('routeChangeStart', handleRouteStart);
         Router.events.on('routeChangeComplete', handleRouteDone);
@@ -21,6 +49,7 @@ export const NProgress = (): ReactElement => {
         };
     }, []);
 
+    const colorStyle = isValidColor(color!) ? color : '#29d';
     return (
         <>
             <style jsx global>
@@ -33,7 +62,7 @@ export const NProgress = (): ReactElement => {
                     }
 
                     #nprogress .bar {
-                        background: #29d;
+                        background: ${colorStyle};
                         opacity: 0.75;
 
                         position: fixed;
@@ -52,7 +81,7 @@ export const NProgress = (): ReactElement => {
                         right: 0px;
                         width: 100px;
                         height: 100%;
-                        box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+                        box-shadow: 0 0 10px ${colorStyle}, 0 0 5px ${colorStyle};
                         opacity: 1;
 
                         -webkit-transform: rotate(3deg) translate(0px, -4px);
@@ -62,7 +91,7 @@ export const NProgress = (): ReactElement => {
 
                     /* Remove these to get rid of the spinner */
                     #nprogress .spinner {
-                        display: block;
+                        display: ${showSpinner ? 'block' : 'none'};
                         position: fixed;
                         z-index: 1031;
                         top: 15px;
@@ -114,4 +143,4 @@ export const NProgress = (): ReactElement => {
             </style>
         </>
     );
-};
+}
