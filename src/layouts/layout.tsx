@@ -1,4 +1,4 @@
-import { CssBaseline, GeistProvider } from '@geist-ui/core';
+import { GeistProvider } from '@geist-ui/core';
 import { ThemeProvider, useTheme } from 'next-themes';
 import type { NextraThemeLayoutProps } from 'nextra';
 import type { ReactElement, ReactNode } from 'react';
