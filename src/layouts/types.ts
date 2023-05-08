@@ -37,6 +37,7 @@ export type BlogFrontMatter = {
     type?: 'post' | 'page' | 'posts' | 'tag' | 'home';
     lang?: 'en' | 'zh';
     draft?: boolean;
+    comment?: boolean;
     order?: number; // navbar sorting
     image?: string; // og:image
 };
