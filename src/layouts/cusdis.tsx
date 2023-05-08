@@ -1,6 +1,7 @@
 import { useTheme } from 'next-themes';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import type { ReactCusdis } from 'react-cusdis';
 
 import { useBlogContext } from './blog-context';
@@ -14,6 +15,15 @@ const Comments = () => {
     const router = useRouter();
     const { resolvedTheme } = useTheme();
     const { cusdis } = config;
+
+    // when resolvedTheme changes, update the theme for the cusdis iframe
+    useEffect(() => {
+        const iframe = document.querySelector('#cusdis_thread iframe') as HTMLIFrameElement;
+        if (!iframe) return;
+        // @ts-ignore
+        window.CUSDIS.setTheme(resolvedTheme === 'dark' ? 'dark' : 'light');
+    }, [resolvedTheme]);
+
     if (!cusdis) {
         return null;
     }
@@ -21,6 +31,7 @@ const Comments = () => {
         console.warn('[nextra/cusdis] `appId` is required');
         return null;
     }
+
     return (
         <>
             <div className="flex justify-center">
