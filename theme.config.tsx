@@ -20,6 +20,11 @@ const Footer = () => (
 
 const config: NextraBlogThemeConfig = {
     siteName: 'Jabriel | wh0.is',
+    cusdis: {
+        appId: 'a444b2fd-ef52-4cfe-af36-9ebae7e7e238',
+        host: 'https://c.wh0.is',
+        lang: 'en'
+    },
     footer: <Footer />,
     head: ({ title, meta }) => {
         return (
