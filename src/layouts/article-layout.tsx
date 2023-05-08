@@ -14,7 +14,7 @@ export const ArticleLayout = ({ children }: { children: ReactNode }) => {
             <MDXTheme>
                 {children}
                 {config.postFooter}
-                {config.comments}
+                {opts.frontMatter.comment && config.comments}
             </MDXTheme>
         </BasicLayout>
     );
