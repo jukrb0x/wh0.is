@@ -8,6 +8,14 @@ export interface NProgressProps {
     color?: string;
 }
 
+// client-only code
+function isValidColor(strColor: string) {
+    if (!strColor) return false;
+    const s = new Option().style;
+    s.color = strColor;
+    return s.color == strColor;
+}
+
 /**
  * NProgress component
  */
@@ -38,9 +46,9 @@ export default function NProgress({
             Router.events.off('routeChangeComplete', handleRouteDone);
             Router.events.off('routeChangeError', handleRouteDone);
         };
-    }, []);
+    }, [delayMs]);
 
-    const colorStyle = color ? color : '#29d';
+    const colorStyle = isValidColor(color!) ? color : '#29d';
     return (
         <>
             <style jsx global>
