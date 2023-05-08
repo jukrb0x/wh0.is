@@ -17,7 +17,7 @@ const NProgress = dynamic(import('@/layouts/components/progress-indicator'), {
 export default function App({ Component, pageProps }: AppProps) {
     return (
         <>
-            <NProgress delayMs={100} />
+            <NProgress delayMs={0} />
             <Component {...pageProps} />
             <Analytics />
         </>
