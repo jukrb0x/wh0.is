@@ -27,12 +27,15 @@ export default function NProgress({
     useEffect(() => {
         let timer: NodeJS.Timeout;
         const handleRouteStart = () => {
+            console.log('np handled');
             clearTimeout(timer);
             timer = setTimeout(() => {
+                console.log('np start.');
                 NP.start();
             }, delayMs);
         };
         const handleRouteDone = () => {
+            console.log('np done');
             clearTimeout(timer);
             NP.done();
         };
