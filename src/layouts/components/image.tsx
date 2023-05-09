@@ -15,7 +15,7 @@ const NextImageSlideRenderer = ({ slide, rect }: { slide: Slide; rect: Container
     const { imageFit } = useLightboxProps().carousel;
     const cover = isImageSlide(slide) && isImageFitCover(slide, imageFit);
 
-    const scale = 0.95 || Math.min(rect.width / slide.width!, rect.height / slide.height!);
+    const scale = 1 || Math.min(rect.width / slide.width!, rect.height / slide.height!);
     const width = !cover
         ? Math.round(Math.min(rect.width, (rect.height / slide.height!) * slide.width!)) * scale
         : rect.width;
