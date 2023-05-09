@@ -3,6 +3,7 @@ import { ThemeProvider, useTheme } from 'next-themes';
 import type { NextraThemeLayoutProps } from 'nextra';
 import type { ReactElement, ReactNode } from 'react';
 
+import { DebugInfo } from '@/layouts/components';
 import { HomeLayout } from '@/layouts/home-layout';
 
 import { ArticleLayout } from './article-layout';
@@ -38,6 +39,7 @@ const BlogLayout = ({
     return (
         <GeistProvider themeType={resolvedTheme === 'dark' ? 'dark' : 'light'}>
             <BlogProvider opts={opts} config={config}>
+                <DebugInfo config={config} opts={opts} />
                 <Layout>{children}</Layout>
             </BlogProvider>
         </GeistProvider>
