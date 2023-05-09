@@ -42,6 +42,13 @@ export const BasicLayout = ({ children }: { children: ReactNode }) => {
                 </Head>
                 <HeadingContext.Provider value={ref}>
                     <article>
+                        {opts.frontMatter.draft && (
+                            <div className={'mb-2'}>
+                                <span className="text-sm border border-solid border-current rounded px-1 pb-0.2 align-middle">
+                                    Draft
+                                </span>
+                            </div>
+                        )}
                         {opts.hasJsxInH1 ? <h1 ref={ref} /> : null}
                         {opts.hasJsxInH1 ? null : <h1>{opts.title}</h1>}
                         {children}
