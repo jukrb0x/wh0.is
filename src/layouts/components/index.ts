@@ -8,3 +8,4 @@ export { Th } from './th';
 export { Tr } from './tr';
 export { Back } from './back';
 export { Image } from './image';
+export { DebugInfo } from './debug-info';
