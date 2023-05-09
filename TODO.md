@@ -28,6 +28,7 @@ Problems I met during the development:
 -   MDX Image Component (patching Nextra static image)
     -   Caption
     -   Lightbox
+-   Comment system
 
 #### 0.2.0
 
@@ -40,7 +41,6 @@ Problems I met during the development:
 -   Layout: The timeline
 -   Search
 -   404 Page
--   Comment system
 -   Online Editing
 -   MDX-biased images carousal lightbox
 -   Command to create new post from templates
