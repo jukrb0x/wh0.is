@@ -29,6 +29,8 @@ const GenerateTableFromJson = (json: Object): ReactElement => {
 export const DebugInfo = (props: LayoutProps) => {
     const [hidden, setHidden] = useState(false);
     const [expand, setExpand] = useState(false);
+    const [pinned, setPinned] = useState(false);
+    const togglePinned = () => setPinned(!pinned);
 
     const ref = useRef<HTMLDivElement>(null);
     const { opts, config } = props;
@@ -39,7 +41,7 @@ export const DebugInfo = (props: LayoutProps) => {
     useEffect(() => {
         if (!ref.current) return;
         const height = ref.current.clientHeight;
-        const bottom = expand ? 0 : height - offset;
+        const bottom = pinned || expand ? 0 : height - offset;
         ref.current.style.bottom = `-${bottom}px`;
     }, [expand, hidden, ref.current, frontMatter]);
 
@@ -54,27 +56,40 @@ export const DebugInfo = (props: LayoutProps) => {
             ref={ref}
             className={clsx(
                 'flex space-between fixed left-0 z-50 px-5 py-1 w-full text-xs text-white font-mono',
-                'bg-orange opacity-80 hover:opacity-95 hover:bg-indigo-600 transition-all'
+                pinned ? 'bg-indigo-600' : 'bg-orange hover:bg-indigo-600',
+                'opacity-80 hover:opacity-95 transition-all'
             )}
             onMouseEnter={() => setExpand(true)}
             onMouseLeave={() => setExpand(false)}
         >
-            <div className={'mr-2 flex-col flex'}>
+            {/* indicator */}
+            <div className={'mr-2'}>
                 <div className={'px-1 font-bold border rounded-md'}>DEV</div>
-                <button className={'border rounded-md px-1 my-1'}>
-                    <span className={'i-ph:lock-simple-open-fill'}></span>
-                </button>
             </div>
+
+            {/* debug info */}
             <div className={'grow'}>{GenerateTableFromJson(frontMatter)}</div>
-            <div className={'flex'}>
+
+            {/* buttons */}
+            <div className={'flex flex-col justify-between ml-2'}>
                 <button
                     className={clsx(
-                        'ml-2 text-xs text-white font-mono px-4 border rounded-md bg-transparent',
+                        'grow-1',
+                        'text-xs text-white font-mono px-4 border rounded-md bg-transparent',
                         'hover:text-red hover:bg-white transition-all'
                     )}
                     onClick={() => setHidden(true)}
                 >
                     X
+                </button>
+
+                <button
+                    className={'border rounded-md px-1 grow-2 mt-1'}
+                    onClick={() => togglePinned()}
+                >
+                    <span
+                        className={pinned ? 'i-ph:lock-simple-fill' : 'i-ph:lock-simple-open'}
+                    ></span>
                 </button>
             </div>
         </div>
