@@ -28,7 +28,7 @@ export const DebugInfo = (props: LayoutProps) => {
             <div className={'grow'}>
                 <span className={'font-bold'}>[DEV]</span> {JSON.stringify(frontMatter)}
             </div>
-            <div>
+            <div className={'flex'}>
                 <button
                     className={'ml-2 text-xs text-white font-mono'}
                     onClick={() => setHidden(true)}
