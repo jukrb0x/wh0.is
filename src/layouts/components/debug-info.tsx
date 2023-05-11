@@ -21,7 +21,8 @@ export const DebugInfo = (props: LayoutProps) => {
         <div
             className={clsx(
                 'flex space-between fixed bottom-0 left-0 z-50 px-5 py-1 w-full text-xs text-white font-mono',
-                'bg-orange opacity-80 hover:opacity-100 transition-all hover:text-lg'
+                'bg-orange opacity-80 hover:opacity-100 transition-all',
+                'hover:text-lg hover:bg-red'
             )}
         >
             <div className={'grow'}>
