@@ -93,15 +93,16 @@ export const Image = ({
         ? (src as StaticImageData)
         : ({
               src: src as string,
-              height: height,
-              width: width
+              // see NextImageSlideRenderer
+              height: 1,
+              width: 1
           } as StaticImageData);
 
     return (
         <>
             {enableLightbox && (
                 <ImageLightBox
-                    src={imageData as StaticImageData}
+                    src={imageData}
                     open={open}
                     onOpen={() => {}}
                     onClose={() => setOpen(false)}
