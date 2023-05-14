@@ -58,7 +58,6 @@ Problems I met during the development:
 -   [ ] `low` first load the website is day mode, then switch to dark mode after 1s, set a gentle background for eyes
 -   [ ] `low` redirect component inside mdx
 -   [ ] `low` search
--   [ ] `low` table is not fit the container 100%
 -   [ ] `low` design the website icon/favicon
 -   [ ] `low` external link icon (mask?) after pseudo element, align center, prevent line break
 -   [ ] `low` profiling and speed optimization
@@ -68,6 +67,7 @@ Problems I met during the development:
 
 ### Completed
 
+-   [x] table is not fit the container 100%
 -   [x] figure caption
 -   [x] incorrect color of code block background in dark mode
 -   [x] heading anchor in mobile view (margin/padding)
