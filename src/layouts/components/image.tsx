@@ -82,46 +82,55 @@ const ImageLightBox = ({
 export const Image = ({
     src,
     alt,
-
+    height,
+    width,
     ...props
 }: ComponentProps<typeof NextImage>): ReactElement => {
     const [open, setOpen] = useState(false);
-    let { height, width } = props;
-    console.log('original src', src);
-
-    if (EXTERNAL_URL_REGEX.test(decodeURI(src as string))) {
-        console.log('external url', src);
-        // calculate next image height and width based on the original image size
-        // construct a new static image object for lightbox
-        src = {
-            src: src as string,
-            height: height || 100,
-            width: width || 100
-        } as StaticImageData;
-    }
+    const isExternal = EXTERNAL_URL_REGEX.test(decodeURI(src as string));
+    // construct a new static image object for lightbox if image source is remote
+    let imageData: StaticImageData = !isExternal
+        ? (src as StaticImageData)
+        : ({
+              src: src as string,
+              height: height,
+              width: width
+          } as StaticImageData);
 
     return (
         <>
             {enableLightbox && (
                 <ImageLightBox
-                    src={src as StaticImageData}
+                    src={imageData as StaticImageData}
                     open={open}
                     onOpen={() => {}}
                     onClose={() => setOpen(false)}
                 />
             )}
-            <NextImage
-                className={enableLightbox ? 'cursor-pointer' : ''}
-                src={src}
-                alt={alt as string}
-                height={height || 100}
-                width={width || 100}
-                onClick={() => {
-                    if (!enableLightbox) return;
-                    setOpen(true);
-                }}
-                {...props}
-            />
+            {isExternal ? (
+                <img
+                    src={imageData.src}
+                    alt={alt as string}
+                    className={'cursor-pointer'}
+                    onClick={() => {
+                        if (!enableLightbox) return;
+                        setOpen(true);
+                    }}
+                />
+            ) : (
+                <NextImage
+                    className={enableLightbox ? 'cursor-pointer' : ''}
+                    src={src}
+                    alt={alt as string}
+                    height={height}
+                    width={width}
+                    onClick={() => {
+                        if (!enableLightbox) return;
+                        setOpen(true);
+                    }}
+                    {...props}
+                />
+            )}
             <span className={'sr-only'}>Image</span>
             <span className="text-center text-gray-5 text-sm pt-2 block">{alt}</span>
         </>
