@@ -34,7 +34,7 @@ const Comments = () => {
 
     return (
         <>
-            <div className="flex justify-center">
+            <div className="flex justify-center mt-[3rem]">
                 <div className="w-12 border-t border-gray-200"></div>
             </div>
             <Cusdis
