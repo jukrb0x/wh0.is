@@ -13,17 +13,36 @@ function nextImageUrl(src: string, size: number) {
     return `/_next/image?url=${encodeURIComponent(src)}&w=${size}&q=75`;
 }
 
+function isExternalUrl(url: string) {
+    return EXTERNAL_URL_REGEX.test(url);
+}
+
 const NextImageSlideRenderer = ({ slide, rect }: { slide: Slide; rect: ContainerRect }) => {
     const { imageFit } = useLightboxProps().carousel;
     const cover = isImageSlide(slide) && isImageFitCover(slide, imageFit);
 
-    const scale = 1 || Math.min(rect.width / slide.width!, rect.height / slide.height!);
+    /**
+     *  Lightbox Image Size Calculation
+     *  1. if the image size is larger than the container, then use the container size
+     *  2. if the image size is smaller than the container, then use the image size
+     *  3. make sure the image not exceeds the container
+     */
     const width = !cover
-        ? Math.round(Math.min(rect.width, (rect.height / slide.height!) * slide.width!)) * scale
+        ? Math.round(
+              Math.min(
+                  rect.width,
+                  Math.min(slide.width!, (rect.height / slide.height!) * slide.width!)
+              )
+          )
         : rect.width;
 
     const height = !cover
-        ? Math.round(Math.min(rect.height, (rect.width / slide.width!) * slide.height!)) * scale
+        ? Math.round(
+              Math.min(
+                  rect.height,
+                  Math.min(slide.height!, (rect.width / slide.width!) * slide.height!)
+              )
+          )
         : rect.height;
 
     const placeholder = EXTERNAL_URL_REGEX.test(slide.src) ? 'empty' : 'blur';
@@ -55,13 +74,26 @@ const ImageLightBox = ({
     onClose: () => void;
 }) => {
     const hide = () => null;
+    const { src: srcUrl } = src;
+    const isExternal = isExternalUrl(srcUrl);
+    const slides = isExternal
+        ? [
+              {
+                  src: src.src
+              }
+          ]
+        : [src];
 
     return (
         <>
             <Lightbox
                 open={open}
-                slides={[src]}
-                render={{ slide: NextImageSlideRenderer, buttonPrev: hide, buttonNext: hide }}
+                slides={slides}
+                render={{
+                    slide: !isExternal ? NextImageSlideRenderer : undefined,
+                    buttonPrev: hide,
+                    buttonNext: hide
+                }}
                 carousel={{ imageFit: 'contain', finite: true }}
                 close={() => {
                     onClose();
@@ -76,6 +108,9 @@ const ImageLightBox = ({
  * This custom MDX component takes a feature patch for nextra `staticImage` to support next/image.
  * The function receives the same props as the `next/image` component.
  *
+ * @TODO find a way to calculate the image height/width and pass to the `next/image` component for remote images
+ *       so we can use the `next/image` component for both local and remote images.
+ *
  * @see https://github.com/shuding/nextra/issues/1821
  * @see https://nextjs.org/docs/api-reference/next/image
  */
@@ -87,15 +122,13 @@ export const Image = ({
     ...props
 }: ComponentProps<typeof NextImage>): ReactElement => {
     const [open, setOpen] = useState(false);
-    const isExternal = EXTERNAL_URL_REGEX.test(decodeURI(src as string));
-    // construct a new static image object for lightbox if image source is remote
+    const isExternal = isExternalUrl(decodeURI(src as string));
+
+    // construct new StaticImageData object for lightbox from a remote image
     let imageData: StaticImageData = !isExternal
         ? (src as StaticImageData)
         : ({
-              src: src as string,
-              // see NextImageSlideRenderer
-              height: 1,
-              width: 1
+              src: src as string
           } as StaticImageData);
 
     return (
@@ -108,11 +141,13 @@ export const Image = ({
                     onClose={() => setOpen(false)}
                 />
             )}
+
+            {/* use next/image if the image is served internally */}
             {isExternal ? (
                 <img
+                    className={enableLightbox ? 'cursor-pointer' : ''}
                     src={imageData.src}
                     alt={alt as string}
-                    className={'cursor-pointer'}
                     onClick={() => {
                         if (!enableLightbox) return;
                         setOpen(true);
@@ -121,7 +156,7 @@ export const Image = ({
             ) : (
                 <NextImage
                     className={enableLightbox ? 'cursor-pointer' : ''}
-                    src={src}
+                    src={imageData}
                     alt={alt as string}
                     height={height}
                     width={width}
@@ -132,6 +167,8 @@ export const Image = ({
                     {...props}
                 />
             )}
+
+            {/* image caption */}
             <span className={'sr-only'}>Image</span>
             <span className="text-center text-gray-5 text-sm pt-2 block">{alt}</span>
         </>
