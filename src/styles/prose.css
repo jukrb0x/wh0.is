@@ -248,9 +248,9 @@ html.dark .prose thead {
 
 .prose thead th {
     vertical-align: bottom;
-    padding-right: 0.5714286em;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     padding-bottom: 0.5714286em;
-    padding-left: 0.5714286em;
 }
 
 .prose tbody tr {
@@ -262,12 +262,11 @@ html.dark .prose thead {
     border-bottom-width: 0;
 }
 
-/*
 .prose tbody td {
-    vertical-align: top;
-    padding: 0.5714286em;
+    /*vertical-align: top;*/
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
-*/
 
 .prose :where(img, video):not(:where(.not-prose, .not-prose *)) {
     margin: auto;
