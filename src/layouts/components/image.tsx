@@ -3,6 +3,8 @@ import { ComponentProps, ReactElement, useState } from 'react';
 import { ContainerRect, Lightbox, Slide } from 'yet-another-react-lightbox';
 import { isImageFitCover, isImageSlide, useLightboxProps } from 'yet-another-react-lightbox/core';
 
+import { EXTERNAL_URL_REGEX } from '@/layouts/constants';
+
 const enableLightbox = true;
 
 // TODO: Zoom Plugin for Next Image
@@ -24,6 +26,7 @@ const NextImageSlideRenderer = ({ slide, rect }: { slide: Slide; rect: Container
         ? Math.round(Math.min(rect.height, (rect.width / slide.width!) * slide.height!)) * scale
         : rect.height;
 
+    const placeholder = EXTERNAL_URL_REGEX.test(slide.src) ? 'empty' : 'blur';
     return (
         <div style={{ position: 'relative', width, height }}>
             <NextImage
@@ -31,7 +34,7 @@ const NextImageSlideRenderer = ({ slide, rect }: { slide: Slide; rect: Container
                 alt={slide.alt ?? ''}
                 src={slide as StaticImageData}
                 loading="eager" // immediate loading the image when lightbox is opened
-                placeholder="blur"
+                placeholder={placeholder}
                 draggable={false}
                 style={{ objectFit: cover ? 'cover' : 'contain' }}
                 sizes={`${Math.ceil((width / window.innerWidth) * 100)}vw`}
@@ -79,11 +82,24 @@ const ImageLightBox = ({
 export const Image = ({
     src,
     alt,
-    height,
-    width,
+
     ...props
 }: ComponentProps<typeof NextImage>): ReactElement => {
     const [open, setOpen] = useState(false);
+    let { height, width } = props;
+    console.log('original src', src);
+
+    if (EXTERNAL_URL_REGEX.test(decodeURI(src as string))) {
+        console.log('external url', src);
+        // calculate next image height and width based on the original image size
+        // construct a new static image object for lightbox
+        src = {
+            src: src as string,
+            height: height || 100,
+            width: width || 100
+        } as StaticImageData;
+    }
+
     return (
         <>
             {enableLightbox && (
@@ -98,8 +114,8 @@ export const Image = ({
                 className={enableLightbox ? 'cursor-pointer' : ''}
                 src={src}
                 alt={alt as string}
-                height={height}
-                width={width}
+                height={height || 100}
+                width={width || 100}
                 onClick={() => {
                     if (!enableLightbox) return;
                     setOpen(true);
