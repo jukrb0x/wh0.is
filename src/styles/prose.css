@@ -269,9 +269,8 @@ html.dark .prose thead {
 }
 */
 
-.prose img :not(:where(.not-prose, .not-prose *)) {
-    margin-top: 2em;
-    margin-bottom: 2em;
+.prose :where(img, video):not(:where(.not-prose, .not-prose *)) {
+    margin: auto;
 }
 
 .prose video {
