@@ -224,11 +224,11 @@ html.dark .prose {
 }
 
 .prose table {
+    display: table;
     width: 100%;
     table-layout: auto;
     text-align: left;
-    margin-top: 2em;
-    margin-bottom: 2em;
+    margin: 2em auto;
     font-size: 0.875em;
     line-height: 1.7142857;
 }
@@ -248,9 +248,9 @@ html.dark .prose thead {
 
 .prose thead th {
     vertical-align: bottom;
-    padding-right: 0.5714286em;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     padding-bottom: 0.5714286em;
-    padding-left: 0.5714286em;
 }
 
 .prose tbody tr {
@@ -262,16 +262,14 @@ html.dark .prose thead {
     border-bottom-width: 0;
 }
 
-/*
 .prose tbody td {
-    vertical-align: top;
-    padding: 0.5714286em;
+    /*vertical-align: top;*/
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
-*/
 
-.prose img :not(:where(.not-prose, .not-prose *)) {
-    margin-top: 2em;
-    margin-bottom: 2em;
+.prose :where(img, video):not(:where(.not-prose, .not-prose *)) {
+    margin: auto;
 }
 
 .prose video {

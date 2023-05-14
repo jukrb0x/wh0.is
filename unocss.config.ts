@@ -68,9 +68,6 @@ export default defineConfig({
                     'margin-top': '3em',
                     'margin-bottom': '3em'
                 },
-                'img': {
-                    width: '100%'
-                },
                 'code::before': {
                     content: 'none'
                 },
