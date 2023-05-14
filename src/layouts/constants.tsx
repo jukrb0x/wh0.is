@@ -12,3 +12,5 @@ export const DEFAULT_THEME_CONFIG: NextraBlogThemeConfig = {
     showDescription: false,
     previewDraft: true
 };
+
+export const EXTERNAL_URL_REGEX = /^https?:\/\//;

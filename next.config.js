@@ -37,6 +37,11 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'avatars.githubusercontent.com',
                 pathname: '/u/**'
+            },
+            {
+                protocol: 'https',
+                hostname: 'docs.unrealengine.com',
+                pathname: '/**/*'
             }
         ]
     }
