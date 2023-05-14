@@ -18,7 +18,7 @@ const GenerateTableFromJson = (json: Object): ReactElement => {
                 {Object.entries(json).map(([key, value]) => (
                     <tr key={key}>
                         <td className="border px-4 py-2">{key}</td>
-                        <td className="border px-4 py-2">{value}</td>
+                        <td className="border px-4 py-2">{value.toString()}</td>
                     </tr>
                 ))}
             </tbody>
