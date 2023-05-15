@@ -46,7 +46,8 @@ export default defineConfig({
                     'font-weight': '500',
                     'text-decoration': ' none',
                     'border-bottom': '1px solid rgba(125, 125, 125, 0.3)',
-                    'transition': 'border 0.3s ease-in-out'
+                    'transition': 'border 0.3s ease-in-out',
+                    'word-break': 'break-all'
                 },
                 'a:hover': {
                     // 'border-bottom': `1px solid var(${proseColors.fg})`
