@@ -18,7 +18,7 @@ const GenerateTableFromJson = (json: Object): ReactElement => {
                 {Object.entries(json).map(([key, value]) => (
                     <tr key={key}>
                         <td className="border px-4 py-2">{key}</td>
-                        <td className="border px-4 py-2">{value.toString()}</td>
+                        <td className="border px-4 py-2">{value && value.toString()}</td>
                     </tr>
                 ))}
             </tbody>
@@ -35,7 +35,7 @@ export const DebugInfo = (props: LayoutProps) => {
     const ref = useRef<HTMLDivElement>(null);
     const { opts, config } = props;
     const { frontMatter } = opts;
-    const offset = 25; /*px*/
+    const offset = 28; /*px*/
 
     // expand the debug info on mouse enter
     useEffect(() => {
