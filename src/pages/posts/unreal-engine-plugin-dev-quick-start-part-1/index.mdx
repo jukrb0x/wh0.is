@@ -1,12 +1,20 @@
 ---
-title: 'UE5 插件开发快速指北: Part I'
+title: 'UE5 插件开发快速指北: Part I 基础知识'
 date: 2023/05/06
 lang: zh
 description:
 tag: Unreal Engine, Plugin, C++
 author: Jabriel
 draft: true
+comment: true
 ---
+
+TODO:
+
+-   [ ] I: 基础知识
+-   [ ] II: Slate UI
+-   [ ] III: 反射系统
+-   [ ] IV: Commandlet 和 Python Script
 
 本文将介绍一个带有图形界面的虚幻引擎 (Unreal Engine) 编辑器插件的开发过程，包含以下内容：
 
@@ -14,6 +22,7 @@ draft: true
 -   如何创建一个插件
 -   Slate UI 和 Slate Widget 的基本使用
 -   事件委托 (Delegate)
+-   UE 反射系统 (Reflection) 以及简单应用
 
 受限于笔者技术水平，本文不是一个详尽的 UE 编辑器教程，仅为一些开发过程的经验记录，请同时参阅对应的引擎 API 和官方文档。
 
@@ -22,9 +31,52 @@ draft: true
 ## 赛前准备
 
 1. 编译 Editor （如果你用的是源码版引擎）
-2. 推荐使用 JetBrains Rider IDE，后文的模板代码生成会使用到
+
+2. 推荐使用 JetBrains Rider IDE，后文的模板代码生成会使用到。_推荐顺带安装 RiderLink Plugin_
+
+### macOS Users
+
+http://developer.apple.com/library/ios/#documentation/DeveloperTools/Reference/XcodeUserDefaultRef/100-Xcode_User_Defaults/UserDefaultRef.html
 
 ## Unreal Module
+
+https://docs.google.com/presentation/d/1rSFFQk7RxNAHevROfVvUNviUfIntLkO_HpdvzHLkNEs/edit
+
+UE 的设计是模块化的，总体来说，整个 Unreal Engine 是由多个不同的 Unreal Modules 构成的，Unreal Project 内也可以包含多个
+Module, 以 LyraStarterGame 为例：
+
+```bash {7,19,26-30}
+.
+├── LyraEditor
+│   ├── Commandlets
+│   ├── Private
+│   ├── Utilities
+│   ├── Validation
+│   ├── LyraEditor.Build.cs
+│   ├── LyraEditor.cpp
+│   ├── LyraEditor.h
+│   ├── LyraEditorEngine.cpp
+│   └── LyraEditorEngine.h
+├── LyraGame
+│   ├── AbilitySystem
+│   ├── Animation
+│   ├── Audio
+│   ├── Camera
+│   ...
+│   ├── Weapons
+│   ├── LyraGame.Build.cs
+│   ├── LyraGameModule.cpp
+│   ├── LyraGameplayTags.cpp
+│   ├── LyraGameplayTags.h
+│   ├── LyraLogChannels.cpp
+│   ├── LyraLogChannels.h
+│   └── README.md
+├── LyraClient.Target.cs
+├── LyraEditor.Target.cs
+├── LyraGame.Target.cs
+├── LyraGameEOS.Target.cs
+└── LyraServer.Target.cs
+```
 
 ### 模块 (Module) 和插件 (Plugin)
 
@@ -33,6 +85,10 @@ draft: true
 ### 引擎中创建
 
 ### Rider 中创建
+
+---
+
+Part II
 
 ## Delegate (代理 / 委托)
 
