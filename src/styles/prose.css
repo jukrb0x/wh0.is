@@ -358,6 +358,10 @@ html.dark .prose thead {
     letter-spacing: 2px;
 }
 
+.prose :where(details):not(:where(.not-prose, .not-prose *)) {
+    padding: 0.5rem;
+}
+
 /*
 .prose thead th:first-child {
     padding-left: 0;
