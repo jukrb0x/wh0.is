@@ -36,7 +36,11 @@ export const BasicLayout = ({ children }: { children: ReactNode }) => {
                     {config.head?.({ title, meta: opts.frontMatter })}
                     {opts.frontMatter.image && (
                         // TODO: static import support
-                        <meta property="og:image" content={opts.frontMatter.image} />
+                        <>
+                            <meta property="og:image" content={opts.frontMatter.image} />
+                            <meta property="og:image:width" content="1280" />
+                            <meta property="og:image:height" content="720" />
+                        </>
                     )}
                     {config.siteName && <meta name="og:site_name" content={config.siteName} />}
                 </Head>
