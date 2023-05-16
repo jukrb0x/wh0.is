@@ -40,6 +40,8 @@ export const BasicLayout = ({ children }: { children: ReactNode }) => {
                             <meta property="og:image" content={opts.frontMatter.image} />
                             <meta property="og:image:width" content="1280" />
                             <meta property="og:image:height" content="720" />
+                            <meta name="twitter:card" content={opts.frontMatter.description} />
+                            <meta name="twitter:image" content={opts.frontMatter.image} />
                         </>
                     )}
                     {config.siteName && <meta name="og:site_name" content={config.siteName} />}
