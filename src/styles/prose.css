@@ -36,7 +36,7 @@ html.dark .prose {
 
 .prose ol,
 .prose ul {
-    padding-left: 0;
+    padding-left: 0.5rem;
 }
 
 .prose ol[type='A'] {
