@@ -40,7 +40,12 @@ export const BasicLayout = ({ children }: { children: ReactNode }) => {
                             <meta property="og:image" content={opts.frontMatter.image} />
                             <meta property="og:image:width" content="1280" />
                             <meta property="og:image:height" content="720" />
-                            <meta name="twitter:card" content={opts.frontMatter.description} />
+                            <meta property="twitter:card" content="summary_large_image" />
+                            <meta property="twitter:title" content={opts.frontMatter.title} />
+                            <meta
+                                property="twitter:description"
+                                content={opts.frontMatter.description}
+                            />
                             <meta name="twitter:image" content={opts.frontMatter.image} />
                         </>
                     )}
