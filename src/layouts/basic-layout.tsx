@@ -36,7 +36,18 @@ export const BasicLayout = ({ children }: { children: ReactNode }) => {
                     {config.head?.({ title, meta: opts.frontMatter })}
                     {opts.frontMatter.image && (
                         // TODO: static import support
-                        <meta property="og:image" content={opts.frontMatter.image} />
+                        <>
+                            <meta property="og:image" content={opts.frontMatter.image} />
+                            <meta property="og:image:width" content="1280" />
+                            <meta property="og:image:height" content="720" />
+                            <meta property="twitter:card" content="summary_large_image" />
+                            <meta property="twitter:title" content={opts.frontMatter.title} />
+                            <meta
+                                property="twitter:description"
+                                content={opts.frontMatter.description}
+                            />
+                            <meta name="twitter:image" content={opts.frontMatter.image} />
+                        </>
                     )}
                     {config.siteName && <meta name="og:site_name" content={config.siteName} />}
                 </Head>
