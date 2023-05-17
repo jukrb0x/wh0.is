@@ -221,7 +221,7 @@ struct FLandscapeComponentGrassData
 }
 ```
 
-UE5 中优化了 Grass weight/height 的存储 layout ，用一个连续的 array 加上 offset 来获取：
+UE5 中优化了 Grass weight/height 的存储 layout ，用一个连续的 array 加上 offset 来获取，提高了缓存命中率：
 
 ```cpp filename="LandscapeGrass.h"
 TArrayView<uint8> FLandscapeComponentGrassData::GetWeightData(const ULandscapeGrassType* GrassType)

@@ -19,7 +19,7 @@ const Footer = () => (
 );
 
 const config: NextraBlogThemeConfig = {
-    siteName: 'Hogsmeade | wh0.is',
+    siteName: 'Jabriel in Hogsmeade | wh0.is',
     cusdis: {
         appId: '4cb397f1-774c-4249-932e-60b11baf7f7d',
         host: 'https://c.wh0.is',
