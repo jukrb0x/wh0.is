@@ -224,7 +224,7 @@ html.dark .prose {
 }
 
 .prose table {
-    display: block;
+    display: table;
     width: 100%;
     margin: 0;
     table-layout: auto;
