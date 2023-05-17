@@ -506,7 +506,7 @@ UHierarchicalInstancedStaticMeshComponent::BuildTreeAnyThread(InstanceTransforms
 
 判断 HISM Comp 是否还在使用，清理无用的 HISM Comp `Component->DestroyComponent();`
 
-## 总结
+## 种草原理总结
 
 -   总体上，LandscapeGrass 会在线计算要载入内存的植被数量（范围），根据 Grass Variety 中的 EndCullDistance 等参数异步载入 / 卸载到内存。
 -   距离剔除 (Distance Culling) 的最小粒度是 Grass Variety Subsection，对于没有草或者距离外的 Grass Variety Subsection，会直接被丢弃，也不会有 Grass 在上面生成。
