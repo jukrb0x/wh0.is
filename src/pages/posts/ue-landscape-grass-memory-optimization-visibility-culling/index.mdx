@@ -64,7 +64,7 @@ $$
 
 ![地块与相机正交边界情况](./grass-orthogonal.png)
 
-我们可以加以判断，Camera 到 subsction 的（最短）距离，即 $\|V_{cam}\|$ 的 tail 到 subsection AABB 的距离和 subsection 边长的大小之比来控制载入附近的地块草。
+我们可以加以判断，Camera 到 subsction 的（最短）距离，即 $V_{cam}$ 的 tail 到 subsection AABB 的距离和 subsection 边长的大小之比来控制载入附近的地块草。
 
 但这样复杂的算法听起来有点不是那么令人愉悦。
 
@@ -78,7 +78,7 @@ $$
 
 ### 控制剔除粒度
 
-如果以为这就是优化方案的结束，那你就错了，由源码分析可得我们还有一个变量 `GMaxInstancesPerComponent` 用于控制每个 **subsection** 上的最多 instance 数量（并不是语义上的 landscape component... ），引擎默认设置为 65536 ($2^{16}$)，下限为 1024 ($2^{10}$)，没有上限。
+如果以为这就是优化方案的结束，那你就 too young too simple 了，由源码分析可得我们还有一个变量 `GMaxInstancesPerComponent` 用于控制每个 **subsection** 上的最多 instance 数量（并不是语义上的 landscape component... ），引擎默认设置为 65536 ($2^{16}$)，下限为 1024 ($2^{10}$)，没有上限。
 
 > 详见前文：[UE5 Landscape Grass 地形草原理分析](/posts/a-look-under-the-hood-at-unreal-engine-landscape-grass)
 
