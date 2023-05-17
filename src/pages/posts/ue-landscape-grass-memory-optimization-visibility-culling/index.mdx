@@ -98,6 +98,8 @@ Demo 场景下根据改进后的生成算法，
 
 ## 算法实现
 
+_白嫖我的思路就好了，还想白嫖代码？_
+
 核心算法伪代码：
 
 ```cpp showLineNumbers
@@ -106,7 +108,7 @@ for (Vector Vertex: SubsectionVertices)
 {
 	IsCameraBehindSubsection = IsCameraBehindSubsection || (
 		(Vertex.X - CameraLocation.X) * CameraForward.X +
-		(Vertex.Y-CameraLocation.Y) * CameraForward.Y) > 0);
+		(Vertex.Y - CameraLocation.Y) * CameraForward.Y) > 0);
 }
 
 if (!IsCameraBehindSubsection && DistanceFromBoxToPoint(Subsection, CameraLocation) > SubsectionWidth)
