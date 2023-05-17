@@ -62,7 +62,7 @@ $$
 
 但 $V_{cam} \cdot V_{sub} = 0 $ 时，一整排的草地也会被载入，这显然不是我们想要的最优解。同时，$V*{cam} \cdot V*{sub} \to 0-$ 的地块 $V_{sub}$ 草同样会消失：
 
-![统](./grass-orthogonal.png)
+![地块与相机正交边界情况](./grass-orthogonal.png)
 
 我们可以加以判断，Camera 到 subsction 的（最短）距离，即 $\|V_{cam}\|$ 的 tail 到 subsection AABB 的距离和 subsection 边长的大小之比来控制载入附近的地块草。
 
