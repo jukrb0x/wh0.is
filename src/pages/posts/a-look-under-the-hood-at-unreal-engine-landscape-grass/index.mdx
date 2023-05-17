@@ -22,7 +22,7 @@ _本文试图对 Unreal Engine 4.27 / 5 中的 Landscape Grass （景观/地形�
 
 > 推荐阅读大钊的 [《InsideUE4》GamePlay 架构（十一）Subsystems](https://zhuanlan.zhihu.com/p/158717151)
 
-ULandscapeSubsystem 继承关系 [^ULandscapeSubsystem]：
+Landscape Subsystem 是一个 Tickable World Subsystem, ULandscapeSubsystem 继承关系 [^ULandscapeSubsystem]：
 
 [^ULandscapeSubsystem]: [ULandscapeSubsystem | Unreal Engine Documentation](https://docs.unrealengine.com/5.2/en-US/API/Runtime/Landscape/ULandscapeSubsystem/)
 
@@ -36,7 +36,7 @@ ULandscapeSubsystem 继承关系 [^ULandscapeSubsystem]：
             - ULandscapeSubsystem
 ```
 
-Landscape Subsystem 是一个 Tickable World Subsystem, 场景中 Landscape Actor 的继承关系 [^ALandscape]：
+场景中 Landscape Actor 的继承关系 [^ALandscape]：
 
 ```text /ALandscape/
 - UObjectBase
@@ -50,7 +50,7 @@ Landscape Subsystem 是一个 Tickable World Subsystem, 场景中 Landscape Acto
 
 [^ALandscape]: [ALandscape | Unreal Engine Documentation](https://docs.unrealengine.com/5.1/en-US/API/Runtime/Landscape/ALandscape/)
 
-ALandscape 继承自 ALandscapeProxy，
+ALandscape 继承自 ALandscapeProxy，Proxy 内记载了 Landscape 的主要信息，ALandscape 是引擎中 Landscape Actor 的具体实现。
 
 ## Landscape 地形基础
 
