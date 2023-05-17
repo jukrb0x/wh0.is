@@ -19,7 +19,7 @@ const Footer = () => (
 );
 
 const config: NextraBlogThemeConfig = {
-    siteName: 'Jabriel | wh0.is',
+    siteName: 'Hogsmeade | wh0.is',
     cusdis: {
         appId: '4cb397f1-774c-4249-932e-60b11baf7f7d',
         host: 'https://c.wh0.is',
@@ -27,6 +27,7 @@ const config: NextraBlogThemeConfig = {
     },
     footer: <Footer />,
     head: ({ title, meta }) => {
+        // Open Graph see @/layout/basic-layout.tsx
         return (
             <>
                 {meta.description && <meta name="description" content={meta.description} />}
