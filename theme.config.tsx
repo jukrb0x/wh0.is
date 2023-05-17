@@ -27,6 +27,7 @@ const config: NextraBlogThemeConfig = {
     },
     footer: <Footer />,
     head: ({ title, meta }) => {
+        // Open Graph see @/layout/basic-layout.tsx
         return (
             <>
                 {meta.description && <meta name="description" content={meta.description} />}
