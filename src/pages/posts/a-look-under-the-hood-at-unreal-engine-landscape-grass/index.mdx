@@ -22,7 +22,7 @@ _本文试图对 Unreal Engine 4.27 / 5 中的 Landscape Grass （景观/地形�
 
 > 推荐阅读大钊的 [《InsideUE4》GamePlay 架构（十一）Subsystems](https://zhuanlan.zhihu.com/p/158717151)
 
-Landscape Subsystem 是一个 Tickable World Subsystem, ULandscapeSubsystem 继承关系 [^ULandscapeSubsystem]：
+Landscape Subsystem 是一个 Tickable World Subsystem, `ULandscapeSubsystem` 继承关系 [^ULandscapeSubsystem]：
 
 [^ULandscapeSubsystem]: [ULandscapeSubsystem | Unreal Engine Documentation](https://docs.unrealengine.com/5.2/en-US/API/Runtime/Landscape/ULandscapeSubsystem/)
 
@@ -50,7 +50,7 @@ Landscape Subsystem 是一个 Tickable World Subsystem, ULandscapeSubsystem 继�
 
 [^ALandscape]: [ALandscape | Unreal Engine Documentation](https://docs.unrealengine.com/5.1/en-US/API/Runtime/Landscape/ALandscape/)
 
-ALandscape 继承自 ALandscapeProxy，Proxy 内记载了 Landscape 的主要信息，ALandscape 是引擎中 Landscape Actor 的具体实现。
+`ALandscape` 继承自 `ALandscapeProxy`，Proxy 内记载了 Landscape 的主要信息，`ALandscape` 是引擎中 Landscape Actor 的具体实现。
 
 ## Landscape 地形基础
 
@@ -298,7 +298,7 @@ TickGrass 时召唤 `UpdateGrass()`.
 
 Landscape Component Culling （判断某块 Landscape Component 上是否需要处理草，遍历当前 Landscape 所有的 LandscapeComponent）
 
-根据 Camera 到 LandscapeComponent 的 Bounding Box 的距离判断，如果在范围外则放弃这个 Component。
+根据 Camera 到 `LandscapeComponent` 的 Bounding Box 的距离判断，如果在范围外则放弃这个 Component。
 
 ```cpp filename="LandscapeGrass.cpp" {12-15}
 for (ULandscapeComponent* Component : LandscapeComponents)
@@ -320,8 +320,8 @@ for (ULandscapeComponent* Component : LandscapeComponents)
 }
 ```
 
-1. 得到需要处理的 SortedLandscapeComponents，遍历。
-2. 该 Component 的 Bounding Box 和 GGrassExclusionBoxes 做相交检测，如果相交，把 ExclusionBox 的 FBox 添加到 Component 中的 ActiveExcludedBoxes，稍后使用。
+1. 得到需要处理的 `SortedLandscapeComponents`，遍历。
+2. 该 Component 的 Bounding Box 和 `GGrassExclusionBoxes` 做相交检测，如果相交，把 `ExclusionBox` 的 FBox 添加到 Component 中的 `ActiveExcludedBoxes`，稍后使用。
 
 ### Grass Variety Subsection Culling
 
@@ -342,7 +342,7 @@ if (ForSubsectionMath.bHaveValidData && ForSubsectionMath.SqrtMaxInstances > 0)
 int32 MaxInstancesSub = FMath::Square (ForSubsectionMath.SqrtMaxInstances/ SqrtSubsections);
 ```
 
-> CVar: `grass.MaxInstancesPerComponent` 设置 MaxInstancesPerComponent，默认值是 65536，最小值是 1024.
+> CVar: `grass.MaxInstancesPerComponent` 设置 `MaxInstancesPerComponent`，默认值是 65536，最小值是 1024.
 
 `MaxInstancesSub` 为单个 subsection 上的 instance 最大数量，用于 Halton 随机放置，如果是 Jittered Grid 方法则不需要这个数值。
 
@@ -350,7 +350,7 @@ int32 MaxInstancesSub = FMath::Square (ForSubsectionMath.SqrtMaxInstances/ SqrtS
 
 ### Exclusion Boxes Intersection Test
 
-注意到 LandscapeProxy 中提供了一个 ExclusionBox 接口，猜测是可以用于防止草在一些地方被生成（譬如房屋）。在前面两步中的 distance culling 中都有相对应的 intersection 检测。搜索引擎代码后没有发现这些接口被直接调用的案例。
+注意到 `LandscapeProxy` 中提供了一个 `ExclusionBox` 接口，猜测是可以用于防止草在一些地方被生成（譬如房屋）。在前面两步中的 distance culling 中都有相对应的 intersection 检测。搜索引擎代码后没有发现这些接口被直接调用的案例。
 
 ```cpp
 static TMap<FWeakObjectPtr, FBox> GGrassExclusionBoxes;
@@ -384,7 +384,7 @@ void ALandscapeProxy::RemoveAllExclusionBoxes ()
 
 需要注意，种草真正种的是 HISM Comp，如类名所示这个只是在 LandscapeGrass 中作 Cache 用途。
 
-分析源码得知，UpdateGrass 每 Tick 被调用一次，默认 per frame 创建一个 GrassComp，但可通过如下 CVar 修改
+分析源码得知，`UpdateGrass()` 每 Tick 被调用一次，默认 per frame 创建一个 GrassComp，但可通过如下 CVar 修改
 
 > CVar: `grass.MaxCreatePerFrame` 设置每一帧最多创建的 HISM component 数量，默认为 1，这个值越高种草也就越快，性能要求也就越高。
 
@@ -398,7 +398,7 @@ static FAutoConsoleVariableRef CVarGrassMaxCreatePerFrame (
 
 创建 GrassComp 之后，还没有开始异步任务创建 HISM Comp，此时会判断当前的异步任务池中的任务数量，如果已经达到 `MaxAsyncTasks`，则跳出当前循环（没生成的草可能会等到下一个 grass tick）
 
-> CVar: `grass.MaxAsyncTasks` 用于控制一次 TickGrass 中最大异步任务数
+> CVar: `grass.MaxAsyncTasks` 用于控制一次 `TickGrass` 中最大异步任务数
 
 创建 HISM Comp 的关键代码：
 
@@ -510,10 +510,10 @@ UHierarchicalInstancedStaticMeshComponent::BuildTreeAnyThread(InstanceTransforms
 
 -   总体上，LandscapeGrass 会在线计算要载入内存的植被数量（范围），根据 Grass Variety 中的 EndCullDistance 等参数异步载入 / 卸载到内存。
 -   距离剔除 (Distance Culling) 的最小粒度是 Grass Variety Subsection，对于没有草或者距离外的 Grass Variety Subsection，会直接被丢弃，也不会有 Grass 在上面生成。
--   LandscapeGrass 细化 Landscape Component 的数量（SortedLandscapeComponent），进而细化 Grass Variety Subsection 数量，来控制生成 Instances 的数量。
+-   LandscapeGrass 细化 Landscape Component 的数量（`SortedLandscapeComponents`），进而细化 Grass Variety Subsection 数量，来控制生成 Instances 的数量。
 -   一个 Grass Variety Subsection 上的一个 Grass Variety 对应一个 HISM Comp，也就是说场景内同个 Grass Variety 可能会有不同的 HISM Comp （存在多个 Grass Variety Subsection），不存在一对一关系；但在单个 Grass Variety Subsection 上的 Grass Variety 只会对应生存一个 HISM Comp.
--   可以设置 ExclusionBoxes 来屏蔽指定区域生成 HISM Comp.
--   TickInterval 可以根据情况调高以降低性能开销。
+-   可以设置 `ExclusionBoxes` 来屏蔽指定区域生成 HISM Comp.
+-   `TickInterval` 可以根据情况调高以降低性能开销。
 
 ## 参见
 
