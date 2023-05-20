@@ -94,7 +94,12 @@ export const PostsLayout = ({ children }: { children: ReactNode }) => {
                                         中文
                                     </span>
                                 )}
-                                <span className="no-underline align-middle">{postTitle}</span>
+                                <span
+                                    className="no-underline align-middle break-words"
+                                    style={{ wordBreak: 'break-word' }}
+                                >
+                                    {postTitle}
+                                </span>
                             </div>
                             {config.showDescription && description && (
                                 <p className="text-gray-400">
