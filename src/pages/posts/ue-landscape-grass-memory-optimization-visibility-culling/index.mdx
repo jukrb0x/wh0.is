@@ -50,7 +50,7 @@ $$
 
 [^vector3to2]: 优化方案忽略高度，向量指的是三维向量 $V$ 在 $z$ 方向的投影分量 $V_{z}$
 
-![视野后方草地是如何消失的](./missing-grass.png)
+![视野内的草是如何消失的](./missing-grass.png)
 
 这里的处理办法很容易，我们只需要判断 Camera 是不是处于这一个 subsection 的 Bounding Box (AABB)[^AABB] 内即可，当 Camera 处于这个 subsection, 强行加载这个块上的草即可。但考虑边界情况，相机在 subsection 的边缘，旁边的地块草也同样消失了，我们可以通过修改判定公式：
 
