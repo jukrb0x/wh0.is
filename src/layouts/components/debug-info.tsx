@@ -43,7 +43,7 @@ export const DebugInfo = (props: LayoutProps) => {
         const height = ref.current.clientHeight;
         const bottom = pinned || expand ? 0 : height - offset;
         ref.current.style.bottom = `-${bottom}px`;
-    }, [expand, hidden, ref.current, frontMatter]);
+    }, [expand, hidden, ref, frontMatter, pinned]);
 
     // return nothing if not in dev mode
     if (!isDev) return null;
