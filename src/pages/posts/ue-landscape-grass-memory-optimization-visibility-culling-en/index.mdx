@@ -102,14 +102,14 @@ Pseudocode for the core algorithm:
 
 ```cpp showLineNumbers
 // Iterate over subsection vertices
-for (Vector Vertex: SubsectionVertices)
+for (Vector Vertex: Subsections)
 {
-	IsCameraBehindSubsection = IsCameraBehindSubsection || (
+	IsCameraBehind = IsCameraBehind || (
 		(Vertex.X - CameraLocation.X) * CameraForward.X +
 		(Vertex.Y - CameraLocation.Y) * CameraForward.Y) > 0);
 }
 
-if (!IsCameraBehindSubsection && DistanceFromBoxToPoint(Subsection, CameraLocation) > SubsectionWidth)
+if (!IsCameraBehind && DistanceFromCameraToSubsection) > Threshold)
 {
 	// Don't spawn grass
 }

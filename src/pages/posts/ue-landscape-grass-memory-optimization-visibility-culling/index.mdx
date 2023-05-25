@@ -103,21 +103,21 @@ _白嫖我的思路就好了，还想白嫖代码？_
 核心算法伪代码：
 
 ```cpp showLineNumbers
-// 遍历 subsection 顶点
-for (Vector Vertex: SubsectionVertices)
+// Iterate over subsection vertices
+for (Vector Vertex: Subsections)
 {
-	IsCameraBehindSubsection = IsCameraBehindSubsection || (
+	IsCameraBehind = IsCameraBehind || (
 		(Vertex.X - CameraLocation.X) * CameraForward.X +
 		(Vertex.Y - CameraLocation.Y) * CameraForward.Y) > 0);
 }
 
-if (!IsCameraBehindSubsection && DistanceFromBoxToPoint(Subsection, CameraLocation) > SubsectionWidth)
+if (!IsCameraBehind && DistanceFromCameraToSubsection) > Threshold)
 {
-	// 不种草
+	// Don't spawn grass
 }
 else
 {
-	// 种草
+	// Spawn grass
 }
 ```
 
