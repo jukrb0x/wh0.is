@@ -22,7 +22,7 @@ const nextConfig = {
         includePaths: [path.join(__dirname, './src/styles')]
     },
     async redirects() {
-        return [
+        const redirects = [
             // backwards compatibility
             {
                 source: '/p/:slug',
@@ -30,6 +30,15 @@ const nextConfig = {
                 permanent: true
             }
         ];
+        // use private drafts in local development
+        if (process.env.NODE_ENV == 'development') {
+            redirects.push({
+                source: '/posts/:slug',
+                destination: '/drafts/:slug',
+                permanent: true
+            });
+        }
+        return redirects;
     },
     images: {
         remotePatterns: [

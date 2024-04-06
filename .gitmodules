@@ -1,0 +1,3 @@
+[submodule "src/pages/drafts"]
+	path = src/pages/drafts
+	url = git@github.com:jukrb0x/wh0.is.drafts.git
