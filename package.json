@@ -4,10 +4,11 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "init": "git submodule update --init --recursive",
+        "dev:init": "git submodule update --init --recursive",
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
+        "prod": "next build && next start",
         "lint": "next lint",
         "format": "pnpm format:check; pnpm format:write",
         "format:check": "prettier --check ./src",

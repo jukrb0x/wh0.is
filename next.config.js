@@ -37,6 +37,20 @@ const nextConfig = {
                 destination: '/drafts/:slug',
                 permanent: true
             });
+        } else {
+            const draftsRouter = [
+                {
+                    source: '/drafts',
+                    destination: '/404',
+                    permanent: true
+                },
+                {
+                    source: '/drafts/:slug',
+                    destination: '/404',
+                    permanent: true
+                }
+            ];
+            redirects.push(...draftsRouter);
         }
         return redirects;
     },
