@@ -4,7 +4,7 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev:init": "git submodule update --init --recursive && node ./scripts/switch_submodules.js",
+        "dev:init": "git submodule update --init --recursive && node scripts/submodules_checkout.js main",
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
