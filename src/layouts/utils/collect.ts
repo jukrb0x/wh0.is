@@ -41,5 +41,24 @@ export const collectPostsAndNavs = ({ opts }: LayoutProps, includeDraft = false)
 
     posts.sort(sortDate);
     navPages.sort(sortDate);
-    return { posts, navPages };
+
+    // Exclude MDX files in the "posts/" folder when in development mode,
+    // and instead use the "drafts/" folder
+    const filteredPosts = posts.filter((post) => {
+        if (process.env.NODE_ENV === 'development') {
+            return !post.route.startsWith('/posts');
+        } else {
+            return !post.route.startsWith('/drafts');
+        }
+    });
+
+    const filteredNavPages = navPages.filter((page) => {
+        if (process.env.NODE_ENV === 'development') {
+            return !page.route.startsWith('/posts');
+        } else {
+            return !page.route.startsWith('/drafts');
+        }
+    });
+
+    return { posts: filteredPosts, navPages: filteredNavPages };
 };
