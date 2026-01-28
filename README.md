@@ -1,3 +1,8 @@
+## Wh0.is? ➡️ Check out [SpaceRad.io](https://github.com/jukrb0x/spacerad.io)
+
+> [!NOTE]
+> This blog is broken due to some poor tech choices I made in the past and the natural decay of unmaintained code. Check out the new repo at see [spacerad.io](https://github.com/jukrb0x/spacerad.io).
+
 ### wh0.is - who's this?
 
 My personal website built on top of Next.js
